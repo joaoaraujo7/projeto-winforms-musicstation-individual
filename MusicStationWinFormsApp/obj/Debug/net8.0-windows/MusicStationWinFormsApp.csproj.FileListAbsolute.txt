@@ -38,3 +38,16 @@ C:\Users\João\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desk
 C:\Users\João\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\obj\Debug\net8.0-windows\MusicStationWinFormsApp.pdb
 C:\Users\João\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\obj\Debug\net8.0-windows\MusicStationWinFormsApp.genruntimeconfig.cache
 C:\Users\João\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\obj\Debug\net8.0-windows\ref\MusicStationWinFormsApp.dll
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\obj\Debug\net8.0-windows\MusicStationWinFormsApp.csproj.AssemblyReference.cache
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\obj\Debug\net8.0-windows\MusicStationWinFormsApp.Properties.Resources.resources
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\obj\Debug\net8.0-windows\MusicStationWinFormsApp.sourcelink.json
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\obj\Debug\net8.0-windows\MusicSta.EDC110CE.Up2Date
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\bin\Debug\net8.0-windows\Guna.UI2.dll
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\bin\Debug\net8.0-windows\System.Management.dll
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll

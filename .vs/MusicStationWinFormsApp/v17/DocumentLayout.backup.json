@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|c:\\users\\joao.psaraujo9\\onedrive - senac - sp\\uc6 - interface do usuario e aplicacao desktop\\musicstationwinformsapp\\musicstationwinformsapp\\telalogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|solutionrelative:musicstationwinformsapp\\telalogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|c:\\users\\joao.psaraujo9\\onedrive - senac - sp\\uc6 - interface do usuario e aplicacao desktop\\musicstationwinformsapp\\musicstationwinformsapp\\forms\\telalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|solutionrelative:musicstationwinformsapp\\forms\\telalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|c:\\users\\joao.psaraujo9\\onedrive - senac - sp\\uc6 - interface do usuario e aplicacao desktop\\musicstationwinformsapp\\musicstationwinformsapp\\forms\\telalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|solutionrelative:musicstationwinformsapp\\forms\\telalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|c:\\users\\joao.psaraujo9\\onedrive - senac - sp\\uc6 - interface do usuario e aplicacao desktop\\musicstationwinformsapp\\musicstationwinformsapp\\musicstationwinformsapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|solutionrelative:musicstationwinformsapp\\musicstationwinformsapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|c:\\users\\joao.psaraujo9\\onedrive - senac - sp\\uc6 - interface do usuario e aplicacao desktop\\musicstationwinformsapp\\musicstationwinformsapp\\forms\\telalogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|solutionrelative:musicstationwinformsapp\\forms\\telalogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|c:\\users\\joao.psaraujo9\\onedrive - senac - sp\\uc6 - interface do usuario e aplicacao desktop\\musicstationwinformsapp\\musicstationwinformsapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|solutionrelative:musicstationwinformsapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|c:\\users\\joao.psaraujo9\\onedrive - senac - sp\\uc6 - interface do usuario e aplicacao desktop\\musicstationwinformsapp\\musicstationwinformsapp\\telalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1E138A3B-B0CB-406B-83A8-11FBA53185CA}|MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj|solutionrelative:musicstationwinformsapp\\telalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +30,83 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TelaLogin.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\TelaLogin.Designer.cs",
-              "RelativeDocumentMoniker": "MusicStationWinFormsApp\\TelaLogin.Designer.cs",
-              "ToolTip": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\TelaLogin.Designer.cs",
-              "RelativeToolTip": "MusicStationWinFormsApp\\TelaLogin.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAgAAAAAAAAAA==",
+              "Title": "TelaLogin.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\forms\\TelaLogin.cs",
+              "RelativeDocumentMoniker": "MusicStationWinFormsApp\\forms\\TelaLogin.cs",
+              "ToolTip": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\forms\\TelaLogin.cs [Projeto]*",
+              "RelativeToolTip": "MusicStationWinFormsApp\\forms\\TelaLogin.cs [Projeto]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-13T19:56:19.691Z",
+              "WhenOpened": "2026-03-17T17:49:00.049Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TelaLogin.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\forms\\TelaLogin.Designer.cs",
+              "RelativeDocumentMoniker": "MusicStationWinFormsApp\\forms\\TelaLogin.Designer.cs",
+              "ToolTip": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\forms\\TelaLogin.Designer.cs*",
+              "RelativeToolTip": "MusicStationWinFormsApp\\forms\\TelaLogin.Designer.cs*",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAAAFgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T17:07:30.233Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\Program.cs",
-              "RelativeDocumentMoniker": "MusicStationWinFormsApp\\Program.cs",
-              "ToolTip": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\Program.cs",
-              "RelativeToolTip": "MusicStationWinFormsApp\\Program.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAwwA0AAAAtAAAAAAAAAA==",
+              "Title": "TelaLogin.cs",
+              "DocumentMoniker": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\forms\\TelaLogin.cs",
+              "RelativeDocumentMoniker": "MusicStationWinFormsApp\\forms\\TelaLogin.cs",
+              "ToolTip": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\forms\\TelaLogin.cs*",
+              "RelativeToolTip": "MusicStationWinFormsApp\\forms\\TelaLogin.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T17:12:44.928Z",
+              "WhenOpened": "2026-03-17T16:47:32.112Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TelaLogin.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\TelaLogin.cs",
-              "RelativeDocumentMoniker": "MusicStationWinFormsApp\\TelaLogin.cs",
-              "ToolTip": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\TelaLogin.cs [Projeto]",
-              "RelativeToolTip": "MusicStationWinFormsApp\\TelaLogin.cs [Projeto]",
+              "Title": "MusicStationWinFormsApp.csproj",
+              "DocumentMoniker": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj",
+              "RelativeDocumentMoniker": "MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj",
+              "ToolTip": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj",
+              "RelativeToolTip": "MusicStationWinFormsApp\\MusicStationWinFormsApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-13T19:59:21.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\Program.cs",
+              "RelativeDocumentMoniker": "MusicStationWinFormsApp\\Program.cs",
+              "ToolTip": "C:\\Users\\joao.psaraujo9\\OneDrive - SENAC - SP\\uc6 - interface do usuario e aplicacao desktop\\MusicStationWinFormsApp\\MusicStationWinFormsApp\\Program.cs",
+              "RelativeToolTip": "MusicStationWinFormsApp\\Program.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T17:10:03.598Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2026-03-12T17:12:44.928Z",
+              "EditorCaption": ""
             }
           ]
         }

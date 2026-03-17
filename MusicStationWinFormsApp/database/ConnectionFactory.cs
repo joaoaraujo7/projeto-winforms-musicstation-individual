@@ -1,12 +1,12 @@
 ﻿using System.Data.SqlClient;
 
-namespace MusicStationWinFormsApp.data;
+namespace MusicStationWinFormsApp.database;
 
 public class ConnectionFactory
 {
     
-    private string _connectionString = @"Server=DESKTOP-L74NRU3\SQLEXPRESS; 
-                                        Database=meu_banco; 
+    private string _connectionString = @"Server=OSA0716346W11-1\SQLEXPRESS; 
+                                        Database=MusicStation; 
                                         Trusted_Connection=True; 
                                         TrustServerCertificate=True;";
 
