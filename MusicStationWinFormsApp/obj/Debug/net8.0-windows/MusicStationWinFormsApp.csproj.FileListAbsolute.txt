@@ -48,6 +48,4 @@ C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplic
 C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\obj\Debug\net8.0-windows\MusicStationWinFormsApp.Properties.Resources.resources
 C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\obj\Debug\net8.0-windows\MusicStationWinFormsApp.sourcelink.json
 C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\obj\Debug\net8.0-windows\MusicSta.EDC110CE.Up2Date
-C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\bin\Debug\net8.0-windows\Guna.UI2.dll
-C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\bin\Debug\net8.0-windows\System.Management.dll
-C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
+C:\Users\joao.psaraujo9\OneDrive - SENAC - SP\uc6 - interface do usuario e aplicacao desktop\MusicStationWinFormsApp\MusicStationWinFormsApp\obj\Debug\net8.0-windows\MusicStationWinFormsApp.forms.FormBase.resources

@@ -1,3 +1,5 @@
+using MusicStationWinFormsApp.forms;
+
 namespace MusicStationWinFormsApp
 {
     internal static class Program

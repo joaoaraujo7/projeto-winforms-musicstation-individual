@@ -1,3 +1,5 @@
+using MusicStationWinFormsApp.forms;
+
 namespace MusicStationWinFormsApp
 {
     public partial class TelaLogin : Form
@@ -19,16 +21,16 @@ namespace MusicStationWinFormsApp
 
             // validação de usuário e senha
 
-            if (btnEntrar.DialogResult != DialogResult.OK) {
+            if (txtUsuario.Text == "joao" && txtSenha.Text == "hash123")
+            {
+                FormBase tela = new FormBase();
+                tela.Show();
+                this.Hide();
+            }
+            else
+            {
                 MessageBox.Show("Usuário ou senhas inválidos");
             }
-
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
