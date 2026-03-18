@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MusicStationWinFormsApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6562210db2d904276d56d534c4b4c6eafb0fedc8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9fcf46f41fdac96fdd257e2db8a897039c67ac0")]
 [assembly: System.Reflection.AssemblyProductAttribute("MusicStationWinFormsApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MusicStationWinFormsApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

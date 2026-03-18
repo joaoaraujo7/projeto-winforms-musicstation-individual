@@ -65,7 +65,47 @@ namespace MusicStationWinFormsApp.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap music_station_vetorizada {
             get {
-                object obj = ResourceManager.GetObject("music-station-vetorizada", resourceCulture);
+                object obj = ResourceManager.GetObject("music_station_vetorizada", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seta_baixo {
+            get {
+                object obj = ResourceManager.GetObject("seta_baixo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seta_direita {
+            get {
+                object obj = ResourceManager.GetObject("seta_direita", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seta_direita1 {
+            get {
+                object obj = ResourceManager.GetObject("seta_direita1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usuario_branco {
+            get {
+                object obj = ResourceManager.GetObject("usuario_branco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

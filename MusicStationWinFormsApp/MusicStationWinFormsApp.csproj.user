@@ -1,8 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="forms\FormBase.cs">
+    <Compile Update="controls\usuarios\UsuarioControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="forms\PrincipalForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\PerfilDropdownForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="controls\perfil\PerfilControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
 </Project>
