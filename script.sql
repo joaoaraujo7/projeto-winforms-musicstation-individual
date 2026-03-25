@@ -13,26 +13,26 @@ CREATE TABLE Usuarios (
     nome VARCHAR(200) NOT NULL,
     email VARCHAR(256) NOT NULL UNIQUE, -- Adicionando UNIQUE para emails
     usuario_nome VARCHAR(50) UNIQUE NOT NULL,
-    senha VARCHAR (50) NOT NULL,
-    data_cadastro DATE NOT NULL
+    senha VARCHAR(255) NOT NULL,
+    data_cadastro DATETIME NOT NULL
 );
 
 INSERT INTO Usuarios (nome, email, usuario_nome, senha, data_cadastro)
 VALUES
-('João Lima', 'joao@gmail.com', 'joao', 'hash123', '2025-10-10'),
-('Maria Souza', 'maria@gmail.com', 'maria', 'hash234', '2025-10-10'),
-('Lucas Reis', 'lucas@gmail.com', 'lucas', 'hash345', '2025-10-10'),
-('Beatriz Silva', 'bia@gmail.com', 'bia', 'hash456', '2025-10-10'),
-('Rafaela Gomes', 'rafa@gmail.com', 'rafa', 'hash567', '2025-10-10'),
-('Guilherme Lopes', 'gui@gmail.com', 'gui', 'hash678', '2025-10-10'),
-('Thiago Ramos', 'thiago@gmail.com', 'thiago', 'hash789', '2025-10-10'),
-('Patrícia Alves', 'paty@gmail.com', 'paty', 'hash890', '2025-10-10'),
-('Carlos Almeida', 'carlos@luthier.com', 'carlos', 'hash999', '2025-09-15'),
-('Paulo Bezerra', 'paulo@tecnico.com', 'paulo', 'hash888', '2025-09-15'),
-('Ana Paula', 'ana@musica.com', 'ana', 'hash777', '2025-09-15'),
-('Music Station Studio', 'contato@musicstation.com', 'contato', 'hash001', '2025-08-01'),
-('Admin Sistema', 'admin@musicstation.com', 'admin', 'hashadm', '2025-08-01'),
-('Tiago Admin', 'tiago.admin@music.com', 'tiago.admin', 'hashadm2', '2025-10-01');
+('João Lima', 'joao@gmail.com', 'joao', 'hash123', '2025-10-10 08:15:23'),
+('Maria Souza', 'maria@gmail.com', 'maria', 'hash234', '2025-10-10 09:42:10'),
+('Lucas Reis', 'lucas@gmail.com', 'lucas', 'hash345', '2025-10-10 10:05:55'),
+('Beatriz Silva', 'bia@gmail.com', 'bia', 'hash456', '2025-10-10 11:27:33'),
+('Rafaela Gomes', 'rafa@gmail.com', 'rafa', 'hash567', '2025-10-10 13:12:47'),
+('Guilherme Lopes', 'gui@gmail.com', 'gui', 'hash678', '2025-10-10 14:55:02'),
+('Thiago Ramos', 'thiago@gmail.com', 'thiago', 'hash789', '2025-10-10 16:08:19'),
+('Patrícia Alves', 'paty@gmail.com', 'paty', 'hash890', '2025-10-10 17:33:41'),
+('Carlos Almeida', 'carlos@luthier.com', 'carlos', 'hash999', '2025-09-15 08:20:00'),
+('Paulo Bezerra', 'paulo@tecnico.com', 'paulo', 'hash888', '2025-09-15 09:45:12'),
+('Ana Paula', 'ana@musica.com', 'ana', 'hash777', '2025-09-15 11:10:35'),
+('Music Station Studio', 'contato@musicstation.com', 'contato', 'hash001', '2025-08-01 08:00:00'),
+('Admin Sistema', 'admin@musicstation.com', 'admin', 'hashadm', '2025-08-01 08:05:00'),
+('Tiago Admin', 'tiago.admin@music.com', 'tiago.admin', 'hashadm2', '2025-10-01 12:30:45');
 
 -- 2. TABELA CLIENTES
 CREATE TABLE Clientes(
