@@ -4,6 +4,9 @@
     <Compile Update="controls\dashboard\DashboardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="controls\usuarios\ClienteControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="controls\usuarios\UsuarioControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

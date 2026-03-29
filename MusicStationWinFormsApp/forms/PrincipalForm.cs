@@ -115,6 +115,9 @@ namespace MusicStationWinFormsApp.forms
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
+            AbrirTela(new ClienteControl());
+
+            lblTitulo.Text = "Gestão de Clientes";
             HideSubMenu();
         }
 

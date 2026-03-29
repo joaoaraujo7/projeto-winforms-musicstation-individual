@@ -193,7 +193,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
                 usuario.Senha = txtSenha.Text;
                 usuario.DataCadastro = DateTime.Now;
 
-                usuarios.Add(usuario); 
+                usuarios.Add(usuario);
             }
             // Edição
             else
@@ -213,9 +213,8 @@ namespace MusicStationWinFormsApp.controls.usuarios
             AlternarTela();
             LimparCampos();
             MessageBox.Show("Usuário salvo com sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
         }
-        
+
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             ExecutarPesquisa();
