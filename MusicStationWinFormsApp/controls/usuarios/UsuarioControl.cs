@@ -26,6 +26,11 @@ namespace MusicStationWinFormsApp.controls.usuarios
             InitializeComponent();
             ConfigurarVisual();
 
+            // Força o DoubleBuffered na Grid(via Reflection) - evita piscadas na tela
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
+                null, dgvDados, new object[] { true });
+
             // Somente para testes
             usuarioRepository = new UsuarioRepository();
             usuarios = new BindingList<Usuario>(usuarioRepository.ListarTodos()); // cria uma lista "observável, o grid atualiza automático (adicionar ou remover)
