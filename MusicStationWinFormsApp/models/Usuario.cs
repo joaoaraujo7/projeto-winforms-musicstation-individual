@@ -8,7 +8,7 @@ namespace MusicStationWinFormsApp.models
 {
     public class Usuario
     {
-        public int IdUsuario { get; set; }
+        public int Id { get; set; }
         public string NomeCompleto { get; set; }
         public string Email { get; set; }
         public string UsuarioNome { get; set; }

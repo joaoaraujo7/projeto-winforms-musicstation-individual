@@ -58,6 +58,9 @@
             btnAdicionar = new Button();
             pnlDataGrid = new Panel();
             dgvDados = new DataGridView();
+            usuarioBindingSource = new BindingSource(components);
+            pnlExterno = new Panel();
+            tbcUsuarios = new TabControl();
             idUsuarioDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -66,9 +69,6 @@
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             imgEditar = new DataGridViewImageColumn();
             imgExcluir = new DataGridViewImageColumn();
-            usuarioBindingSource = new BindingSource(components);
-            pnlExterno = new Panel();
-            tbcUsuarios = new TabControl();
             tbpCadastro.SuspendLayout();
             pnlConteudoCadastro.SuspendLayout();
             tlpCadastro.SuspendLayout();
@@ -473,10 +473,35 @@
             dgvDados.CellMouseEnter += dgvDados_CellMouseEnter;
             dgvDados.CellMouseLeave += dgvDados_CellMouseLeave;
             // 
+            // usuarioBindingSource
+            // 
+            usuarioBindingSource.DataSource = typeof(models.Usuario);
+            // 
+            // pnlExterno
+            // 
+            pnlExterno.Dock = DockStyle.Top;
+            pnlExterno.Location = new Point(3, 3);
+            pnlExterno.Name = "pnlExterno";
+            pnlExterno.Size = new Size(730, 51);
+            pnlExterno.TabIndex = 21;
+            // 
+            // tbcUsuarios
+            // 
+            tbcUsuarios.Controls.Add(tbpListagem);
+            tbcUsuarios.Controls.Add(tbpCadastro);
+            tbcUsuarios.Dock = DockStyle.Fill;
+            tbcUsuarios.Font = new Font("Segoe UI", 10F);
+            tbcUsuarios.ItemSize = new Size(64, 0);
+            tbcUsuarios.Location = new Point(0, 0);
+            tbcUsuarios.Name = "tbcUsuarios";
+            tbcUsuarios.SelectedIndex = 0;
+            tbcUsuarios.Size = new Size(744, 511);
+            tbcUsuarios.TabIndex = 10;
+            // 
             // idUsuarioDataGridViewTextBoxColumn
             // 
             idUsuarioDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            idUsuarioDataGridViewTextBoxColumn.DataPropertyName = "IdUsuario";
+            idUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Id";
             idUsuarioDataGridViewTextBoxColumn.HeaderText = "Id";
             idUsuarioDataGridViewTextBoxColumn.Name = "idUsuarioDataGridViewTextBoxColumn";
             idUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
@@ -526,7 +551,7 @@
             dataGridViewTextBoxColumn3.HeaderText = "Data Cadastro";
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             dataGridViewTextBoxColumn3.ReadOnly = true;
-            dataGridViewTextBoxColumn3.Width = 110;
+            dataGridViewTextBoxColumn3.Width = 120;
             // 
             // imgEditar
             // 
@@ -543,31 +568,6 @@
             imgExcluir.Name = "imgExcluir";
             imgExcluir.ToolTipText = "Excluir";
             imgExcluir.Width = 40;
-            // 
-            // usuarioBindingSource
-            // 
-            usuarioBindingSource.DataSource = typeof(models.Usuario);
-            // 
-            // pnlExterno
-            // 
-            pnlExterno.Dock = DockStyle.Top;
-            pnlExterno.Location = new Point(3, 3);
-            pnlExterno.Name = "pnlExterno";
-            pnlExterno.Size = new Size(730, 51);
-            pnlExterno.TabIndex = 21;
-            // 
-            // tbcUsuarios
-            // 
-            tbcUsuarios.Controls.Add(tbpListagem);
-            tbcUsuarios.Controls.Add(tbpCadastro);
-            tbcUsuarios.Dock = DockStyle.Fill;
-            tbcUsuarios.Font = new Font("Segoe UI", 10F);
-            tbcUsuarios.ItemSize = new Size(64, 0);
-            tbcUsuarios.Location = new Point(0, 0);
-            tbcUsuarios.Name = "tbcUsuarios";
-            tbcUsuarios.SelectedIndex = 0;
-            tbcUsuarios.Size = new Size(744, 511);
-            tbcUsuarios.TabIndex = 10;
             // 
             // UsuarioControl
             // 
@@ -626,6 +626,8 @@
         private DataGridViewTextBoxColumn dataCadastroDataGridViewTextBoxColumn;
         private TableLayoutPanel tlpPesquisa;
         private Panel pnlInternoPesquisa;
+        private Panel pnlDataGrid;
+        private Panel pnlExterno;
         private DataGridViewTextBoxColumn idUsuarioDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
@@ -634,7 +636,5 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewImageColumn imgEditar;
         private DataGridViewImageColumn imgExcluir;
-        private Panel pnlDataGrid;
-        private Panel pnlExterno;
     }
 }

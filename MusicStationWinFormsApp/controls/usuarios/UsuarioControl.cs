@@ -98,7 +98,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
         private void CarregarUsuarioSelecionado(Usuario usuario)
         {
-            txtId.Text = usuario.IdUsuario.ToString();
+            txtId.Text = usuario.Id.ToString();
             txtNomeCompleto.Text = usuario.NomeCompleto;
             txtEmail.Text = usuario.Email;
             txtNomeUsuario.Text = usuario.UsuarioNome;
@@ -151,7 +151,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
             if (int.TryParse(texto, out int id))
             {
                 filtrados = usuarios
-                    .Where(u => u.IdUsuario == id)
+                    .Where(u => u.Id == id)
                     .ToList();
             }
             else
@@ -186,24 +186,20 @@ namespace MusicStationWinFormsApp.controls.usuarios
             if (String.IsNullOrEmpty(txtId.Text))
             {
                 Usuario usuario = new Usuario();
-                usuario.IdUsuario = usuarios.Count > 0 ? usuarios.Max(u => u.IdUsuario) + 1 : 1;
+                usuario.Id = usuarios.Count > 0 ? usuarios.Max(u => u.Id) + 1 : 1;
                 usuario.NomeCompleto = txtNomeCompleto.Text;
                 usuario.Email = txtEmail.Text;
                 usuario.UsuarioNome = txtNomeUsuario.Text;
                 usuario.Senha = txtSenha.Text;
                 usuario.DataCadastro = DateTime.Now;
 
-                usuarios.Add(usuario);
-
-                AlternarTela();
-
-                MessageBox.Show("Usuário adicionado com sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                usuarios.Add(usuario); 
             }
             // Edição
             else
             {
                 int id = int.Parse(txtId.Text);
-                Usuario usuario = usuarios.FirstOrDefault(u => u.IdUsuario == id);
+                Usuario usuario = usuarios.FirstOrDefault(u => u.Id == id);
 
                 if (usuario != null)
                 {
@@ -213,12 +209,11 @@ namespace MusicStationWinFormsApp.controls.usuarios
                     usuario.Senha = txtSenha.Text;
                 }
                 dgvDados.Refresh();
-
-                AlternarTela();
-
-                MessageBox.Show("Usuário editado com sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            AlternarTela();
             LimparCampos();
+            MessageBox.Show("Usuário salvo com sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
         
         private void btnPesquisar_Click(object sender, EventArgs e)
