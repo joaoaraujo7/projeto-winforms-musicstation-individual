@@ -1,4 +1,5 @@
-﻿using MusicStationWinFormsApp.controls.usuarios;
+﻿using MusicStationWinFormsApp.controls.dashboard;
+using MusicStationWinFormsApp.controls.usuarios;
 using MusicStationWinFormsApp.models;
 using MusicStationWinFormsApp.Properties;
 using System;
@@ -14,6 +15,10 @@ namespace MusicStationWinFormsApp.forms
             InitializeComponent();
             CustomizarDesign();
             this.DoubleBuffered = true;
+
+            // tela principal
+            lblTitulo.Text = "Dashboard";
+            AbrirTela(new DashboardControl());
         }
 
         private void CustomizarDesign()
@@ -76,7 +81,8 @@ namespace MusicStationWinFormsApp.forms
         #region dashboardSubMenu
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            pnlConteudo.Controls.Clear();
+            AbrirTela(new DashboardControl());
+
             lblTitulo.Text = "Dashboard";
             HideSubMenu();
         }
