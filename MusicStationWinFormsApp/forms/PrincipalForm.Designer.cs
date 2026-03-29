@@ -78,7 +78,7 @@
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(400, 70);
             lblTitulo.TabIndex = 0;
-            lblTitulo.Text = "Gestão de Entidade Qualquer";
+            lblTitulo.Text = "Gestão Entidade Qualquer";
             lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlConteudo
@@ -133,6 +133,8 @@
             // 
             btnAvaliacoes.Dock = DockStyle.Top;
             btnAvaliacoes.FlatAppearance.BorderSize = 0;
+            btnAvaliacoes.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnAvaliacoes.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnAvaliacoes.FlatStyle = FlatStyle.Flat;
             btnAvaliacoes.ForeColor = Color.Gainsboro;
             btnAvaliacoes.Location = new Point(0, 76);
@@ -149,6 +151,8 @@
             // 
             btnNotificacoes.Dock = DockStyle.Top;
             btnNotificacoes.FlatAppearance.BorderSize = 0;
+            btnNotificacoes.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnNotificacoes.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnNotificacoes.FlatStyle = FlatStyle.Flat;
             btnNotificacoes.ForeColor = Color.Gainsboro;
             btnNotificacoes.Location = new Point(0, 38);
@@ -165,6 +169,8 @@
             // 
             btnChats.Dock = DockStyle.Top;
             btnChats.FlatAppearance.BorderSize = 0;
+            btnChats.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnChats.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnChats.FlatStyle = FlatStyle.Flat;
             btnChats.ForeColor = Color.Gainsboro;
             btnChats.Location = new Point(0, 0);
@@ -181,10 +187,12 @@
             // 
             btnComunicacaoToggle.Dock = DockStyle.Top;
             btnComunicacaoToggle.FlatAppearance.BorderSize = 0;
+            btnComunicacaoToggle.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnComunicacaoToggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnComunicacaoToggle.FlatStyle = FlatStyle.Flat;
             btnComunicacaoToggle.Font = new Font("Segoe UI", 10F);
             btnComunicacaoToggle.ForeColor = Color.Gainsboro;
-            btnComunicacaoToggle.Image = Properties.Resources.seta_direita1;
+            btnComunicacaoToggle.Image = Properties.Resources.seta_direita;
             btnComunicacaoToggle.ImageAlign = ContentAlignment.MiddleRight;
             btnComunicacaoToggle.Location = new Point(0, 798);
             btnComunicacaoToggle.Margin = new Padding(0, 8, 0, 0);
@@ -217,6 +225,8 @@
             // 
             btnFormasPagamento.Dock = DockStyle.Top;
             btnFormasPagamento.FlatAppearance.BorderSize = 0;
+            btnFormasPagamento.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnFormasPagamento.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnFormasPagamento.FlatStyle = FlatStyle.Flat;
             btnFormasPagamento.ForeColor = Color.Gainsboro;
             btnFormasPagamento.Location = new Point(0, 76);
@@ -233,6 +243,8 @@
             // 
             btnTransacoes.Dock = DockStyle.Top;
             btnTransacoes.FlatAppearance.BorderSize = 0;
+            btnTransacoes.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnTransacoes.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnTransacoes.FlatStyle = FlatStyle.Flat;
             btnTransacoes.ForeColor = Color.Gainsboro;
             btnTransacoes.Location = new Point(0, 38);
@@ -249,6 +261,8 @@
             // 
             btnPagamentos.Dock = DockStyle.Top;
             btnPagamentos.FlatAppearance.BorderSize = 0;
+            btnPagamentos.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnPagamentos.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnPagamentos.FlatStyle = FlatStyle.Flat;
             btnPagamentos.ForeColor = Color.Gainsboro;
             btnPagamentos.Location = new Point(0, 0);
@@ -265,10 +279,12 @@
             // 
             btnFinanceiroToggle.Dock = DockStyle.Top;
             btnFinanceiroToggle.FlatAppearance.BorderSize = 0;
+            btnFinanceiroToggle.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnFinanceiroToggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnFinanceiroToggle.FlatStyle = FlatStyle.Flat;
             btnFinanceiroToggle.Font = new Font("Segoe UI", 10F);
             btnFinanceiroToggle.ForeColor = Color.Gainsboro;
-            btnFinanceiroToggle.Image = Properties.Resources.seta_direita1;
+            btnFinanceiroToggle.Image = Properties.Resources.seta_direita;
             btnFinanceiroToggle.ImageAlign = ContentAlignment.MiddleRight;
             btnFinanceiroToggle.Location = new Point(0, 632);
             btnFinanceiroToggle.Margin = new Padding(0, 8, 0, 0);
@@ -300,6 +316,8 @@
             // 
             btnLocacoes.Dock = DockStyle.Top;
             btnLocacoes.FlatAppearance.BorderSize = 0;
+            btnLocacoes.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnLocacoes.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnLocacoes.FlatStyle = FlatStyle.Flat;
             btnLocacoes.ForeColor = Color.Gainsboro;
             btnLocacoes.Location = new Point(0, 38);
@@ -316,6 +334,8 @@
             // 
             btnPedidos.Dock = DockStyle.Top;
             btnPedidos.FlatAppearance.BorderSize = 0;
+            btnPedidos.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnPedidos.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnPedidos.FlatStyle = FlatStyle.Flat;
             btnPedidos.ForeColor = Color.Gainsboro;
             btnPedidos.Location = new Point(0, 0);
@@ -332,10 +352,12 @@
             // 
             btnOperacoesToggle.Dock = DockStyle.Top;
             btnOperacoesToggle.FlatAppearance.BorderSize = 0;
+            btnOperacoesToggle.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnOperacoesToggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnOperacoesToggle.FlatStyle = FlatStyle.Flat;
             btnOperacoesToggle.Font = new Font("Segoe UI", 10F);
             btnOperacoesToggle.ForeColor = Color.Gainsboro;
-            btnOperacoesToggle.Image = Properties.Resources.seta_direita1;
+            btnOperacoesToggle.Image = Properties.Resources.seta_direita;
             btnOperacoesToggle.ImageAlign = ContentAlignment.MiddleRight;
             btnOperacoesToggle.Location = new Point(0, 504);
             btnOperacoesToggle.Margin = new Padding(0, 8, 0, 0);
@@ -366,6 +388,8 @@
             // 
             btnInstrumentos.Dock = DockStyle.Top;
             btnInstrumentos.FlatAppearance.BorderSize = 0;
+            btnInstrumentos.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnInstrumentos.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnInstrumentos.FlatStyle = FlatStyle.Flat;
             btnInstrumentos.ForeColor = Color.Gainsboro;
             btnInstrumentos.Location = new Point(0, 0);
@@ -382,10 +406,12 @@
             // 
             btnInstrumentosToggle.Dock = DockStyle.Top;
             btnInstrumentosToggle.FlatAppearance.BorderSize = 0;
+            btnInstrumentosToggle.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnInstrumentosToggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnInstrumentosToggle.FlatStyle = FlatStyle.Flat;
             btnInstrumentosToggle.Font = new Font("Segoe UI", 10F);
             btnInstrumentosToggle.ForeColor = Color.Gainsboro;
-            btnInstrumentosToggle.Image = Properties.Resources.seta_direita1;
+            btnInstrumentosToggle.Image = Properties.Resources.seta_direita;
             btnInstrumentosToggle.ImageAlign = ContentAlignment.MiddleRight;
             btnInstrumentosToggle.Location = new Point(0, 414);
             btnInstrumentosToggle.Margin = new Padding(0, 8, 0, 0);
@@ -417,6 +443,8 @@
             // 
             btnCargos.Dock = DockStyle.Top;
             btnCargos.FlatAppearance.BorderSize = 0;
+            btnCargos.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnCargos.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnCargos.FlatStyle = FlatStyle.Flat;
             btnCargos.ForeColor = Color.Gainsboro;
             btnCargos.Location = new Point(0, 38);
@@ -433,6 +461,8 @@
             // 
             btnServicos.Dock = DockStyle.Top;
             btnServicos.FlatAppearance.BorderSize = 0;
+            btnServicos.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnServicos.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnServicos.FlatStyle = FlatStyle.Flat;
             btnServicos.ForeColor = Color.Gainsboro;
             btnServicos.Location = new Point(0, 0);
@@ -449,10 +479,12 @@
             // 
             btnServicosToggle.Dock = DockStyle.Top;
             btnServicosToggle.FlatAppearance.BorderSize = 0;
+            btnServicosToggle.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnServicosToggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnServicosToggle.FlatStyle = FlatStyle.Flat;
             btnServicosToggle.Font = new Font("Segoe UI", 10F);
             btnServicosToggle.ForeColor = Color.Gainsboro;
-            btnServicosToggle.Image = Properties.Resources.seta_direita1;
+            btnServicosToggle.Image = Properties.Resources.seta_direita;
             btnServicosToggle.ImageAlign = ContentAlignment.MiddleRight;
             btnServicosToggle.Location = new Point(0, 286);
             btnServicosToggle.Margin = new Padding(0, 8, 0, 0);
@@ -487,6 +519,8 @@
             // 
             btnEmpresas.Dock = DockStyle.Top;
             btnEmpresas.FlatAppearance.BorderSize = 0;
+            btnEmpresas.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnEmpresas.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnEmpresas.FlatStyle = FlatStyle.Flat;
             btnEmpresas.ForeColor = Color.Gainsboro;
             btnEmpresas.Location = new Point(0, 152);
@@ -503,6 +537,8 @@
             // 
             btnClientes.Dock = DockStyle.Top;
             btnClientes.FlatAppearance.BorderSize = 0;
+            btnClientes.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnClientes.FlatStyle = FlatStyle.Flat;
             btnClientes.ForeColor = Color.Gainsboro;
             btnClientes.Location = new Point(0, 114);
@@ -519,6 +555,8 @@
             // 
             btnProfissionais.Dock = DockStyle.Top;
             btnProfissionais.FlatAppearance.BorderSize = 0;
+            btnProfissionais.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnProfissionais.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnProfissionais.FlatStyle = FlatStyle.Flat;
             btnProfissionais.ForeColor = Color.Gainsboro;
             btnProfissionais.Location = new Point(0, 76);
@@ -535,6 +573,8 @@
             // 
             btnAdministradores.Dock = DockStyle.Top;
             btnAdministradores.FlatAppearance.BorderSize = 0;
+            btnAdministradores.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnAdministradores.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnAdministradores.FlatStyle = FlatStyle.Flat;
             btnAdministradores.ForeColor = Color.Gainsboro;
             btnAdministradores.Location = new Point(0, 38);
@@ -551,6 +591,8 @@
             // 
             btnUsuarios.Dock = DockStyle.Top;
             btnUsuarios.FlatAppearance.BorderSize = 0;
+            btnUsuarios.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnUsuarios.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnUsuarios.FlatStyle = FlatStyle.Flat;
             btnUsuarios.ForeColor = Color.Gainsboro;
             btnUsuarios.Location = new Point(0, 0);
@@ -567,10 +609,12 @@
             // 
             btnUsuariosToggle.Dock = DockStyle.Top;
             btnUsuariosToggle.FlatAppearance.BorderSize = 0;
+            btnUsuariosToggle.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnUsuariosToggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnUsuariosToggle.FlatStyle = FlatStyle.Flat;
             btnUsuariosToggle.Font = new Font("Segoe UI", 10F);
             btnUsuariosToggle.ForeColor = Color.Gainsboro;
-            btnUsuariosToggle.Image = Properties.Resources.seta_direita1;
+            btnUsuariosToggle.Image = Properties.Resources.seta_direita;
             btnUsuariosToggle.ImageAlign = ContentAlignment.MiddleRight;
             btnUsuariosToggle.Location = new Point(0, 44);
             btnUsuariosToggle.Margin = new Padding(0, 8, 0, 0);
@@ -588,6 +632,7 @@
             // 
             btnDashboard.Dock = DockStyle.Top;
             btnDashboard.FlatAppearance.BorderSize = 0;
+            btnDashboard.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnDashboard.FlatStyle = FlatStyle.Flat;
             btnDashboard.Font = new Font("Segoe UI", 10F);
             btnDashboard.ForeColor = Color.Gainsboro;
@@ -599,14 +644,16 @@
             btnDashboard.Text = "Dashboard";
             btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
             btnDashboard.UseVisualStyleBackColor = true;
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // pcoLogo
             // 
             pcoLogo.Dock = DockStyle.Fill;
             pcoLogo.Image = Properties.Resources.music_station_vetorizada;
-            pcoLogo.Location = new Point(10, 10);
+            pcoLogo.Location = new Point(8, 8);
+            pcoLogo.Margin = new Padding(0);
             pcoLogo.Name = "pcoLogo";
-            pcoLogo.Size = new Size(220, 50);
+            pcoLogo.Size = new Size(224, 54);
             pcoLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pcoLogo.TabIndex = 0;
             pcoLogo.TabStop = false;
@@ -617,7 +664,7 @@
             pnlLogo.Dock = DockStyle.Left;
             pnlLogo.Location = new Point(0, 0);
             pnlLogo.Name = "pnlLogo";
-            pnlLogo.Padding = new Padding(10);
+            pnlLogo.Padding = new Padding(8);
             pnlLogo.Size = new Size(240, 70);
             pnlLogo.TabIndex = 0;
             // 
@@ -647,6 +694,8 @@
             // 
             btnPerfilToggle.Dock = DockStyle.Fill;
             btnPerfilToggle.FlatAppearance.BorderSize = 0;
+            btnPerfilToggle.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
+            btnPerfilToggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnPerfilToggle.FlatStyle = FlatStyle.Flat;
             btnPerfilToggle.Font = new Font("Segoe UI", 10F);
             btnPerfilToggle.ForeColor = Color.Gainsboro;
@@ -657,11 +706,13 @@
             btnPerfilToggle.Padding = new Padding(0, 0, 40, 0);
             btnPerfilToggle.Size = new Size(300, 70);
             btnPerfilToggle.TabIndex = 0;
+            btnPerfilToggle.TabStop = false;
             btnPerfilToggle.Text = "{nomeUsuario} ({cargo})";
             btnPerfilToggle.TextAlign = ContentAlignment.MiddleLeft;
             btnPerfilToggle.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnPerfilToggle.UseVisualStyleBackColor = true;
             btnPerfilToggle.Click += btnPerfilToggle_Click;
+            btnPerfilToggle.Enter += btnPerfilToggle_Enter;
             // 
             // pnlSpacer
             // 

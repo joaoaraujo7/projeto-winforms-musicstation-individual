@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="forms\UsuarioForm.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\flecha.png" />
   </ItemGroup>
 

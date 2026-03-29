@@ -1,5 +1,6 @@
 ﻿using MusicStationWinFormsApp.controls.usuarios;
 using MusicStationWinFormsApp.models;
+using MusicStationWinFormsApp.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace MusicStationWinFormsApp.forms
         {
             InitializeComponent();
             CustomizarDesign();
+            this.DoubleBuffered = true;
         }
 
         private void CustomizarDesign()
@@ -22,62 +24,76 @@ namespace MusicStationWinFormsApp.forms
             pnlInstrumentos.Visible = false;
             pnlFinanceiro.Visible = false;
             pnlComunicacao.Visible = false;
+
+            this.ActiveControl = lblTitulo;
         }
 
         private void HideSubMenu()
         {
-            if (pnlUsuarios.Visible)
-            {
-                pnlUsuarios.Visible = false;
-            }
+            pnlUsuarios.Visible = false;
+            pnlServicos.Visible = false;
+            pnlOperacoes.Visible = false;
+            pnlInstrumentos.Visible = false;
+            pnlFinanceiro.Visible = false;
+            pnlComunicacao.Visible = false;
 
-            if (pnlServicos.Visible)
-            {
-                pnlServicos.Visible = false;
-            }
-
-            if (pnlOperacoes.Visible)
-            {
-                pnlOperacoes.Visible = false;
-            }
-
-            if (pnlInstrumentos.Visible)
-            {
-                pnlInstrumentos.Visible = false;
-            }
-
-            if (pnlFinanceiro.Visible)
-            {
-                pnlFinanceiro.Visible = false;
-            }
-
-            if (pnlComunicacao.Visible)
-            {
-                pnlComunicacao.Visible = false;
-            }
+            // RESETAR TODAS AS SETAS
+            btnUsuariosToggle.Image = Properties.Resources.seta_direita;
+            btnServicosToggle.Image = Properties.Resources.seta_direita;
+            btnOperacoesToggle.Image = Properties.Resources.seta_direita;
+            btnInstrumentosToggle.Image = Properties.Resources.seta_direita;
+            btnFinanceiroToggle.Image = Properties.Resources.seta_direita;
+            btnComunicacaoToggle.Image = Properties.Resources.seta_direita;
         }
 
-        private void ShowSubMenu(Panel subMenu)
+        private void ToggleMenu(Panel panel, Button button)
         {
-            if (!subMenu.Visible)
-            {
-                HideSubMenu();
-                subMenu.Visible = true;
-            }
-            else
-            {
-                subMenu.Visible = false;
-            }
+            bool abrir = !panel.Visible;
+
+            HideSubMenu();
+
+            panel.Visible = abrir;
+            button.Image = abrir
+                ? Properties.Resources.seta_baixo
+                : Properties.Resources.seta_direita;
         }
+
+        private void AbrirTela(Control tela)
+        {
+            pnlConteudo.SuspendLayout();
+            pnlConteudo.Controls.Clear();
+
+            if (!pnlConteudo.Controls.Contains(tela))
+            {
+                tela.Dock = DockStyle.Fill;
+                pnlConteudo.Controls.Add(tela);
+            }
+
+            tela.BringToFront();
+            pnlConteudo.ResumeLayout();
+        }
+
+        #region dashboardSubMenu
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            pnlConteudo.Controls.Clear();
+            lblTitulo.Text = "Dashboard";
+            HideSubMenu();
+        }
+
+        #endregion
+
         #region UsuariosSubMenu
         private void btnUsuariosToggle_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(pnlUsuarios);
+            ToggleMenu(pnlUsuarios, btnUsuariosToggle);
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             AbrirTela(new UsuarioControl());
+
+            lblTitulo.Text = "Gestão de Usuários";
             HideSubMenu();
         }
 
@@ -105,7 +121,7 @@ namespace MusicStationWinFormsApp.forms
         #region ServicosSubMenu
         private void btnServicosToggle_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(pnlServicos);
+            ToggleMenu(pnlServicos, btnServicosToggle);
         }
 
         private void btnServicos_Click(object sender, EventArgs e)
@@ -122,7 +138,7 @@ namespace MusicStationWinFormsApp.forms
         #region InstrumentosSubMenu
         private void btnInstrumentosToggle_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(pnlInstrumentos);
+            ToggleMenu(pnlInstrumentos, btnInstrumentosToggle);
         }
 
         private void btnInstrumentos_Click(object sender, EventArgs e)
@@ -134,7 +150,7 @@ namespace MusicStationWinFormsApp.forms
         #region OperacoesSubMenu
         private void btnOperacoesToggle_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(pnlOperacoes);
+            ToggleMenu(pnlOperacoes, btnOperacoesToggle);
         }
 
         private void btnPedidos_Click(object sender, EventArgs e)
@@ -151,7 +167,7 @@ namespace MusicStationWinFormsApp.forms
         #region FinanceiroSubMenu
         private void btnFinanceiroToggle_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(pnlFinanceiro);
+            ToggleMenu(pnlFinanceiro, btnFinanceiroToggle);
         }
 
         private void btnPagamentos_Click(object sender, EventArgs e)
@@ -173,7 +189,7 @@ namespace MusicStationWinFormsApp.forms
         #region ComunicacaoSubMenu
         private void btnComunicacaoToggle_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(pnlComunicacao);
+            ToggleMenu(pnlComunicacao, btnComunicacaoToggle);
         }
 
         private void btnChats_Click(object sender, EventArgs e)
@@ -194,42 +210,46 @@ namespace MusicStationWinFormsApp.forms
 
         #region PerfilSubmenu
 
-        private void AbrirTela(Control tela)
-        {
-            pnlConteudo.Controls.Clear();
-            tela.Dock = DockStyle.Fill;
-            pnlConteudo.Controls.Add(tela);
-        }
-
         private PerfilDropdownForm dropdown;
         private void btnPerfilToggle_Click(object sender, EventArgs e)
         {
-            dropdown = new PerfilDropdownForm();
-
-            dropdown.OnAbrirPerfil += () =>
+            if (dropdown == null || dropdown.IsDisposed)
             {
-                AbrirTela(new PerfilControl());
-            };
+                dropdown = new PerfilDropdownForm();
 
-            dropdown.OnLogout += () =>
+                dropdown.OnAbrirPerfil += () =>
+                {
+                    AbrirTela(new PerfilControl());
+                };
+
+                dropdown.OnLogout += () =>
+                {
+                    this.Hide();
+                    new LoginForm().Show();
+                };
+
+                Point pos = btnPerfilToggle.PointToScreen(Point.Empty);
+
+                dropdown.Location = new Point(
+                    pos.X + btnPerfilToggle.Width - dropdown.Width,
+                    pos.Y + btnPerfilToggle.Height
+                );
+
+                dropdown.Show();
+            }
+            else
             {
-                this.Hide();
-                new LoginForm().Show();
-            };
+                dropdown.Close();
+            }
+        }
 
-            Point pos = btnPerfilToggle.PointToScreen(Point.Empty);
-
-            dropdown.Location = new Point(
-                pos.X + btnPerfilToggle.Width - dropdown.Width,
-                pos.Y + btnPerfilToggle.Height
-            );
-
-            dropdown.Show();
+        private void btnPerfilToggle_Enter(object sender, EventArgs e)
+        {
+            lblTitulo.Focus();
         }
 
         #endregion
 
-        
     }
 }
 
