@@ -1,4 +1,5 @@
 ﻿using MusicStationWinFormsApp.controls.dashboard;
+using MusicStationWinFormsApp.controls.servicos;
 using MusicStationWinFormsApp.controls.usuarios;
 using MusicStationWinFormsApp.models;
 using MusicStationWinFormsApp.Properties;
@@ -144,6 +145,9 @@ namespace MusicStationWinFormsApp.forms
 
         private void btnServicos_Click(object sender, EventArgs e)
         {
+            AbrirTela(new ServicoControl());
+
+            lblTitulo.Text = "Gestão de Serviços";
             HideSubMenu();
         }
 
