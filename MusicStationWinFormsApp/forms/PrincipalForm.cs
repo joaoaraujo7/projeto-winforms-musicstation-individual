@@ -105,6 +105,9 @@ namespace MusicStationWinFormsApp.forms
 
         private void btnAdministradores_Click(object sender, EventArgs e)
         {
+            AbrirTela(new AdministradorControl());
+
+            lblTitulo.Text = "Gestão de Administradores";
             HideSubMenu();
         }
 
