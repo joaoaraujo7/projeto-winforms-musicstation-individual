@@ -129,6 +129,9 @@ namespace MusicStationWinFormsApp.forms
 
         private void btnEmpresas_Click(object sender, EventArgs e)
         {
+            AbrirTela(new EmpresaControl());
+
+            lblTitulo.Text = "Gestão de Empresas";
             HideSubMenu();
         }
         #endregion
