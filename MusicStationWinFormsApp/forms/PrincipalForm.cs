@@ -113,6 +113,9 @@ namespace MusicStationWinFormsApp.forms
 
         private void btnProfissionais_Click(object sender, EventArgs e)
         {
+            AbrirTela(new ProfissionalControl());
+
+            lblTitulo.Text = "Gestão de Profissionais";
             HideSubMenu();
         }
 
