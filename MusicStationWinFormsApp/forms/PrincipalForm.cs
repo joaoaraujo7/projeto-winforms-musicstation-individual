@@ -1,4 +1,5 @@
-﻿using MusicStationWinFormsApp.controls.dashboard;
+﻿using MusicStationWinFormsApp.controls.cargos;
+using MusicStationWinFormsApp.controls.dashboard;
 using MusicStationWinFormsApp.controls.servicos;
 using MusicStationWinFormsApp.controls.usuarios;
 using MusicStationWinFormsApp.models;
@@ -153,6 +154,9 @@ namespace MusicStationWinFormsApp.forms
 
         private void btnCargos_Click(object sender, EventArgs e)
         {
+            AbrirTela(new CargoControl());
+
+            lblTitulo.Text = "Gestão de Cargos";
             HideSubMenu();
         }
         #endregion
