@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="controls\financeiro\TransacaoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

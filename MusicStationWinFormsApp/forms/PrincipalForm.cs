@@ -218,6 +218,10 @@ namespace MusicStationWinFormsApp.forms
 
         private void btnTransacoes_Click(object sender, EventArgs e)
         {
+            AbrirTela(new TransacaoControl());
+
+            lblTitulo.Text = "Gestão de Transações";
+
             HideSubMenu();
         }
 
