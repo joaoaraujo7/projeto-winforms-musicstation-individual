@@ -111,7 +111,7 @@ namespace MusicStationWinFormsApp.controls.instrumentos
             txtDescricao.Clear();
             txtPreco.Clear();
             chkDisponivel.Checked = false;
-            cboEmpresa.SelectedItem = - 1;
+            cboEmpresa.SelectedIndex = - 1;
         }
 
         private void CarregarInstrumentoSelecionado(Instrumento instrumento)
