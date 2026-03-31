@@ -17,6 +17,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="controls\comunicacao\NotificacaoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="controls\comunicacao\ChatControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="controls\comunicacao\AvaliacaoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="controls\financeiro\TransacaoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -1,4 +1,5 @@
 ﻿using MusicStationWinFormsApp.controls.cargos;
+using MusicStationWinFormsApp.controls.comunicacao;
 using MusicStationWinFormsApp.controls.dashboard;
 using MusicStationWinFormsApp.controls.financeiro;
 using MusicStationWinFormsApp.controls.instrumentos;
@@ -242,16 +243,25 @@ namespace MusicStationWinFormsApp.forms
 
         private void btnChats_Click(object sender, EventArgs e)
         {
+            AbrirTela(new ChatControl());
+
+            lblTitulo.Text = "Gestão de Chats";
             HideSubMenu();
         }
 
         private void btnNotificacoes_Click(object sender, EventArgs e)
         {
+            AbrirTela(new NotificacaoControl());
+
+            lblTitulo.Text = "Gestão de Notificações";
             HideSubMenu();
         }
 
         private void btnAvaliacoes_Click(object sender, EventArgs e)
         {
+            AbrirTela(new AvaliacaoControl());
+
+            lblTitulo.Text = "Gestão de Avaliações";
             HideSubMenu();
         }
         #endregion
