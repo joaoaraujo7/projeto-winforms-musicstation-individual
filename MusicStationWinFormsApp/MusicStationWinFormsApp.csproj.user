@@ -7,6 +7,9 @@
     <Compile Update="controls\financeiro\FormaPagamentoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="controls\financeiro\PagamentoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="controls\instrumentos\InstrumentoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

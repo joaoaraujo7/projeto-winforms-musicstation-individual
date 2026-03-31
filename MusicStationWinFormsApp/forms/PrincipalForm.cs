@@ -210,6 +210,9 @@ namespace MusicStationWinFormsApp.forms
 
         private void btnPagamentos_Click(object sender, EventArgs e)
         {
+            AbrirTela(new PagamentoControl());
+
+            lblTitulo.Text = "Gestão de Pagamentos";
             HideSubMenu();
         }
 
