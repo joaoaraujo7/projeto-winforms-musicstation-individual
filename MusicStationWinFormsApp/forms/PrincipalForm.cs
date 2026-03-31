@@ -2,6 +2,7 @@
 using MusicStationWinFormsApp.controls.dashboard;
 using MusicStationWinFormsApp.controls.financeiro;
 using MusicStationWinFormsApp.controls.instrumentos;
+using MusicStationWinFormsApp.controls.operacao;
 using MusicStationWinFormsApp.controls.servicos;
 using MusicStationWinFormsApp.controls.usuarios;
 using MusicStationWinFormsApp.models;
@@ -186,6 +187,9 @@ namespace MusicStationWinFormsApp.forms
 
         private void btnPedidos_Click(object sender, EventArgs e)
         {
+            AbrirTela(new PedidoControl());
+
+            lblTitulo.Text = "Gestão de Pedidos";
             HideSubMenu();
         }
 
