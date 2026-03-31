@@ -10,6 +10,9 @@
     <Compile Update="controls\instrumentos\InstrumentoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="controls\operacao\LocacaoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="controls\operacao\PedidoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

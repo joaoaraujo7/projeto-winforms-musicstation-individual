@@ -195,6 +195,9 @@ namespace MusicStationWinFormsApp.forms
 
         private void btnLocacoes_Click(object sender, EventArgs e)
         {
+            AbrirTela(new LocacaoControl());
+
+            lblTitulo.Text = "Gestão de Locações";
             HideSubMenu();
         }
         #endregion
