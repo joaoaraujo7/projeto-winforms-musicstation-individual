@@ -1,5 +1,6 @@
 ﻿using MusicStationWinFormsApp.controls.cargos;
 using MusicStationWinFormsApp.controls.dashboard;
+using MusicStationWinFormsApp.controls.financeiro;
 using MusicStationWinFormsApp.controls.instrumentos;
 using MusicStationWinFormsApp.controls.servicos;
 using MusicStationWinFormsApp.controls.usuarios;
@@ -212,6 +213,9 @@ namespace MusicStationWinFormsApp.forms
 
         private void btnFormasPagamento_Click(object sender, EventArgs e)
         {
+            AbrirTela(new FormaPagamentoControl());
+
+            lblTitulo.Text = "Gestão de Formas de Pagamento";
             HideSubMenu();
         }
         #endregion
