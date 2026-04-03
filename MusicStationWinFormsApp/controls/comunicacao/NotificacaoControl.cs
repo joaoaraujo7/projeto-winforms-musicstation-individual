@@ -65,7 +65,7 @@ namespace MusicStationWinFormsApp.controls.comunicacao
             txtId.Visible = false;
             lblId.Visible = false;
             dtpDataCadastro.Visible = false;
-            lblDataCadastro.Visible = false;
+            lblDataEnvio.Visible = false;
 
             tbpCadastro.Text = "Nova Notificação";
         }
@@ -75,7 +75,7 @@ namespace MusicStationWinFormsApp.controls.comunicacao
             txtId.Visible = true;
             lblId.Visible = true;
             dtpDataCadastro.Visible = true;
-            lblDataCadastro.Visible = true;
+            lblDataEnvio.Visible = true;
 
             txtId.Enabled = false;
             dtpDataCadastro.Enabled = false;
@@ -86,72 +86,31 @@ namespace MusicStationWinFormsApp.controls.comunicacao
         private void LimparCampos()
         {
             txtId.Clear();
-            txtNomeCompleto.Clear();
-            txtEmail.Clear();
-            txtNomeUsuario.Clear();
-            txtSenha.Clear();
-            txtTelefone.Clear();
-            txtRua.Clear();
-            txtNumero.Clear();
+            txtTitulo.Clear();
+            txtMensagem.Clear();
         }
 
         private void CarregarClienteSelecionado(Cliente cliente)
         {
             txtId.Text = cliente.Id.ToString();
-            txtNomeCompleto.Text = cliente.NomeCompleto;
-            txtEmail.Text = cliente.Email;
-            txtNomeUsuario.Text = cliente.UsuarioNome;
-            txtSenha.Text = cliente.Senha;
-            dtpDataCadastro.Value = cliente.DataCadastro;
-
-            txtTelefone.Text = cliente.Telefone;
-            txtRua.Text = cliente.Rua;
-            txtNumero.Text = cliente.Numero;
+            txtTitulo.Text = cliente.NomeCompleto;
+            txtMensagem.Text = cliente.Email;
         }
 
         private bool ValidarCampos()
         {
-            if (String.IsNullOrWhiteSpace(txtNomeCompleto.Text))
+            if (String.IsNullOrWhiteSpace(txtTitulo.Text))
             {
                 MessageBox.Show("Nome obrigatório");
                 return false;
             }
 
-            if (String.IsNullOrWhiteSpace(txtEmail.Text))
+            if (String.IsNullOrWhiteSpace(txtMensagem.Text))
             {
                 MessageBox.Show("Email obrigatório");
                 return false;
             }
 
-            if (String.IsNullOrWhiteSpace(txtNomeUsuario.Text))
-            {
-                MessageBox.Show("Nome do usuário obrigatório");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtSenha.Text))
-            {
-                MessageBox.Show("Senha obrigatória");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtTelefone.Text))
-            {
-                MessageBox.Show("Telefone obrigatória");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtRua.Text))
-            {
-                MessageBox.Show("Rua obrigatória");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtNumero.Text))
-            {
-                MessageBox.Show("Numero obrigatória");
-                return false;
-            }
             return true;
         }
 

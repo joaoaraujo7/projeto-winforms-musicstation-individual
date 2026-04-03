@@ -25,6 +25,9 @@ namespace MusicStationWinFormsApp.forms
             // tela principal
             lblTitulo.Text = "Dashboard";
             AbrirTela(new DashboardControl());
+
+            // Tela de perfil
+            btnPerfilToggle.Text = "João Araújo (Administrador)";
         }
 
         private void CustomizarDesign()

@@ -36,7 +36,7 @@ namespace MusicStationWinFormsApp.controls.comunicacao
             tbcAvaliacoes.TabPages.Remove(hiddenPage);
             this.DoubleBuffered = true;
             dgvDados.ReadOnly = true;
-            dtpDataCadastro.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpDataAvaliacao.CustomFormat = "dd/MM/yyyy HH:mm";
         }
 
         private void AlternarTela()
@@ -64,8 +64,8 @@ namespace MusicStationWinFormsApp.controls.comunicacao
         {
             txtId.Visible = false;
             lblId.Visible = false;
-            dtpDataCadastro.Visible = false;
-            lblDataCadastro.Visible = false;
+            dtpDataAvaliacao.Visible = false;
+            lblDataAvaliacoa.Visible = false;
 
             tbpCadastro.Text = "Nova Avaliação";
         }
@@ -74,11 +74,11 @@ namespace MusicStationWinFormsApp.controls.comunicacao
         {
             txtId.Visible = true;
             lblId.Visible = true;
-            dtpDataCadastro.Visible = true;
-            lblDataCadastro.Visible = true;
+            dtpDataAvaliacao.Visible = true;
+            lblDataAvaliacoa.Visible = true;
 
             txtId.Enabled = false;
-            dtpDataCadastro.Enabled = false;
+            dtpDataAvaliacao.Enabled = false;
 
             tbpCadastro.Text = "Editar Avaliação";
         }
@@ -86,32 +86,21 @@ namespace MusicStationWinFormsApp.controls.comunicacao
         private void LimparCampos()
         {
             txtId.Clear();
-            txtNomeCompleto.Clear();
+            txtNota.Clear();
             txtEmail.Clear();
-            txtNomeUsuario.Clear();
-            txtSenha.Clear();
-            txtTelefone.Clear();
-            txtRua.Clear();
-            txtNumero.Clear();
         }
 
-        private void CarregarClienteSelecionado(Cliente cliente)
+        private void CarregarAvaliacaoSelecionado(Cliente cliente)
         {
             txtId.Text = cliente.Id.ToString();
-            txtNomeCompleto.Text = cliente.NomeCompleto;
+            txtNota.Text = cliente.NomeCompleto;
             txtEmail.Text = cliente.Email;
-            txtNomeUsuario.Text = cliente.UsuarioNome;
-            txtSenha.Text = cliente.Senha;
-            dtpDataCadastro.Value = cliente.DataCadastro;
-
-            txtTelefone.Text = cliente.Telefone;
-            txtRua.Text = cliente.Rua;
-            txtNumero.Text = cliente.Numero;
+            
         }
 
         private bool ValidarCampos()
         {
-            if (String.IsNullOrWhiteSpace(txtNomeCompleto.Text))
+            if (String.IsNullOrWhiteSpace(txtNota.Text))
             {
                 MessageBox.Show("Nome obrigatório");
                 return false;
@@ -123,35 +112,6 @@ namespace MusicStationWinFormsApp.controls.comunicacao
                 return false;
             }
 
-            if (String.IsNullOrWhiteSpace(txtNomeUsuario.Text))
-            {
-                MessageBox.Show("Nome do usuário obrigatório");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtSenha.Text))
-            {
-                MessageBox.Show("Senha obrigatória");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtTelefone.Text))
-            {
-                MessageBox.Show("Telefone obrigatória");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtRua.Text))
-            {
-                MessageBox.Show("Rua obrigatória");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtNumero.Text))
-            {
-                MessageBox.Show("Numero obrigatória");
-                return false;
-            }
             return true;
         }
 

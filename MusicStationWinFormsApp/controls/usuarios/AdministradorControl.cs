@@ -148,7 +148,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
             if (String.IsNullOrWhiteSpace(txtNivelAcesso.Text))
             {
-                MessageBox.Show("Telefone obrigatória");
+                MessageBox.Show("Nível de acesso obrigatório");
                 return false;
             }
 

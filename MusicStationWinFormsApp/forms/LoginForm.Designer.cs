@@ -182,7 +182,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(28, 24, 22);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 500);
             Controls.Add(pcoLogo);
             Controls.Add(flowLayoutPanel1);
             ForeColor = SystemColors.ControlText;

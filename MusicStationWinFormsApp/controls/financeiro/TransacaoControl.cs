@@ -36,7 +36,7 @@ namespace MusicStationWinFormsApp.controls.financeiro
             tbcTransacoes.TabPages.Remove(hiddenPage);
             this.DoubleBuffered = true;
             dgvDados.ReadOnly = true;
-            dtpDataCadastro.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpDataTransacao.CustomFormat = "dd/MM/yyyy HH:mm";
         }
 
         private void AlternarTela()
@@ -64,8 +64,8 @@ namespace MusicStationWinFormsApp.controls.financeiro
         {
             txtId.Visible = false;
             lblId.Visible = false;
-            dtpDataCadastro.Visible = false;
-            lblDataCadastro.Visible = false;
+            dtpDataTransacao.Visible = false;
+            lblDataTransacao.Visible = false;
 
             tbpCadastro.Text = "Nova Transação";
         }
@@ -74,11 +74,11 @@ namespace MusicStationWinFormsApp.controls.financeiro
         {
             txtId.Visible = true;
             lblId.Visible = true;
-            dtpDataCadastro.Visible = true;
-            lblDataCadastro.Visible = true;
+            dtpDataTransacao.Visible = true;
+            lblDataTransacao.Visible = true;
 
             txtId.Enabled = false;
-            dtpDataCadastro.Enabled = false;
+            dtpDataTransacao.Enabled = false;
 
             tbpCadastro.Text = "Editar Transação";
         }
@@ -86,72 +86,17 @@ namespace MusicStationWinFormsApp.controls.financeiro
         private void LimparCampos()
         {
             txtId.Clear();
-            txtNomeCompleto.Clear();
-            txtEmail.Clear();
-            txtNomeUsuario.Clear();
-            txtSenha.Clear();
-            txtTelefone.Clear();
-            txtRua.Clear();
-            txtNumero.Clear();
+            
         }
 
         private void CarregarClienteSelecionado(Cliente cliente)
         {
             txtId.Text = cliente.Id.ToString();
-            txtNomeCompleto.Text = cliente.NomeCompleto;
-            txtEmail.Text = cliente.Email;
-            txtNomeUsuario.Text = cliente.UsuarioNome;
-            txtSenha.Text = cliente.Senha;
-            dtpDataCadastro.Value = cliente.DataCadastro;
-
-            txtTelefone.Text = cliente.Telefone;
-            txtRua.Text = cliente.Rua;
-            txtNumero.Text = cliente.Numero;
         }
 
         private bool ValidarCampos()
         {
-            if (String.IsNullOrWhiteSpace(txtNomeCompleto.Text))
-            {
-                MessageBox.Show("Nome obrigatório");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtEmail.Text))
-            {
-                MessageBox.Show("Email obrigatório");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtNomeUsuario.Text))
-            {
-                MessageBox.Show("Nome do usuário obrigatório");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtSenha.Text))
-            {
-                MessageBox.Show("Senha obrigatória");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtTelefone.Text))
-            {
-                MessageBox.Show("Telefone obrigatória");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtRua.Text))
-            {
-                MessageBox.Show("Rua obrigatória");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtNumero.Text))
-            {
-                MessageBox.Show("Numero obrigatória");
-                return false;
-            }
+            
             return true;
         }
 

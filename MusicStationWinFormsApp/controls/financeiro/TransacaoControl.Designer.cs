@@ -32,27 +32,18 @@
             tbpCadastro = new TabPage();
             pnlConteudoCadastro = new Panel();
             tlpCadastro = new TableLayoutPanel();
-            txtNumero = new TextBox();
-            lblNumero = new Label();
-            txtRua = new TextBox();
-            lblRua = new Label();
-            txtTelefone = new TextBox();
-            lblTelefone = new Label();
-            lblDataCadastro = new Label();
+            lblPagamento = new Label();
+            lblDataTransacao = new Label();
             lblId = new Label();
-            txtEmail = new TextBox();
-            txtNomeUsuario = new TextBox();
-            txtSenha = new TextBox();
-            lblNome = new Label();
-            txtNomeCompleto = new TextBox();
-            lblSenha = new Label();
-            lblEmail = new Label();
-            lblUsuario = new Label();
+            txtCodigoExterno = new TextBox();
+            lblStatusTransacao = new Label();
+            lblCodigoExterno = new Label();
             txtId = new TextBox();
-            dtpDataCadastro = new DateTimePicker();
+            dtpDataTransacao = new DateTimePicker();
             flowButtons = new FlowLayoutPanel();
             btnCancelar = new Button();
             btnSalvar = new Button();
+            cboStatusTransacao = new ComboBox();
             tbpListagem = new TabPage();
             tlpPesquisa = new TableLayoutPanel();
             pnlPesquisa = new Panel();
@@ -66,6 +57,7 @@
             imgExcluir = new DataGridViewImageColumn();
             pnlExterno = new Panel();
             tbcTransacoes = new TabControl();
+            lstPagamento = new ListBox();
             tbpCadastro.SuspendLayout();
             pnlConteudoCadastro.SuspendLayout();
             tlpCadastro.SuspendLayout();
@@ -105,35 +97,22 @@
             tlpCadastro.ColumnCount = 2;
             tlpCadastro.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18.91496F));
             tlpCadastro.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 81.08504F));
-            tlpCadastro.Controls.Add(txtNumero, 1, 7);
-            tlpCadastro.Controls.Add(lblNumero, 0, 7);
-            tlpCadastro.Controls.Add(txtRua, 1, 6);
-            tlpCadastro.Controls.Add(lblRua, 0, 6);
-            tlpCadastro.Controls.Add(txtTelefone, 1, 5);
-            tlpCadastro.Controls.Add(lblTelefone, 0, 5);
-            tlpCadastro.Controls.Add(lblDataCadastro, 0, 9);
+            tlpCadastro.Controls.Add(lblPagamento, 0, 3);
+            tlpCadastro.Controls.Add(lblDataTransacao, 0, 4);
             tlpCadastro.Controls.Add(lblId, 0, 0);
-            tlpCadastro.Controls.Add(txtEmail, 1, 2);
-            tlpCadastro.Controls.Add(txtNomeUsuario, 1, 3);
-            tlpCadastro.Controls.Add(txtSenha, 1, 4);
-            tlpCadastro.Controls.Add(lblNome, 0, 1);
-            tlpCadastro.Controls.Add(txtNomeCompleto, 1, 1);
-            tlpCadastro.Controls.Add(lblSenha, 0, 4);
-            tlpCadastro.Controls.Add(lblEmail, 0, 2);
-            tlpCadastro.Controls.Add(lblUsuario, 0, 3);
+            tlpCadastro.Controls.Add(txtCodigoExterno, 1, 2);
+            tlpCadastro.Controls.Add(lblStatusTransacao, 0, 1);
+            tlpCadastro.Controls.Add(lblCodigoExterno, 0, 2);
             tlpCadastro.Controls.Add(txtId, 1, 0);
-            tlpCadastro.Controls.Add(dtpDataCadastro, 1, 9);
-            tlpCadastro.Controls.Add(flowButtons, 1, 10);
+            tlpCadastro.Controls.Add(dtpDataTransacao, 1, 4);
+            tlpCadastro.Controls.Add(flowButtons, 1, 5);
+            tlpCadastro.Controls.Add(cboStatusTransacao, 1, 1);
+            tlpCadastro.Controls.Add(lstPagamento, 1, 3);
             tlpCadastro.Dock = DockStyle.Fill;
             tlpCadastro.Location = new Point(0, 0);
             tlpCadastro.Name = "tlpCadastro";
             tlpCadastro.Padding = new Padding(24, 24, 24, 0);
-            tlpCadastro.RowCount = 11;
-            tlpCadastro.RowStyles.Add(new RowStyle());
-            tlpCadastro.RowStyles.Add(new RowStyle());
-            tlpCadastro.RowStyles.Add(new RowStyle());
-            tlpCadastro.RowStyles.Add(new RowStyle());
-            tlpCadastro.RowStyles.Add(new RowStyle());
+            tlpCadastro.RowCount = 6;
             tlpCadastro.RowStyles.Add(new RowStyle());
             tlpCadastro.RowStyles.Add(new RowStyle());
             tlpCadastro.RowStyles.Add(new RowStyle());
@@ -143,83 +122,29 @@
             tlpCadastro.Size = new Size(730, 475);
             tlpCadastro.TabIndex = 15;
             // 
-            // txtNumero
+            // lblPagamento
             // 
-            txtNumero.Dock = DockStyle.Fill;
-            txtNumero.Font = new Font("Segoe UI", 10F);
-            txtNumero.Location = new Point(156, 293);
-            txtNumero.Margin = new Padding(3, 3, 3, 10);
-            txtNumero.Name = "txtNumero";
-            txtNumero.Size = new Size(547, 25);
-            txtNumero.TabIndex = 21;
+            lblPagamento.AutoSize = true;
+            lblPagamento.Dock = DockStyle.Fill;
+            lblPagamento.Font = new Font("Segoe UI", 10F);
+            lblPagamento.Location = new Point(27, 131);
+            lblPagamento.Name = "lblPagamento";
+            lblPagamento.Size = new Size(123, 61);
+            lblPagamento.TabIndex = 25;
+            lblPagamento.Text = "Pagamento:";
+            lblPagamento.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblNumero
+            // lblDataTransacao
             // 
-            lblNumero.AutoSize = true;
-            lblNumero.Dock = DockStyle.Fill;
-            lblNumero.Font = new Font("Segoe UI", 10F);
-            lblNumero.Location = new Point(27, 290);
-            lblNumero.Name = "lblNumero";
-            lblNumero.Size = new Size(123, 38);
-            lblNumero.TabIndex = 20;
-            lblNumero.Text = "Número:";
-            lblNumero.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txtRua
-            // 
-            txtRua.Dock = DockStyle.Fill;
-            txtRua.Font = new Font("Segoe UI", 10F);
-            txtRua.Location = new Point(156, 255);
-            txtRua.Margin = new Padding(3, 3, 3, 10);
-            txtRua.Name = "txtRua";
-            txtRua.Size = new Size(547, 25);
-            txtRua.TabIndex = 19;
-            // 
-            // lblRua
-            // 
-            lblRua.AutoSize = true;
-            lblRua.Dock = DockStyle.Fill;
-            lblRua.Font = new Font("Segoe UI", 10F);
-            lblRua.Location = new Point(27, 252);
-            lblRua.Name = "lblRua";
-            lblRua.Size = new Size(123, 38);
-            lblRua.TabIndex = 18;
-            lblRua.Text = "Rua:";
-            lblRua.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txtTelefone
-            // 
-            txtTelefone.Dock = DockStyle.Fill;
-            txtTelefone.Font = new Font("Segoe UI", 10F);
-            txtTelefone.Location = new Point(156, 217);
-            txtTelefone.Margin = new Padding(3, 3, 3, 10);
-            txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(547, 25);
-            txtTelefone.TabIndex = 17;
-            // 
-            // lblTelefone
-            // 
-            lblTelefone.AutoSize = true;
-            lblTelefone.Dock = DockStyle.Fill;
-            lblTelefone.Font = new Font("Segoe UI", 10F);
-            lblTelefone.Location = new Point(27, 214);
-            lblTelefone.Name = "lblTelefone";
-            lblTelefone.Size = new Size(123, 38);
-            lblTelefone.TabIndex = 16;
-            lblTelefone.Text = "Telefone:";
-            lblTelefone.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblDataCadastro
-            // 
-            lblDataCadastro.AutoSize = true;
-            lblDataCadastro.Dock = DockStyle.Fill;
-            lblDataCadastro.Font = new Font("Segoe UI", 10F);
-            lblDataCadastro.Location = new Point(27, 328);
-            lblDataCadastro.Name = "lblDataCadastro";
-            lblDataCadastro.Size = new Size(123, 38);
-            lblDataCadastro.TabIndex = 14;
-            lblDataCadastro.Text = "Data Cadastro:";
-            lblDataCadastro.TextAlign = ContentAlignment.MiddleLeft;
+            lblDataTransacao.AutoSize = true;
+            lblDataTransacao.Dock = DockStyle.Fill;
+            lblDataTransacao.Font = new Font("Segoe UI", 10F);
+            lblDataTransacao.Location = new Point(27, 192);
+            lblDataTransacao.Name = "lblDataTransacao";
+            lblDataTransacao.Size = new Size(123, 38);
+            lblDataTransacao.TabIndex = 14;
+            lblDataTransacao.Text = "Data Transacao:";
+            lblDataTransacao.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblId
             // 
@@ -233,93 +158,39 @@
             lblId.Text = "Id:";
             lblId.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtEmail
+            // txtCodigoExterno
             // 
-            txtEmail.Dock = DockStyle.Fill;
-            txtEmail.Font = new Font("Segoe UI", 10F);
-            txtEmail.Location = new Point(156, 103);
-            txtEmail.Margin = new Padding(3, 3, 3, 10);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(547, 25);
-            txtEmail.TabIndex = 3;
+            txtCodigoExterno.Dock = DockStyle.Fill;
+            txtCodigoExterno.Font = new Font("Segoe UI", 10F);
+            txtCodigoExterno.Location = new Point(156, 96);
+            txtCodigoExterno.Margin = new Padding(3, 3, 3, 10);
+            txtCodigoExterno.Name = "txtCodigoExterno";
+            txtCodigoExterno.Size = new Size(547, 25);
+            txtCodigoExterno.TabIndex = 5;
             // 
-            // txtNomeUsuario
+            // lblStatusTransacao
             // 
-            txtNomeUsuario.Dock = DockStyle.Fill;
-            txtNomeUsuario.Font = new Font("Segoe UI", 10F);
-            txtNomeUsuario.Location = new Point(156, 141);
-            txtNomeUsuario.Margin = new Padding(3, 3, 3, 10);
-            txtNomeUsuario.Name = "txtNomeUsuario";
-            txtNomeUsuario.Size = new Size(547, 25);
-            txtNomeUsuario.TabIndex = 5;
+            lblStatusTransacao.AutoSize = true;
+            lblStatusTransacao.Dock = DockStyle.Fill;
+            lblStatusTransacao.Font = new Font("Segoe UI", 10F);
+            lblStatusTransacao.Location = new Point(27, 62);
+            lblStatusTransacao.Name = "lblStatusTransacao";
+            lblStatusTransacao.Size = new Size(123, 31);
+            lblStatusTransacao.TabIndex = 0;
+            lblStatusTransacao.Text = "Status Transação:";
+            lblStatusTransacao.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtSenha
+            // lblCodigoExterno
             // 
-            txtSenha.Dock = DockStyle.Fill;
-            txtSenha.Font = new Font("Segoe UI", 10F);
-            txtSenha.Location = new Point(156, 179);
-            txtSenha.Margin = new Padding(3, 3, 3, 10);
-            txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(547, 25);
-            txtSenha.TabIndex = 7;
-            // 
-            // lblNome
-            // 
-            lblNome.AutoSize = true;
-            lblNome.Dock = DockStyle.Fill;
-            lblNome.Font = new Font("Segoe UI", 10F);
-            lblNome.Location = new Point(27, 62);
-            lblNome.Name = "lblNome";
-            lblNome.Size = new Size(123, 38);
-            lblNome.TabIndex = 0;
-            lblNome.Text = "Nome Completo:";
-            lblNome.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txtNomeCompleto
-            // 
-            txtNomeCompleto.Dock = DockStyle.Fill;
-            txtNomeCompleto.Font = new Font("Segoe UI", 10F);
-            txtNomeCompleto.Location = new Point(156, 65);
-            txtNomeCompleto.Margin = new Padding(3, 3, 3, 10);
-            txtNomeCompleto.Name = "txtNomeCompleto";
-            txtNomeCompleto.Size = new Size(547, 25);
-            txtNomeCompleto.TabIndex = 1;
-            // 
-            // lblSenha
-            // 
-            lblSenha.AutoSize = true;
-            lblSenha.Dock = DockStyle.Fill;
-            lblSenha.Font = new Font("Segoe UI", 10F);
-            lblSenha.Location = new Point(27, 176);
-            lblSenha.Name = "lblSenha";
-            lblSenha.Size = new Size(123, 38);
-            lblSenha.TabIndex = 6;
-            lblSenha.Text = "Senha:";
-            lblSenha.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblEmail
-            // 
-            lblEmail.AutoSize = true;
-            lblEmail.Dock = DockStyle.Fill;
-            lblEmail.Font = new Font("Segoe UI", 10F);
-            lblEmail.Location = new Point(27, 100);
-            lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(123, 38);
-            lblEmail.TabIndex = 2;
-            lblEmail.Text = "Email:";
-            lblEmail.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblUsuario
-            // 
-            lblUsuario.AutoSize = true;
-            lblUsuario.Dock = DockStyle.Fill;
-            lblUsuario.Font = new Font("Segoe UI", 10F);
-            lblUsuario.Location = new Point(27, 138);
-            lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(123, 38);
-            lblUsuario.TabIndex = 4;
-            lblUsuario.Text = "Nome do usuário:";
-            lblUsuario.TextAlign = ContentAlignment.MiddleLeft;
+            lblCodigoExterno.AutoSize = true;
+            lblCodigoExterno.Dock = DockStyle.Fill;
+            lblCodigoExterno.Font = new Font("Segoe UI", 10F);
+            lblCodigoExterno.Location = new Point(27, 93);
+            lblCodigoExterno.Name = "lblCodigoExterno";
+            lblCodigoExterno.Size = new Size(123, 38);
+            lblCodigoExterno.TabIndex = 4;
+            lblCodigoExterno.Text = "Código Externo:";
+            lblCodigoExterno.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtId
             // 
@@ -332,19 +203,19 @@
             txtId.Size = new Size(547, 25);
             txtId.TabIndex = 11;
             // 
-            // dtpDataCadastro
+            // dtpDataTransacao
             // 
-            dtpDataCadastro.Dock = DockStyle.Fill;
-            dtpDataCadastro.Enabled = false;
-            dtpDataCadastro.Font = new Font("Segoe UI", 10F);
-            dtpDataCadastro.Format = DateTimePickerFormat.Custom;
-            dtpDataCadastro.Location = new Point(156, 331);
-            dtpDataCadastro.Margin = new Padding(3, 3, 3, 10);
-            dtpDataCadastro.Name = "dtpDataCadastro";
-            dtpDataCadastro.ShowUpDown = true;
-            dtpDataCadastro.Size = new Size(547, 25);
-            dtpDataCadastro.TabIndex = 13;
-            dtpDataCadastro.Value = new DateTime(2026, 3, 29, 14, 1, 24, 0);
+            dtpDataTransacao.Dock = DockStyle.Fill;
+            dtpDataTransacao.Enabled = false;
+            dtpDataTransacao.Font = new Font("Segoe UI", 10F);
+            dtpDataTransacao.Format = DateTimePickerFormat.Custom;
+            dtpDataTransacao.Location = new Point(156, 195);
+            dtpDataTransacao.Margin = new Padding(3, 3, 3, 10);
+            dtpDataTransacao.Name = "dtpDataTransacao";
+            dtpDataTransacao.ShowUpDown = true;
+            dtpDataTransacao.Size = new Size(547, 25);
+            dtpDataTransacao.TabIndex = 13;
+            dtpDataTransacao.Value = new DateTime(2026, 3, 29, 14, 1, 24, 0);
             // 
             // flowButtons
             // 
@@ -352,10 +223,10 @@
             flowButtons.Controls.Add(btnSalvar);
             flowButtons.Dock = DockStyle.Fill;
             flowButtons.FlowDirection = FlowDirection.RightToLeft;
-            flowButtons.Location = new Point(153, 366);
+            flowButtons.Location = new Point(153, 230);
             flowButtons.Margin = new Padding(0);
             flowButtons.Name = "flowButtons";
-            flowButtons.Size = new Size(553, 109);
+            flowButtons.Size = new Size(553, 245);
             flowButtons.TabIndex = 15;
             // 
             // btnCancelar
@@ -387,6 +258,14 @@
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = false;
             btnSalvar.Click += btnSalvar_Click;
+            // 
+            // cboStatusTransacao
+            // 
+            cboStatusTransacao.FormattingEnabled = true;
+            cboStatusTransacao.Location = new Point(156, 65);
+            cboStatusTransacao.Name = "cboStatusTransacao";
+            cboStatusTransacao.Size = new Size(197, 25);
+            cboStatusTransacao.TabIndex = 22;
             // 
             // tbpListagem
             // 
@@ -574,6 +453,15 @@
             tbcTransacoes.Size = new Size(744, 511);
             tbcTransacoes.TabIndex = 10;
             // 
+            // lstPagamento
+            // 
+            lstPagamento.FormattingEnabled = true;
+            lstPagamento.ItemHeight = 17;
+            lstPagamento.Location = new Point(156, 134);
+            lstPagamento.Name = "lstPagamento";
+            lstPagamento.Size = new Size(547, 55);
+            lstPagamento.TabIndex = 26;
+            // 
             // TransacaoControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -615,29 +503,21 @@
         private Panel pnlDataGrid;
         private Panel pnlExterno;
         private TableLayoutPanel tlpCadastro;
-        private Label lblDataCadastro;
         private Label lblId;
-        private TextBox txtEmail;
-        private TextBox txtNomeUsuario;
-        private TextBox txtSenha;
-        private Label lblNome;
-        private TextBox txtNomeCompleto;
-        private Label lblSenha;
-        private Label lblEmail;
-        private Label lblUsuario;
+        private Label lblStatusTransacao;
         private TextBox txtId;
-        private DateTimePicker dtpDataCadastro;
         private FlowLayoutPanel flowButtons;
         private Button btnCancelar;
         private Button btnSalvar;
-        private TextBox txtRua;
-        private Label lblRua;
-        private TextBox txtTelefone;
-        private Label lblTelefone;
-        private TextBox txtNumero;
-        private Label lblNumero;
         private DataGridView dgvDados;
         private DataGridViewImageColumn imgEditar;
         private DataGridViewImageColumn imgExcluir;
+        private ComboBox cboStatusTransacao;
+        private Label lblPagamento;
+        private Label lblDataTransacao;
+        private TextBox txtCodigoExterno;
+        private Label lblCodigoExterno;
+        private DateTimePicker dtpDataTransacao;
+        private ListBox lstPagamento;
     }
 }
