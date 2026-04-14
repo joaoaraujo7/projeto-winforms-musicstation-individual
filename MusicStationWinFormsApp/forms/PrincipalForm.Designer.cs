@@ -722,7 +722,7 @@
             pnlSpacer.Size = new Size(344, 70);
             pnlSpacer.TabIndex = 0;
             // 
-            // FormPrincipal
+            // PrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -730,9 +730,10 @@
             Controls.Add(pnlConteudo);
             Controls.Add(pnlMenuLateral);
             Controls.Add(pnlHeader);
-            Name = "FormPrincipal";
+            Name = "PrincipalForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Music Station";
+            FormClosing += PrincipalForm_FormClosing;
             pnlMenuLateral.ResumeLayout(false);
             pnlComunicacao.ResumeLayout(false);
             pnlFinanceiro.ResumeLayout(false);

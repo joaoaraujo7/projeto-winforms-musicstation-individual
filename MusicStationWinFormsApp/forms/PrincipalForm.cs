@@ -311,6 +311,12 @@ namespace MusicStationWinFormsApp.forms
 
         #endregion
 
+        #region eventosForm
+        private void PrincipalForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+        #endregion
     }
 }
 
