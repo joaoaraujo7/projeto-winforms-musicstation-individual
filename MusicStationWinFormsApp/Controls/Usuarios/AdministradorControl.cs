@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
-using MusicStationWinFormsApp.models;
+using MusicStationWinFormsApp.Models;
 using MusicStationWinFormsApp.repository;
 
 namespace MusicStationWinFormsApp.controls.usuarios
@@ -16,27 +16,25 @@ namespace MusicStationWinFormsApp.controls.usuarios
         public AdministradorControl()
         {
             InitializeComponent();
-            ConfigurarVisual();
-            ConfigurarDataGrid();
-
+            IniciarConfiguracoesIniciais();
+            
             // Somente para testes
             administradorRepository = new AdministradorRepository();
-            administradores =
-                new BindingList<Administrador>(administradorRepository
-                    .ListarTodos()); // cria uma lista "observável, o grid atualiza automático (adicionar ou remover)
+            administradores = new BindingList<Administrador>(administradorRepository.ListarTodos()); // cria uma lista "observável, o grid atualiza automático (adicionar ou remover)
             administradorBindingSource.DataSource =
                 administradores; // vira o intermediário, permite filtro, navegação e refresh
             dgvDados.DataSource = administradorBindingSource; // liga o grid a fonte de dados
         }
 
         // Métodos
-        private void ConfigurarVisual()
+        private void IniciarConfiguracoesIniciais()
         {
             hiddenPage = tbpCadastro;
             tbcAdministradores.TabPages.Remove(hiddenPage);
             this.DoubleBuffered = true;
-            dgvDados.ReadOnly = true;
             dtpDataCadastro.CustomFormat = "dd/MM/yyyy HH:mm";
+
+            ConfigurarDataGrid();
         }
 
         private void ConfigurarDataGrid()
@@ -45,6 +43,15 @@ namespace MusicStationWinFormsApp.controls.usuarios
             typeof(DataGridView).InvokeMember("DoubleBuffered",
                 BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
                 null, dgvDados, new object[] { true });
+
+            dgvDados.ReadOnly = true;
+            dgvDados.AutoGenerateColumns = false;
+
+            // dgvDados.Columns.Add(new DataGridViewColumn
+            // {
+            //     DataPropertyName = "IdAdmin",
+            //     HeaderText = "Id"
+            // });
         }
 
         private void AlternarTela()
@@ -103,14 +110,14 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
         private void CarregarClienteSelecionado(Administrador administrador)
         {
-            txtId.Text = administrador.Id.ToString();
-            txtNomeCompleto.Text = administrador.NomeCompleto;
-            txtEmail.Text = administrador.Email;
-            txtNomeUsuario.Text = administrador.UsuarioNome;
-            txtSenha.Text = administrador.Senha;
-            dtpDataCadastro.Value = administrador.DataCadastro;
+            txtId.Text = administrador.IdAdmin.ToString();
+            txtNomeCompleto.Text = administrador.Usuario.Nome;
+            txtEmail.Text = administrador.Usuario.Nome;
+            txtNomeUsuario.Text = administrador.Usuario.UsuarioNome;
+            txtSenha.Text = administrador.Usuario.SenhaHash;
+            dtpDataCadastro.Value = administrador.Usuario.DataCadastro;
 
-            txtNivelAcesso.Text = administrador.NivelAcesso;
+            txtNivelAcesso.Text = administrador.NivelAcesso.ToString();
             txtObservacoes.Text = administrador.Observacoes;
         }
 
@@ -164,13 +171,13 @@ namespace MusicStationWinFormsApp.controls.usuarios
             if (int.TryParse(texto, out int id))
             {
                 filtrados = administradores
-                    .Where(c => c.Id == id)
+                    .Where(a => a.IdAdmin == id)
                     .ToList();
             }
             else
             {
                 filtrados = administradores
-                    .Where(c => c.NomeCompleto.ToLower().Contains(texto))
+                    .Where(a => a.Usuario.Nome.ToLower().Contains(texto))
                     .ToList();
             }
 
@@ -200,14 +207,14 @@ namespace MusicStationWinFormsApp.controls.usuarios
             {
                 Administrador administrador = new Administrador();
 
-                administrador.Id = administradores.Count > 0 ? administradores.Max(c => c.Id) + 1 : 1;
-                administrador.NomeCompleto = txtNomeCompleto.Text;
-                administrador.Email = txtEmail.Text;
-                administrador.UsuarioNome = txtNomeUsuario.Text;
-                administrador.Senha = txtSenha.Text;
-                administrador.DataCadastro = DateTime.Now;
+                administrador.IdAdmin = administradores.Count > 0 ? administradores.Max(a => a.IdAdmin) + 1 : 1;
+                administrador.Usuario.Nome = txtNomeCompleto.Text;
+                administrador.Usuario.Email = txtEmail.Text;
+                administrador.Usuario.UsuarioNome = txtNomeUsuario.Text;
+                administrador.Usuario.SenhaHash = txtSenha.Text;
+                administrador.Usuario.DataCadastro = DateTime.Now;
 
-                administrador.NivelAcesso = txtNivelAcesso.Text;
+                administrador.NivelAcesso = int.Parse(txtNivelAcesso.Text);
                 administrador.Observacoes = txtObservacoes.Text;
 
                 administradores.Add(administrador);
@@ -216,16 +223,16 @@ namespace MusicStationWinFormsApp.controls.usuarios
             {
                 int id = int.Parse(txtId.Text);
 
-                Administrador administrador = administradores.FirstOrDefault(c => c.Id == id);
+                Administrador? administrador = administradores.FirstOrDefault(a => a.IdAdmin == id);
 
                 if (administrador != null)
                 {
-                    administrador.NomeCompleto = txtNomeCompleto.Text;
-                    administrador.Email = txtEmail.Text;
-                    administrador.UsuarioNome = txtNomeUsuario.Text;
-                    administrador.Senha = txtSenha.Text;
+                    administrador.Usuario.Nome = txtNomeCompleto.Text;
+                    administrador.Usuario.Email = txtEmail.Text;
+                    administrador.Usuario.UsuarioNome = txtNomeUsuario.Text;
+                    administrador.Usuario.SenhaHash = txtSenha.Text;
 
-                    administrador.NivelAcesso = txtNivelAcesso.Text;
+                    administrador.NivelAcesso = int.Parse(txtNivelAcesso.Text);
                     administrador.Observacoes = txtObservacoes.Text;
                 }
 
