@@ -1,53 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="controls\dashboard\DashboardControl.cs">
+    <Compile Update="Controls\Dashboard\DashboardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\financeiro\FormaPagamentoControl.cs">
+    <Compile Update="Controls\Financeiro\FormaPagamentoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\financeiro\PagamentoControl.cs">
+    <Compile Update="Controls\Financeiro\PagamentoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\instrumentos\InstrumentoControl.cs">
+    <Compile Update="Controls\Instrumentos\InstrumentoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\operacao\LocacaoControl.cs">
+    <Compile Update="Controls\Operacao\LocacaoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\operacao\PedidoControl.cs">
+    <Compile Update="Controls\Operacao\PedidoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\servicos\CargoControl.cs">
+    <Compile Update="Controls\Servicos\CargoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\servicos\ServicoControl.cs">
+    <Compile Update="Controls\Servicos\ServicoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\usuarios\AdministradorControl.cs">
+    <Compile Update="Controls\Usuarios\AdministradorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\usuarios\ClienteControl.cs">
+    <Compile Update="Controls\Usuarios\ClienteControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\usuarios\EmpresaControl.cs">
+    <Compile Update="Controls\Usuarios\EmpresaControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\usuarios\ProfissionalControl.cs">
+    <Compile Update="Controls\Usuarios\ProfissionalControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\usuarios\UsuarioControl.cs">
+    <Compile Update="Controls\Perfil\PerfilControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="forms\PrincipalForm.cs">
+    <Compile Update="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="forms\PerfilDropdownForm.cs">
+    <Compile Update="Forms\PerfilDropdownForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="controls\perfil\PerfilControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Update="Forms\PrincipalForm.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 </Project>

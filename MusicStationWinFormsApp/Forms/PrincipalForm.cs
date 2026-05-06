@@ -6,11 +6,7 @@ using MusicStationWinFormsApp.controls.instrumentos;
 using MusicStationWinFormsApp.controls.operacao;
 using MusicStationWinFormsApp.controls.servicos;
 using MusicStationWinFormsApp.controls.usuarios;
-using MusicStationWinFormsApp.models;
 using MusicStationWinFormsApp.Properties;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace MusicStationWinFormsApp.forms
 {
@@ -52,12 +48,12 @@ namespace MusicStationWinFormsApp.forms
             pnlComunicacao.Visible = false;
 
             // RESETAR TODAS AS SETAS
-            btnUsuariosToggle.Image = Properties.Resources.seta_direita;
-            btnServicosToggle.Image = Properties.Resources.seta_direita;
-            btnOperacoesToggle.Image = Properties.Resources.seta_direita;
-            btnInstrumentosToggle.Image = Properties.Resources.seta_direita;
-            btnFinanceiroToggle.Image = Properties.Resources.seta_direita;
-            btnComunicacaoToggle.Image = Properties.Resources.seta_direita;
+            btnUsuariosToggle.Image = Resources.seta_direita;
+            btnServicosToggle.Image = Resources.seta_direita;
+            btnOperacoesToggle.Image = Resources.seta_direita;
+            btnInstrumentosToggle.Image = Resources.seta_direita;
+            btnFinanceiroToggle.Image = Resources.seta_direita;
+            btnComunicacaoToggle.Image = Resources.seta_direita;
         }
 
         private void ToggleMenu(Panel panel, Button button)
@@ -68,8 +64,8 @@ namespace MusicStationWinFormsApp.forms
 
             panel.Visible = abrir;
             button.Image = abrir
-                ? Properties.Resources.seta_baixo
-                : Properties.Resources.seta_direita;
+                ? Resources.seta_baixo
+                : Resources.seta_direita;
         }
 
         private void AbrirTela(Control tela)
@@ -102,14 +98,6 @@ namespace MusicStationWinFormsApp.forms
         private void btnUsuariosToggle_Click(object sender, EventArgs e)
         {
             ToggleMenu(pnlUsuarios, btnUsuariosToggle);
-        }
-
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            AbrirTela(new UsuarioControl());
-
-            lblTitulo.Text = "Gestão de Usuários";
-            HideSubMenu();
         }
 
         private void btnAdministradores_Click(object sender, EventArgs e)

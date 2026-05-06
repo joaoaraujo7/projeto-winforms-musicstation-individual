@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace MusicStationWinFormsApp.Models;
 
-namespace MusicStationWinFormsApp.models
+public partial class FormaPagamento
 {
-    public class FormaPagamento
-    {
-        public int Id { get; set; }
-        public String Tipo { get; set; }
-    }
+    public int IdFormaPagamento { get; set; }
+
+    public string Tipo { get; set; } = null!;
+
+    public virtual ICollection<Pagamento> Pagamentos { get; set; } = new List<Pagamento>();
 }

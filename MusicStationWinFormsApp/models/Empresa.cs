@@ -1,17 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MusicStationWinFormsApp.models
+namespace MusicStationWinFormsApp.Models;
+
+public partial class Empresa
 {
-    public class Empresa : Usuario
-    {
-        // NomeCompleto (herdado) será usado como o "Nome Fantasia"
-        public string RazaoSocial { get; set; }
-        public string Cnpj { get; set; }
-        public string Telefone { get; set; }
-        public string Descricao { get; set; }
-    }
+    public int IdEmpresa { get; set; }
+
+    public int UsuarioId { get; set; }
+
+    public string NomeFantasia { get; set; } = null!;
+
+    public string RazaoSocial { get; set; } = null!;
+
+    public string Cnpj { get; set; } = null!;
+
+    public string Email { get; set; } = null!;
+
+    public string Telefone { get; set; } = null!;
+
+    public string? Descricao { get; set; }
+
+    public virtual ICollection<Instrumento> Instrumentos { get; set; } = new List<Instrumento>();
+
+    public virtual Usuario Usuario { get; set; } = null!;
 }

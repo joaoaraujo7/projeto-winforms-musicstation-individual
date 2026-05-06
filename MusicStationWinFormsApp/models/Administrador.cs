@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace MusicStationWinFormsApp.Models;
 
-namespace MusicStationWinFormsApp.models
+public partial class Administrador
 {
-    public class Administrador : Usuario
-    {
-        public string NivelAcesso { get; set; }
-        public string Observacoes { get; set; }
-    }
+    public int IdAdmin { get; set; }
+
+    public int UsuarioId { get; set; }
+
+    public int NivelAcesso { get; set; }
+
+    public string? Observacoes { get; set; }
+
+    public virtual Usuario Usuario { get; set; } = null!;
 }

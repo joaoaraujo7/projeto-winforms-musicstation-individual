@@ -18,7 +18,7 @@ public partial class Locaco
 
     public string Status { get; set; } = null!;
 
-    public virtual Cliente Cliente { get; set; } = null!;
+    public virtual models.Cliente Cliente { get; set; } = null!;
 
     public virtual ICollection<LocacaoIten> LocacaoItens { get; set; } = new List<LocacaoIten>();
 }

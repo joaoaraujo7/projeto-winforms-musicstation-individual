@@ -46,7 +46,6 @@
             btnClientes = new Button();
             btnProfissionais = new Button();
             btnAdministradores = new Button();
-            btnUsuarios = new Button();
             btnUsuariosToggle = new Button();
             btnDashboard = new Button();
             pcoLogo = new PictureBox();
@@ -123,7 +122,7 @@
             pnlComunicacao.Controls.Add(btnChats);
             pnlComunicacao.Dock = DockStyle.Top;
             pnlComunicacao.ForeColor = Color.White;
-            pnlComunicacao.Location = new Point(0, 842);
+            pnlComunicacao.Location = new Point(0, 804);
             pnlComunicacao.Margin = new Padding(3, 3, 3, 8);
             pnlComunicacao.Name = "pnlComunicacao";
             pnlComunicacao.Size = new Size(222, 122);
@@ -194,7 +193,7 @@
             btnComunicacaoToggle.ForeColor = Color.Gainsboro;
             btnComunicacaoToggle.Image = Properties.Resources.seta_direita;
             btnComunicacaoToggle.ImageAlign = ContentAlignment.MiddleRight;
-            btnComunicacaoToggle.Location = new Point(0, 798);
+            btnComunicacaoToggle.Location = new Point(0, 760);
             btnComunicacaoToggle.Margin = new Padding(0, 8, 0, 0);
             btnComunicacaoToggle.Name = "btnComunicacaoToggle";
             btnComunicacaoToggle.Padding = new Padding(16, 0, 16, 0);
@@ -215,7 +214,7 @@
             pnlFinanceiro.Controls.Add(btnPagamentos);
             pnlFinanceiro.Dock = DockStyle.Top;
             pnlFinanceiro.ForeColor = Color.White;
-            pnlFinanceiro.Location = new Point(0, 676);
+            pnlFinanceiro.Location = new Point(0, 638);
             pnlFinanceiro.Margin = new Padding(3, 3, 3, 8);
             pnlFinanceiro.Name = "pnlFinanceiro";
             pnlFinanceiro.Size = new Size(222, 122);
@@ -286,7 +285,7 @@
             btnFinanceiroToggle.ForeColor = Color.Gainsboro;
             btnFinanceiroToggle.Image = Properties.Resources.seta_direita;
             btnFinanceiroToggle.ImageAlign = ContentAlignment.MiddleRight;
-            btnFinanceiroToggle.Location = new Point(0, 632);
+            btnFinanceiroToggle.Location = new Point(0, 594);
             btnFinanceiroToggle.Margin = new Padding(0, 8, 0, 0);
             btnFinanceiroToggle.Name = "btnFinanceiroToggle";
             btnFinanceiroToggle.Padding = new Padding(16, 0, 16, 0);
@@ -306,7 +305,7 @@
             pnlOperacoes.Controls.Add(btnPedidos);
             pnlOperacoes.Dock = DockStyle.Top;
             pnlOperacoes.ForeColor = Color.White;
-            pnlOperacoes.Location = new Point(0, 548);
+            pnlOperacoes.Location = new Point(0, 510);
             pnlOperacoes.Margin = new Padding(3, 3, 3, 8);
             pnlOperacoes.Name = "pnlOperacoes";
             pnlOperacoes.Size = new Size(222, 84);
@@ -359,7 +358,7 @@
             btnOperacoesToggle.ForeColor = Color.Gainsboro;
             btnOperacoesToggle.Image = Properties.Resources.seta_direita;
             btnOperacoesToggle.ImageAlign = ContentAlignment.MiddleRight;
-            btnOperacoesToggle.Location = new Point(0, 504);
+            btnOperacoesToggle.Location = new Point(0, 466);
             btnOperacoesToggle.Margin = new Padding(0, 8, 0, 0);
             btnOperacoesToggle.Name = "btnOperacoesToggle";
             btnOperacoesToggle.Padding = new Padding(16, 0, 16, 0);
@@ -378,7 +377,7 @@
             pnlInstrumentos.Controls.Add(btnInstrumentos);
             pnlInstrumentos.Dock = DockStyle.Top;
             pnlInstrumentos.ForeColor = Color.White;
-            pnlInstrumentos.Location = new Point(0, 458);
+            pnlInstrumentos.Location = new Point(0, 420);
             pnlInstrumentos.Margin = new Padding(3, 3, 3, 8);
             pnlInstrumentos.Name = "pnlInstrumentos";
             pnlInstrumentos.Size = new Size(222, 46);
@@ -413,7 +412,7 @@
             btnInstrumentosToggle.ForeColor = Color.Gainsboro;
             btnInstrumentosToggle.Image = Properties.Resources.seta_direita;
             btnInstrumentosToggle.ImageAlign = ContentAlignment.MiddleRight;
-            btnInstrumentosToggle.Location = new Point(0, 414);
+            btnInstrumentosToggle.Location = new Point(0, 376);
             btnInstrumentosToggle.Margin = new Padding(0, 8, 0, 0);
             btnInstrumentosToggle.Name = "btnInstrumentosToggle";
             btnInstrumentosToggle.Padding = new Padding(16, 0, 16, 0);
@@ -433,7 +432,7 @@
             pnlServicos.Controls.Add(btnServicos);
             pnlServicos.Dock = DockStyle.Top;
             pnlServicos.ForeColor = Color.White;
-            pnlServicos.Location = new Point(0, 330);
+            pnlServicos.Location = new Point(0, 292);
             pnlServicos.Margin = new Padding(3, 3, 3, 8);
             pnlServicos.Name = "pnlServicos";
             pnlServicos.Size = new Size(222, 84);
@@ -486,7 +485,7 @@
             btnServicosToggle.ForeColor = Color.Gainsboro;
             btnServicosToggle.Image = Properties.Resources.seta_direita;
             btnServicosToggle.ImageAlign = ContentAlignment.MiddleRight;
-            btnServicosToggle.Location = new Point(0, 286);
+            btnServicosToggle.Location = new Point(0, 248);
             btnServicosToggle.Margin = new Padding(0, 8, 0, 0);
             btnServicosToggle.Name = "btnServicosToggle";
             btnServicosToggle.Padding = new Padding(16, 0, 16, 0);
@@ -506,13 +505,12 @@
             pnlUsuarios.Controls.Add(btnClientes);
             pnlUsuarios.Controls.Add(btnProfissionais);
             pnlUsuarios.Controls.Add(btnAdministradores);
-            pnlUsuarios.Controls.Add(btnUsuarios);
             pnlUsuarios.Dock = DockStyle.Top;
             pnlUsuarios.ForeColor = Color.White;
             pnlUsuarios.Location = new Point(0, 88);
             pnlUsuarios.Margin = new Padding(3, 3, 3, 8);
             pnlUsuarios.Name = "pnlUsuarios";
-            pnlUsuarios.Size = new Size(222, 198);
+            pnlUsuarios.Size = new Size(222, 160);
             pnlUsuarios.TabIndex = 0;
             // 
             // btnEmpresas
@@ -523,7 +521,7 @@
             btnEmpresas.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnEmpresas.FlatStyle = FlatStyle.Flat;
             btnEmpresas.ForeColor = Color.Gainsboro;
-            btnEmpresas.Location = new Point(0, 152);
+            btnEmpresas.Location = new Point(0, 114);
             btnEmpresas.Name = "btnEmpresas";
             btnEmpresas.Padding = new Padding(28, 0, 16, 0);
             btnEmpresas.Size = new Size(222, 38);
@@ -541,7 +539,7 @@
             btnClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnClientes.FlatStyle = FlatStyle.Flat;
             btnClientes.ForeColor = Color.Gainsboro;
-            btnClientes.Location = new Point(0, 114);
+            btnClientes.Location = new Point(0, 76);
             btnClientes.Name = "btnClientes";
             btnClientes.Padding = new Padding(28, 0, 16, 0);
             btnClientes.Size = new Size(222, 38);
@@ -559,7 +557,7 @@
             btnProfissionais.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnProfissionais.FlatStyle = FlatStyle.Flat;
             btnProfissionais.ForeColor = Color.Gainsboro;
-            btnProfissionais.Location = new Point(0, 76);
+            btnProfissionais.Location = new Point(0, 38);
             btnProfissionais.Name = "btnProfissionais";
             btnProfissionais.Padding = new Padding(28, 0, 16, 0);
             btnProfissionais.Size = new Size(222, 38);
@@ -577,7 +575,7 @@
             btnAdministradores.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
             btnAdministradores.FlatStyle = FlatStyle.Flat;
             btnAdministradores.ForeColor = Color.Gainsboro;
-            btnAdministradores.Location = new Point(0, 38);
+            btnAdministradores.Location = new Point(0, 0);
             btnAdministradores.Name = "btnAdministradores";
             btnAdministradores.Padding = new Padding(28, 0, 16, 0);
             btnAdministradores.Size = new Size(222, 38);
@@ -586,24 +584,6 @@
             btnAdministradores.TextAlign = ContentAlignment.MiddleLeft;
             btnAdministradores.UseVisualStyleBackColor = true;
             btnAdministradores.Click += btnAdministradores_Click;
-            // 
-            // btnUsuarios
-            // 
-            btnUsuarios.Dock = DockStyle.Top;
-            btnUsuarios.FlatAppearance.BorderSize = 0;
-            btnUsuarios.FlatAppearance.MouseDownBackColor = Color.FromArgb(60, 25, 85);
-            btnUsuarios.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 33, 111);
-            btnUsuarios.FlatStyle = FlatStyle.Flat;
-            btnUsuarios.ForeColor = Color.Gainsboro;
-            btnUsuarios.Location = new Point(0, 0);
-            btnUsuarios.Name = "btnUsuarios";
-            btnUsuarios.Padding = new Padding(28, 0, 16, 0);
-            btnUsuarios.Size = new Size(222, 38);
-            btnUsuarios.TabIndex = 0;
-            btnUsuarios.Text = "Usuários";
-            btnUsuarios.TextAlign = ContentAlignment.MiddleLeft;
-            btnUsuarios.UseVisualStyleBackColor = true;
-            btnUsuarios.Click += btnUsuarios_Click;
             // 
             // btnUsuariosToggle
             // 
@@ -760,7 +740,6 @@
         private Panel pnlConteudo;
         private Panel pnlMenuLateral;
         private Button btnUsuariosToggle;
-        private Button btnUsuarios;
         private Button btnDashboard;
         private Panel pnlLogo;
         private PictureBox pcoLogo;

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using MusicStationWinFormsApp.models;
 
 namespace MusicStationWinFormsApp.Models;
 
-public partial class LocacaoIten
+public partial class LocacaoItem
 {
     public int IdItem { get; set; }
 
@@ -20,5 +19,5 @@ public partial class LocacaoIten
 
     public virtual Instrumento Instrumento { get; set; } = null!;
 
-    public virtual Locaco Locacao { get; set; } = null!;
+    public virtual Locacao Locacao { get; set; } = null!;
 }

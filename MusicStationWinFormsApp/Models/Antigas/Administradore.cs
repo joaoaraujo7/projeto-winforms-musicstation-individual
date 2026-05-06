@@ -14,5 +14,5 @@ public partial class Administradore
 
     public string? Observacoes { get; set; }
 
-    public virtual Usuario Usuario { get; set; } = null!;
+    public virtual models.Usuario Usuario { get; set; } = null!;
 }

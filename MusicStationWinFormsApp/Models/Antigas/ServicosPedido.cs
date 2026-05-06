@@ -18,9 +18,9 @@ public partial class ServicosPedido
 
     public virtual Avaliaco? Avaliaco { get; set; }
 
-    public virtual Pedido Pedido { get; set; } = null!;
+    public virtual models.Pedido Pedido { get; set; } = null!;
 
     public virtual Profissionai Profissional { get; set; } = null!;
 
-    public virtual Servico Servico { get; set; } = null!;
+    public virtual models.Servico Servico { get; set; } = null!;
 }

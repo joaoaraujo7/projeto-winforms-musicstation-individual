@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MusicStationWinFormsApp.models
+namespace MusicStationWinFormsApp.Models;
+
+public partial class Cargo
 {
-    public class Cargo
-    {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
-    }
+    public int IdCargo { get; set; }
+
+    public string Nome { get; set; } = null!;
+
+    public string Descricao { get; set; } = null!;
+
+    public virtual ICollection<Profissional> Profissional { get; set; } = new List<Profissional>();
 }

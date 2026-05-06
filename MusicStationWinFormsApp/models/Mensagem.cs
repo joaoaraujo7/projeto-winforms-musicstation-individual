@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MusicStationWinFormsApp.models
+namespace MusicStationWinFormsApp.Models;
+
+public partial class Mensagem
 {
-    public class Mensagem
-    {
-        public int Id { get; set; }
-        public string Conteudo { get; set; }
-        public DateTime DataEnvio { get; set; }
-        public short Lida { get; set; } 
-        public Usuario Remetente { get; set; }
-    }
+    public int IdMensagem { get; set; }
+
+    public int ChatId { get; set; }
+
+    public int RemetenteId { get; set; }
+
+    public string Conteudo { get; set; } = null!;
+
+    public DateTime DataEnvio { get; set; }
+
+    public bool Lida { get; set; }
+
+    public virtual Chat Chat { get; set; } = null!;
+
+    public virtual Usuario Remetente { get; set; } = null!;
 }

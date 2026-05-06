@@ -1,20 +1,26 @@
-﻿using MusicStationWinFormsApp.models.enuns;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MusicStationWinFormsApp.Models.antigas;
 
-namespace MusicStationWinFormsApp.models
+namespace MusicStationWinFormsApp.Models;
+
+public partial class Pagamento
 {
-    public class Pagamento
-    {
-        public int Id { get; set; }
-        public Decimal ValorPago { get; set; }
-        public StatusPagamento StatusPagamento { get; set; }
-        public DateTime DataPagamento { get; set; }
+    public int IdPagamento { get; set; }
 
-        public Pedido Pedido { get; set; }
-        public FormaPagamento FormaPagamento { get; set; }
-    }
+    public int PedidoId { get; set; }
+
+    public int FormaPagamentoId { get; set; }
+
+    public DateTime DataPagamento { get; set; }
+
+    public decimal ValorPago { get; set; }
+
+    public string Status { get; set; } = null!;
+
+    public virtual FormaPagamento FormaPagamento { get; set; } = null!;
+
+    public virtual Pedido Pedido { get; set; } = null!;
+
+    public virtual TransacaoPagamento? TransacoesPagamento { get; set; }
 }

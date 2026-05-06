@@ -1,24 +1,23 @@
-﻿using MusicStationWinFormsApp.models.enuns;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MusicStationWinFormsApp.models
+namespace MusicStationWinFormsApp.Models;
+
+public partial class Locacao
 {
-    public class Locacao
-    {
-        public int Id { get; set; }
-        public DateTime DataInicio { get; set; }
-        public DateTime DataDevolucao { get; set; }
-        public StatusPedido StatusPedido { get; set; }
-        public Cliente Cliente { get; set; }
+    public int IdLocacao { get; set; }
 
-        public List<ItemLocacao> ItensLocacao { get; set; } = new List<ItemLocacao>();
+    public int ClienteId { get; set; }
 
-        public Decimal Total => ItensLocacao?.Sum(i => i.Subtotal) ?? 0;
+    public DateTime DataInicio { get; set; }
 
-        public string ClienteNome => Cliente.NomeCompleto;
-    }
+    public DateTime DataFim { get; set; }
+
+    public decimal ValorTotal { get; set; }
+
+    public string Status { get; set; } = null!;
+
+    public virtual Cliente Cliente { get; set; } = null!;
+
+    public virtual ICollection<LocacaoItem> LocacaoItens { get; set; } = new List<LocacaoItem>();
 }

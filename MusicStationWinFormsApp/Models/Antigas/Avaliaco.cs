@@ -16,7 +16,7 @@ public partial class Avaliaco
 
     public DateTime DataAvaliacao { get; set; }
 
-    public virtual Cliente Cliente { get; set; } = null!;
+    public virtual models.Cliente Cliente { get; set; } = null!;
 
     public virtual ServicosPedido ServicoPedido { get; set; } = null!;
 }

@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MusicStationWinFormsApp.models
+namespace MusicStationWinFormsApp.Models;
+
+public partial class Profissional
 {
-    public class Profissional : Usuario
-    {
-        public string Telefone { get; set; }
-        public List<Cargo> Cargos { get; set; } = new List<Cargo>();
+    public int IdProfissional { get; set; }
 
-        public string CargosDescricao
-        {
-            get
-            {
-                return string.Join(", ", Cargos.Select(c => c.Nome));
-            }
-        }
-    }
+    public int UsuarioId { get; set; }
+
+    public string Telefone { get; set; } = null!;
+
+    public virtual ICollection<ServicoPedido> ServicosPedidos { get; set; } = new List<ServicoPedido>();
+
+    public virtual Usuario Usuario { get; set; } = null!;
+
+    public virtual ICollection<Cargo> Cargo { get; set; } = new List<Cargo>();
 }

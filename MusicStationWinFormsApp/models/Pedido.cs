@@ -1,23 +1,23 @@
-﻿using MusicStationWinFormsApp.models.enuns;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MusicStationWinFormsApp.models
+namespace MusicStationWinFormsApp.Models;
+
+public partial class Pedido
 {
-    public class Pedido
-    {
-        public int Id { get; set; }
-        public DateTime DataPedido { get; set; }
-        public StatusPedido Status { get; set; }
-        public Cliente Cliente { get; set; }
-        public List<ItemPedido> ItensPedido { get; set; } = new List<ItemPedido>();
+    public int IdPedido { get; set; }
 
-        public Decimal Total => ItensPedido?.Sum(i => i.ValorServico) ?? 0;
+    public int ClienteId { get; set; }
 
-        public string ClienteNome => Cliente.NomeCompleto;
+    public DateTime DataPedido { get; set; }
 
-    }
+    public decimal Total { get; set; }
+
+    public string Status { get; set; } = null!;
+
+    public virtual Cliente Cliente { get; set; } = null!;
+
+    public virtual ICollection<Pagamento> Pagamentos { get; set; } = new List<Pagamento>();
+
+    public virtual ICollection<ServicoPedido> ServicosPedidos { get; set; } = new List<ServicoPedido>();
 }

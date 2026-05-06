@@ -1,18 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MusicStationWinFormsApp.models
+namespace MusicStationWinFormsApp.Models;
+
+public partial class Usuario
 {
-    public class Usuario
-    {
-        public int Id { get; set; }
-        public string NomeCompleto { get; set; }
-        public string Email { get; set; }
-        public string UsuarioNome { get; set; }
-        public string Senha { get; set; }
-        public DateTime DataCadastro { get; set; }
-    }
+    public int IdUsuario { get; set; }
+
+    public string Nome { get; set; } = null!;
+
+    public string Email { get; set; } = null!;
+
+    public string UsuarioNome { get; set; } = null!;
+
+    public string SenhaHash { get; set; } = null!;
+
+    public DateTime DataCadastro { get; set; }
+
+    public virtual Administrador? Administradores { get; set; }
+
+    public virtual ICollection<Chat> ChatsUsuario1 { get; set; } = new List<Chat>();
+
+    public virtual ICollection<Chat> ChatsUsuario2 { get; set; } = new List<Chat>();
+
+    public virtual Cliente? Clientes { get; set; }
+
+    public virtual Empresa? Empresas { get; set; }
+
+    public virtual ICollection<Mensagem> Mensagens { get; set; } = new List<Mensagem>();
+
+    public virtual ICollection<Notificacao> Notificacoes { get; set; } = new List<Notificacao>();
+
+    public virtual Profissional? Profissionais { get; set; }
 }

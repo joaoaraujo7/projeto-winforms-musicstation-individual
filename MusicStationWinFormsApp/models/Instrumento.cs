@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MusicStationWinFormsApp.models
+namespace MusicStationWinFormsApp.Models;
+
+public partial class Instrumento
 {
-    public class Instrumento
-    {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
-        public decimal PrecoLocacao { get; set; }
-        public int Disponivel { get; set; }
+    public int IdInstrumento { get; set; }
 
-        public Empresa Empresa { get; set; } = new Empresa();
-        public string EmpresaNome => Empresa?.NomeCompleto;
+    public int EmpresaId { get; set; }
 
-        public string DisponivelTexto => Disponivel == 1 ? "Sim" : "Não";
-    }
+    public string Nome { get; set; } = null!;
+
+    public string Descricao { get; set; } = null!;
+
+    public decimal PrecoLocacao { get; set; }
+
+    public bool Disponivel { get; set; }
+
+    public virtual Empresa Empresa { get; set; } = null!;
+
+    public virtual ICollection<LocacaoItem> LocacaoItens { get; set; } = new List<LocacaoItem>();
 }

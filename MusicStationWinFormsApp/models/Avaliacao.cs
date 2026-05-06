@@ -1,18 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MusicStationWinFormsApp.models
+namespace MusicStationWinFormsApp.Models;
+
+public partial class Avaliacao
 {
-    public class Avaliacao
-    {
-        public int Id { get; set; }
-        public int Nota {  get; set; }
-        public string Comentario { get; set; }
-        public DateTime DataAvaliacao { get; set; }
-        public Cliente Cliente {  get; set; }
-        public ItemPedido ItemPedido { get; set; }
-    }
+    public int IdAvaliacao { get; set; }
+
+    public int ServicoPedidoId { get; set; }
+
+    public int ClienteId { get; set; }
+
+    public int Nota { get; set; }
+
+    public string? Comentario { get; set; }
+
+    public DateTime DataAvaliacao { get; set; }
+
+    public virtual Cliente Cliente { get; set; } = null!;
+
+    public virtual ServicoPedido ServicoPedido { get; set; } = null!;
 }

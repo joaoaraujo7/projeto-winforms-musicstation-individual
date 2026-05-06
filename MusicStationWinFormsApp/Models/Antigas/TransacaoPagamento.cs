@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using MusicStationWinFormsApp.models;
+﻿namespace MusicStationWinFormsApp.Models.antigas;
 
-namespace MusicStationWinFormsApp.Models;
-
-public partial class TransacoesPagamento
+public partial class TransacaoPagamento
 {
     public int IdTransacao { get; set; }
 
@@ -16,5 +12,5 @@ public partial class TransacoesPagamento
 
     public DateTime DataTransacao { get; set; }
 
-    public virtual Pagamento Pagamento { get; set; } = null!;
+    public virtual models.Pagamento Pagamento { get; set; } = null!;
 }

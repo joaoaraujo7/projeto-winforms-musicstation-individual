@@ -9,24 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="forms\UsuarioForm.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Resources\flecha.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="controls\comunicacao\NotificacaoControl.cs">
+    <Compile Update="Controls\Comunicacao\NotificacaoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\comunicacao\ChatControl.cs">
+    <Compile Update="Controls\Comunicacao\ChatControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\comunicacao\AvaliacaoControl.cs">
+    <Compile Update="Controls\Comunicacao\AvaliacaoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\financeiro\TransacaoControl.cs">
+    <Compile Update="Controls\Financeiro\TransacaoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="forms\LoginForm.cs">
@@ -57,10 +53,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

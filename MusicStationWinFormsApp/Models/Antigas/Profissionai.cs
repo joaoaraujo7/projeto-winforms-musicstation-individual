@@ -14,7 +14,7 @@ public partial class Profissionai
 
     public virtual ICollection<ServicosPedido> ServicosPedidos { get; set; } = new List<ServicosPedido>();
 
-    public virtual Usuario Usuario { get; set; } = null!;
+    public virtual models.Usuario Usuario { get; set; } = null!;
 
-    public virtual ICollection<Cargo> Cargos { get; set; } = new List<Cargo>();
+    public virtual ICollection<models.Cargo> Cargos { get; set; } = new List<models.Cargo>();
 }

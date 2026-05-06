@@ -1,71 +1,69 @@
-﻿using MusicStationWinFormsApp.models;
-using MusicStationWinFormsApp.Properties;
+﻿using System.ComponentModel;
+using System.Reflection;
+using MusicStationWinFormsApp.models;
 using MusicStationWinFormsApp.repository;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MusicStationWinFormsApp.controls.usuarios
 {
-    public partial class UsuarioControl : UserControl
+    public partial class AdministradorControl : UserControl
     {
         // Campos
-        private UsuarioRepository usuarioRepository;
-        private BindingList<Usuario> usuarios;
-        private TabPage hiddenPage; // guia escondida
+        private AdministradorRepository administradorRepository;
+        private BindingList<Administrador> administradores;
+        private TabPage? hiddenPage; // guia escondida
 
         // Construtores
-        public UsuarioControl()
+        public AdministradorControl()
         {
             InitializeComponent();
             ConfigurarVisual();
-
-            // Força o DoubleBuffered na Grid(via Reflection) - evita piscadas na tela
-            typeof(DataGridView).InvokeMember("DoubleBuffered",
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
-                null, dgvDados, new object[] { true });
+            ConfigurarDataGrid();
 
             // Somente para testes
-            usuarioRepository = new UsuarioRepository();
-            usuarios = new BindingList<Usuario>(usuarioRepository.ListarTodos()); // cria uma lista "observável, o grid atualiza automático (adicionar ou remover)
-            usuarioBindingSource.DataSource = usuarios; // vira o intermediário, permite filtro, navegação e refresh
-            dgvDados.DataSource = usuarioBindingSource; // liga o grid a fonte de dados
+            administradorRepository = new AdministradorRepository();
+            administradores =
+                new BindingList<Administrador>(administradorRepository
+                    .ListarTodos()); // cria uma lista "observável, o grid atualiza automático (adicionar ou remover)
+            administradorBindingSource.DataSource =
+                administradores; // vira o intermediário, permite filtro, navegação e refresh
+            dgvDados.DataSource = administradorBindingSource; // liga o grid a fonte de dados
         }
 
         // Métodos
         private void ConfigurarVisual()
         {
             hiddenPage = tbpCadastro;
-            tbcUsuarios.TabPages.Remove(hiddenPage);
+            tbcAdministradores.TabPages.Remove(hiddenPage);
             this.DoubleBuffered = true;
             dgvDados.ReadOnly = true;
             dtpDataCadastro.CustomFormat = "dd/MM/yyyy HH:mm";
+        }
+
+        private void ConfigurarDataGrid()
+        {
+            // Força o DoubleBuffered na Grid (via Reflection)
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+                BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+                null, dgvDados, new object[] { true });
         }
 
         private void AlternarTela()
         {
             TabPage tempPage = hiddenPage;
 
-            if (tbcUsuarios.SelectedTab == tbpListagem)
+            if (tbcAdministradores.SelectedTab == tbpListagem)
             {
-                tbcUsuarios.SelectedTab = tbpCadastro;
+                tbcAdministradores.SelectedTab = tbpCadastro;
                 hiddenPage = tbpListagem;
-                tbcUsuarios.TabPages.Remove(hiddenPage);
-                tbcUsuarios.TabPages.Add(tempPage);
-
+                tbcAdministradores.TabPages.Remove(hiddenPage);
+                tbcAdministradores.TabPages.Add(tempPage);
             }
-            else if (tbcUsuarios.SelectedTab == tbpCadastro)
+            else if (tbcAdministradores.SelectedTab == tbpCadastro)
             {
-                tbcUsuarios.SelectedTab = tbpListagem;
+                tbcAdministradores.SelectedTab = tbpListagem;
                 hiddenPage = tbpCadastro;
-                tbcUsuarios.TabPages.Remove(tbpCadastro);
-                tbcUsuarios.TabPages.Add(tempPage);
+                tbcAdministradores.TabPages.Remove(tbpCadastro);
+                tbcAdministradores.TabPages.Add(tempPage);
             }
         }
 
@@ -76,7 +74,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
             dtpDataCadastro.Visible = false;
             lblDataCadastro.Visible = false;
 
-            tbpCadastro.Text = "Novo Usuário";
+            tbpCadastro.Text = "Novo Administrador";
         }
 
         private void ModoEdicao()
@@ -89,7 +87,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
             txtId.Enabled = false;
             dtpDataCadastro.Enabled = false;
 
-            tbpCadastro.Text = "Editar Usuário";
+            tbpCadastro.Text = "Editar Administrador";
         }
 
         private void LimparCampos()
@@ -99,16 +97,21 @@ namespace MusicStationWinFormsApp.controls.usuarios
             txtEmail.Clear();
             txtNomeUsuario.Clear();
             txtSenha.Clear();
+            txtNivelAcesso.Clear();
+            txtObservacoes.Clear();
         }
 
-        private void CarregarUsuarioSelecionado(Usuario usuario)
+        private void CarregarClienteSelecionado(Administrador administrador)
         {
-            txtId.Text = usuario.Id.ToString();
-            txtNomeCompleto.Text = usuario.NomeCompleto;
-            txtEmail.Text = usuario.Email;
-            txtNomeUsuario.Text = usuario.UsuarioNome;
-            txtSenha.Text = usuario.Senha;
-            dtpDataCadastro.Value = usuario.DataCadastro;
+            txtId.Text = administrador.Id.ToString();
+            txtNomeCompleto.Text = administrador.NomeCompleto;
+            txtEmail.Text = administrador.Email;
+            txtNomeUsuario.Text = administrador.UsuarioNome;
+            txtSenha.Text = administrador.Senha;
+            dtpDataCadastro.Value = administrador.DataCadastro;
+
+            txtNivelAcesso.Text = administrador.NivelAcesso;
+            txtObservacoes.Text = administrador.Observacoes;
         }
 
         private bool ValidarCampos()
@@ -136,6 +139,13 @@ namespace MusicStationWinFormsApp.controls.usuarios
                 MessageBox.Show("Senha obrigatória");
                 return false;
             }
+
+            if (String.IsNullOrWhiteSpace(txtNivelAcesso.Text))
+            {
+                MessageBox.Show("Nível de acesso obrigatório");
+                return false;
+            }
+
             return true;
         }
 
@@ -143,30 +153,28 @@ namespace MusicStationWinFormsApp.controls.usuarios
         {
             string texto = txtPesquisa.Text.Trim().ToLower();
 
-            // Se estiver vazio → volta lista original
             if (string.IsNullOrWhiteSpace(texto))
             {
-                usuarioBindingSource.DataSource = usuarios;
+                administradorBindingSource.DataSource = administradores;
                 return;
             }
 
-            List<Usuario> filtrados;
+            List<Administrador> filtrados;
 
-            // Busca por ID
             if (int.TryParse(texto, out int id))
             {
-                filtrados = usuarios
-                    .Where(u => u.Id == id)
+                filtrados = administradores
+                    .Where(c => c.Id == id)
                     .ToList();
             }
             else
             {
-                filtrados = usuarios
-                    .Where(u => u.NomeCompleto.ToLower().Contains(texto))
+                filtrados = administradores
+                    .Where(c => c.NomeCompleto.ToLower().Contains(texto))
                     .ToList();
             }
-            // Atualiza o grid com resultado filtrado
-            usuarioBindingSource.DataSource = new BindingList<Usuario>(filtrados);
+
+            administradorBindingSource.DataSource = new BindingList<Administrador>(filtrados);
         }
 
         // Eventos
@@ -187,37 +195,47 @@ namespace MusicStationWinFormsApp.controls.usuarios
         {
             if (!ValidarCampos()) return;
 
-            // Adicionar
+            // ADICIONAR
             if (String.IsNullOrEmpty(txtId.Text))
             {
-                Usuario usuario = new Usuario();
-                usuario.Id = usuarios.Count > 0 ? usuarios.Max(u => u.Id) + 1 : 1;
-                usuario.NomeCompleto = txtNomeCompleto.Text;
-                usuario.Email = txtEmail.Text;
-                usuario.UsuarioNome = txtNomeUsuario.Text;
-                usuario.Senha = txtSenha.Text;
-                usuario.DataCadastro = DateTime.Now;
+                Administrador administrador = new Administrador();
 
-                usuarios.Add(usuario);
+                administrador.Id = administradores.Count > 0 ? administradores.Max(c => c.Id) + 1 : 1;
+                administrador.NomeCompleto = txtNomeCompleto.Text;
+                administrador.Email = txtEmail.Text;
+                administrador.UsuarioNome = txtNomeUsuario.Text;
+                administrador.Senha = txtSenha.Text;
+                administrador.DataCadastro = DateTime.Now;
+
+                administrador.NivelAcesso = txtNivelAcesso.Text;
+                administrador.Observacoes = txtObservacoes.Text;
+
+                administradores.Add(administrador);
             }
-            // Edição
-            else
+            else // EDIÇÃO
             {
                 int id = int.Parse(txtId.Text);
-                Usuario usuario = usuarios.FirstOrDefault(u => u.Id == id);
 
-                if (usuario != null)
+                Administrador administrador = administradores.FirstOrDefault(c => c.Id == id);
+
+                if (administrador != null)
                 {
-                    usuario.NomeCompleto = txtNomeCompleto.Text;
-                    usuario.Email = txtEmail.Text;
-                    usuario.UsuarioNome = txtNomeUsuario.Text;
-                    usuario.Senha = txtSenha.Text;
+                    administrador.NomeCompleto = txtNomeCompleto.Text;
+                    administrador.Email = txtEmail.Text;
+                    administrador.UsuarioNome = txtNomeUsuario.Text;
+                    administrador.Senha = txtSenha.Text;
+
+                    administrador.NivelAcesso = txtNivelAcesso.Text;
+                    administrador.Observacoes = txtObservacoes.Text;
                 }
+
                 dgvDados.Refresh();
             }
+
             AlternarTela();
             LimparCampos();
-            MessageBox.Show("Usuário salvo com sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            MessageBox.Show("Administrador salvo com sucesso!");
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -226,17 +244,21 @@ namespace MusicStationWinFormsApp.controls.usuarios
         }
 
         #region dgvConfigs
+
         private void dgvDados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0) return; // verifica se o clique foi em uma linha / coluna válida e não no cabeçalho
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return; // verifica se o clique foi em uma linha / coluna válida e não no cabeçalho
 
             string nomeColuna = dgvDados.Columns[e.ColumnIndex].Name;
             // Configuração do botão de edição
             if (nomeColuna == "imgEditar")
             {
-                if (dgvDados.Rows[e.RowIndex].DataBoundItem is Usuario usuarioSelecionado) // verifica se a linha selecionada é um usuário
+                if (dgvDados.Rows[e.RowIndex]
+                        .DataBoundItem is Administrador
+                    clienteSelecionado) // verifica se a linha selecionada é um usuário
                 {
-                    CarregarUsuarioSelecionado(usuarioSelecionado); // Preenche os Text Box do usuário
+                    CarregarClienteSelecionado(clienteSelecionado); // Preenche os Text Box do usuário
                 }
 
                 ModoEdicao();
@@ -245,14 +267,15 @@ namespace MusicStationWinFormsApp.controls.usuarios
             // Configuração do botão de exclusão
             else if (nomeColuna == "imgExcluir")
             {
-                if (dgvDados.Rows[e.RowIndex].DataBoundItem is Usuario usuarioSelecionado)
+                if (dgvDados.Rows[e.RowIndex].DataBoundItem is Administrador clienteSelecionado)
                 {
-                    DialogResult result = MessageBox.Show("Deseja realmente excluir este registro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult result = MessageBox.Show("Deseja realmente excluir este registro?", "Confirmação",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                     if (result == DialogResult.Yes)
                     {
                         // Exclui do banco
-                        usuarios.Remove(usuarioSelecionado);
+                        administradores.Remove(clienteSelecionado);
                     }
                 }
             }
@@ -274,6 +297,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
                 dgvDados.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(40, 36, 34);
             }
         }
+
         #endregion
 
         private void txtPesquisa_KeyDown(object sender, KeyEventArgs e)
@@ -292,7 +316,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
         {
             if (string.IsNullOrWhiteSpace(txtPesquisa.Text))
             {
-                usuarioBindingSource.DataSource = usuarios;
+                administradorBindingSource.DataSource = administradores;
             }
         }
     }
