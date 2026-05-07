@@ -2,6 +2,7 @@
 using System.Reflection;
 using MusicStationWinFormsApp.Models;
 using MusicStationWinFormsApp.repository;
+using MusicStationWinFormsApp.ViewModel;
 
 namespace MusicStationWinFormsApp.controls.usuarios
 {
@@ -9,7 +10,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
     {
         // Campos
         private AdministradorRepository administradorRepository;
-        private BindingList<Administrador> administradores;
+        private BindingList<AdministradorGridViewModel> administradores;
         private TabPage? hiddenPage; // guia escondida
 
         // Construtores
@@ -20,9 +21,8 @@ namespace MusicStationWinFormsApp.controls.usuarios
             
             // Somente para testes
             administradorRepository = new AdministradorRepository();
-            administradores = new BindingList<Administrador>(administradorRepository.ListarTodos()); // cria uma lista "observável, o grid atualiza automático (adicionar ou remover)
-            administradorBindingSource.DataSource =
-                administradores; // vira o intermediário, permite filtro, navegação e refresh
+            administradores = new BindingList<AdministradorGridViewModel>(administradorRepository.ObterTodos()); // cria uma lista "observável, o grid atualiza automático (adicionar ou remover)
+            administradorBindingSource.DataSource = administradores; // vira o intermediário, permite filtro, navegação e refresh
             dgvDados.DataSource = administradorBindingSource; // liga o grid a fonte de dados
         }
 
@@ -74,6 +74,12 @@ namespace MusicStationWinFormsApp.controls.usuarios
             }
         }
 
+        private void AtualizarGrid()
+        {
+            administradores = administradorRepository.ObterTodos();
+            administradores
+        }
+
         private void ModoCadastro()
         {
             txtId.Visible = false;
@@ -108,14 +114,14 @@ namespace MusicStationWinFormsApp.controls.usuarios
             txtObservacoes.Clear();
         }
 
-        private void CarregarClienteSelecionado(Administrador administrador)
+        private void CarregarAdministradorSelecionado(AdministradorGridViewModel administrador)
         {
             txtId.Text = administrador.IdAdmin.ToString();
-            txtNomeCompleto.Text = administrador.Usuario.Nome;
-            txtEmail.Text = administrador.Usuario.Nome;
-            txtNomeUsuario.Text = administrador.Usuario.UsuarioNome;
-            txtSenha.Text = administrador.Usuario.SenhaHash;
-            dtpDataCadastro.Value = administrador.Usuario.DataCadastro;
+            txtNomeCompleto.Text = administrador.Nome;
+            txtEmail.Text = administrador.Email;
+            txtNomeUsuario.Text = administrador.UsuarioNome;
+            txtSenha.Text = "$(@*##(@*!$@";
+            dtpDataCadastro.Value = administrador.DataCadastro;
 
             txtNivelAcesso.Text = administrador.NivelAcesso.ToString();
             txtObservacoes.Text = administrador.Observacoes;
@@ -166,7 +172,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
                 return;
             }
 
-            List<Administrador> filtrados;
+            List<AdministradorGridViewModel> filtrados;
 
             if (int.TryParse(texto, out int id))
             {
@@ -177,11 +183,11 @@ namespace MusicStationWinFormsApp.controls.usuarios
             else
             {
                 filtrados = administradores
-                    .Where(a => a.Usuario.Nome.ToLower().Contains(texto))
+                    .Where(a => a.UsuarioNome.ToLower().Contains(texto))
                     .ToList();
             }
 
-            administradorBindingSource.DataSource = new BindingList<Administrador>(filtrados);
+            administradorBindingSource.DataSource = new BindingList<AdministradorGridViewModel>(filtrados);
         }
 
         // Eventos
@@ -205,19 +211,22 @@ namespace MusicStationWinFormsApp.controls.usuarios
             // ADICIONAR
             if (String.IsNullOrEmpty(txtId.Text))
             {
-                Administrador administrador = new Administrador();
+                Administrador administrador = new Administrador { 
+                    Usuario = new Usuario
+                    {
+                        Nome = txtNomeCompleto.Text,
+                        Email = txtEmail.Text,
+                        UsuarioNome = txtNomeUsuario.Text,
+                        SenhaHash = txtSenha.Text,
+                        DataCadastro = DateTime.Now
+                    },
 
-                administrador.IdAdmin = administradores.Count > 0 ? administradores.Max(a => a.IdAdmin) + 1 : 1;
-                administrador.Usuario.Nome = txtNomeCompleto.Text;
-                administrador.Usuario.Email = txtEmail.Text;
-                administrador.Usuario.UsuarioNome = txtNomeUsuario.Text;
-                administrador.Usuario.SenhaHash = txtSenha.Text;
-                administrador.Usuario.DataCadastro = DateTime.Now;
+                    NivelAcesso = int.Parse(txtNivelAcesso.Text),
+                    Observacoes = txtObservacoes.Text
+                };
 
-                administrador.NivelAcesso = int.Parse(txtNivelAcesso.Text);
-                administrador.Observacoes = txtObservacoes.Text;
-
-                administradores.Add(administrador);
+                // Adidcionar método de create admin
+                administradorRepository.Adicionar(administrador);
             }
             else // EDIÇÃO
             {
@@ -262,10 +271,10 @@ namespace MusicStationWinFormsApp.controls.usuarios
             if (nomeColuna == "imgEditar")
             {
                 if (dgvDados.Rows[e.RowIndex]
-                        .DataBoundItem is Administrador
-                    clienteSelecionado) // verifica se a linha selecionada é um usuário
+                        .DataBoundItem is AdministradorGridViewModel
+                    administradorSelecionado) // verifica se a linha selecionada é um usuário
                 {
-                    CarregarClienteSelecionado(clienteSelecionado); // Preenche os Text Box do usuário
+                    CarregarAdministradorSelecionado(administradorSelecionado); // Preenche os Text Box do usuário
                 }
 
                 ModoEdicao();
@@ -274,7 +283,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
             // Configuração do botão de exclusão
             else if (nomeColuna == "imgExcluir")
             {
-                if (dgvDados.Rows[e.RowIndex].DataBoundItem is Administrador clienteSelecionado)
+                if (dgvDados.Rows[e.RowIndex].DataBoundItem is AdministradorGridViewModel administradorSelecionado)
                 {
                     DialogResult result = MessageBox.Show("Deseja realmente excluir este registro?", "Confirmação",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -282,7 +291,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
                     if (result == DialogResult.Yes)
                     {
                         // Exclui do banco
-                        administradores.Remove(clienteSelecionado);
+                        administradores.Remove(administradorSelecionado);
                     }
                 }
             }
