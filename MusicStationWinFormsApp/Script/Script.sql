@@ -350,3 +350,69 @@ INSERT INTO Mensagens (ChatId, RemetenteId, Conteudo, DataEnvio, Lida) VALUES
 (1, 9, 'Claro, posso agendar para amanha.', '2025-11-10 08:06', 1),
 (2, 3, 'Quando posso ter aula de violao?', '2025-11-08 09:31', 0),
 (3, 10, 'A manutencao ficou pronta!', '2025-11-01 12:10', 1);
+
+-- ********************************************
+-- SELETS PARA TODAS AS TABELAS
+-- ********************************************
+
+Use MusicStationDb;
+
+-- 1. TABELA USUARIOS
+SELECT * FROM Usuarios;
+
+-- 2. TABELA CLIENTES
+SELECT * FROM Clientes;
+
+-- 3. TABELA ADMINISTRADORES
+SELECT * FROM Administradores;
+
+-- 4. TABELA PROFISSIONAIS
+SELECT * FROM Profissionais;
+
+-- 5. TABELA FORMAS_PAGAMENTO
+SELECT * FROM Formas_Pagamento;
+
+-- 6. TABELA CARGOS
+SELECT * FROM Cargos;
+
+-- 7. TABELA SERVICOS
+SELECT * FROM Servicos;
+
+-- 8. TABELA PEDIDOS
+SELECT * FROM Pedidos;
+
+-- 9. TABELA CHATS
+SELECT * FROM Chats;
+
+-- 10. TABELA NOTIFICACOES
+SELECT * FROM Notificacoes;
+
+-- 11. TABELA SERVICOS_PEDIDOS
+SELECT * FROM Servicos_Pedidos;
+
+-- 12. TABELA AVALIACOES
+SELECT * FROM Avaliacoes;
+
+-- 13. TABELA EMPRESAS
+SELECT * FROM Empresas;
+
+-- 14. TABELA INSTRUMENTOS
+SELECT * FROM Instrumentos;
+
+-- 15. TABELA LOCACOES
+SELECT * FROM Locacoes;
+
+-- 16. TABELA LOCACAO_ITENS
+SELECT * FROM Locacao_Itens;
+
+-- 17. TABELA PAGAMENTOS
+SELECT * FROM Pagamentos;
+
+-- 18. TABELA TRANSACOES_PAGAMENTO
+SELECT * FROM Transacoes_Pagamento;
+
+-- 19. TABELA MENSAGENS
+SELECT * FROM Mensagens;
+
+-- 20. TABELA PROFISSIONAL_CARGO
+SELECT * FROM Profissional_Cargo;
