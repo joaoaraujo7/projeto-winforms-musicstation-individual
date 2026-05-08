@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
 using MusicStationWinFormsApp.Models;
+using MusicStationWinFormsApp.Properties;
 using MusicStationWinFormsApp.repository;
 using MusicStationWinFormsApp.ViewModel;
 
@@ -9,21 +10,22 @@ namespace MusicStationWinFormsApp.controls.usuarios
     public partial class AdministradorControl : UserControl
     {
         // Campos
-        private AdministradorRepository administradorRepository;
-        private BindingList<AdministradorGridViewModel> administradores;
+        private readonly AdministradorRepository administradorRepository;
+
+        private readonly BindingSource administradorBindingSource = new();
+        private BindingList<AdministradorGridViewModel> administradores = new();
+
         private TabPage? hiddenPage; // guia escondida
 
         // Construtores
         public AdministradorControl()
         {
             InitializeComponent();
-            IniciarConfiguracoesIniciais();
-            
-            // Somente para testes
+
             administradorRepository = new AdministradorRepository();
-            administradores = new BindingList<AdministradorGridViewModel>(administradorRepository.ObterTodos()); // cria uma lista "observável, o grid atualiza automático (adicionar ou remover)
-            administradorBindingSource.DataSource = administradores; // vira o intermediário, permite filtro, navegação e refresh
-            dgvDados.DataSource = administradorBindingSource; // liga o grid a fonte de dados
+
+            IniciarConfiguracoesIniciais();
+            CarregarGrid();
         }
 
         // Métodos
@@ -37,6 +39,13 @@ namespace MusicStationWinFormsApp.controls.usuarios
             ConfigurarDataGrid();
         }
 
+        private void CarregarGrid()
+        {
+            administradores = new BindingList<AdministradorGridViewModel>(administradorRepository.ObterTodos());
+            administradorBindingSource.DataSource = administradores;
+            dgvDados.DataSource = administradorBindingSource;
+        }
+
         private void ConfigurarDataGrid()
         {
             // Força o DoubleBuffered na Grid (via Reflection)
@@ -44,14 +53,70 @@ namespace MusicStationWinFormsApp.controls.usuarios
                 BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
                 null, dgvDados, new object[] { true });
 
-            dgvDados.ReadOnly = true;
             dgvDados.AutoGenerateColumns = false;
+            dgvDados.ReadOnly = true;
 
-            // dgvDados.Columns.Add(new DataGridViewColumn
-            // {
-            //     DataPropertyName = "IdAdmin",
-            //     HeaderText = "Id"
-            // });
+            dgvDados.Columns.Clear();
+
+
+            // Criar colunas
+
+            dgvDados.Columns.Add(CriarColunaTexto("colId", "Id", "IdAdmin", DataGridViewAutoSizeColumnMode.AllCells));
+
+            dgvDados.Columns.Add(CriarColunaTexto("colNome", "Nome", "Nome", DataGridViewAutoSizeColumnMode.AllCells));
+
+            dgvDados.Columns.Add(CriarColunaTexto("colEmail", "Email", "Email", DataGridViewAutoSizeColumnMode.Fill));
+
+            dgvDados.Columns.Add(CriarColunaTexto("colUsuarioNome", "Usuário", "UsuarioNome", DataGridViewAutoSizeColumnMode.AllCells));
+
+            dgvDados.Columns.Add(CriarColunaTexto("colDataCadastro", "Data Cadastro", "DataCadastro", DataGridViewAutoSizeColumnMode.AllCells));
+
+            dgvDados.Columns.Add(CriarColunaTexto("colNivelAcesso", "Nível", "NivelAcesso", DataGridViewAutoSizeColumnMode.AllCells));
+
+            dgvDados.Columns.Add(CriarColunaTexto("colObservacoes", "Observações", "Observacoes", DataGridViewAutoSizeColumnMode.Fill));
+
+            dgvDados.Columns.Add(CriarColunaIcone("imgEditar", Resources.editar, "Editar", 36));
+
+            dgvDados.Columns.Add(CriarColunaIcone("imgExcluir", Resources.excluir, "Excluir", 36));
+
+            dgvDados.Columns["colId"].Width = 45;
+            dgvDados.Columns["colUsuarioNome"].Width = 100;
+            dgvDados.Columns["colDataCadastro"].Width = 130;
+            dgvDados.Columns["colNivelAcesso"].Width = 70;
+
+            dgvDados.Columns["colNome"].FillWeight = 30;
+            dgvDados.Columns["colEmail"].FillWeight = 45;
+            dgvDados.Columns["colObservacoes"].FillWeight = 35;
+
+            dgvDados.Columns["colId"].DefaultCellStyle.Alignment =
+            DataGridViewContentAlignment.MiddleCenter;
+
+            dgvDados.Columns["colNivelAcesso"].DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            dgvDados.Columns["imgEditar"].DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            dgvDados.Columns["imgExcluir"].DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            dgvDados.Columns["imgEditar"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvDados.Columns["imgExcluir"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+
+            dgvDados.Columns["imgEditar"].Resizable = DataGridViewTriState.False;
+            dgvDados.Columns["imgExcluir"].Resizable = DataGridViewTriState.False;
+        }
+
+        private void AtualizarGrid()
+        {
+            administradores.Clear();
+
+            List<AdministradorGridViewModel> dados = administradorRepository.ObterTodos();
+
+            foreach (AdministradorGridViewModel administrador in dados)
+            {
+                administradores.Add(administrador);
+            }
         }
 
         private void AlternarTela()
@@ -72,12 +137,6 @@ namespace MusicStationWinFormsApp.controls.usuarios
                 tbcAdministradores.TabPages.Remove(tbpCadastro);
                 tbcAdministradores.TabPages.Add(tempPage);
             }
-        }
-
-        private void AtualizarGrid()
-        {
-            administradores = administradorRepository.ObterTodos();
-            administradores
         }
 
         private void ModoCadastro()
@@ -190,6 +249,33 @@ namespace MusicStationWinFormsApp.controls.usuarios
             administradorBindingSource.DataSource = new BindingList<AdministradorGridViewModel>(filtrados);
         }
 
+        #region helpersDataGrid
+
+        private DataGridViewTextBoxColumn CriarColunaTexto(string name, string header, string property, DataGridViewAutoSizeColumnMode sizeMode)
+        {
+            return new DataGridViewTextBoxColumn
+            {
+                Name = name,
+                HeaderText = header,
+                DataPropertyName = property,
+                AutoSizeMode = sizeMode
+            };
+        }
+
+        private DataGridViewImageColumn CriarColunaIcone(string name, Image image, string toolTip, int width)
+        {
+            return new DataGridViewImageColumn
+            {
+                Name = name,
+                HeaderText = "",
+                ToolTipText = toolTip,
+                Image = image,
+                Width = width
+            };
+        }
+
+        #endregion
+
         // Eventos
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -211,7 +297,8 @@ namespace MusicStationWinFormsApp.controls.usuarios
             // ADICIONAR
             if (String.IsNullOrEmpty(txtId.Text))
             {
-                Administrador administrador = new Administrador { 
+                Administrador administrador = new Administrador
+                {
                     Usuario = new Usuario
                     {
                         Nome = txtNomeCompleto.Text,
@@ -226,12 +313,12 @@ namespace MusicStationWinFormsApp.controls.usuarios
                 };
 
                 // Adidcionar método de create admin
-                administradorRepository.Adicionar(administrador);
+                // administradorRepository.Adicionar(administrador);
             }
             else // EDIÇÃO
             {
                 int id = int.Parse(txtId.Text);
-
+                /*
                 Administrador? administrador = administradores.FirstOrDefault(a => a.IdAdmin == id);
 
                 if (administrador != null)
@@ -244,10 +331,11 @@ namespace MusicStationWinFormsApp.controls.usuarios
                     administrador.NivelAcesso = int.Parse(txtNivelAcesso.Text);
                     administrador.Observacoes = txtObservacoes.Text;
                 }
-
+                */
                 dgvDados.Refresh();
             }
 
+            AtualizarGrid();
             AlternarTela();
             LimparCampos();
 
@@ -292,6 +380,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
                     {
                         // Exclui do banco
                         administradores.Remove(administradorSelecionado);
+                        AtualizarGrid();
                     }
                 }
             }

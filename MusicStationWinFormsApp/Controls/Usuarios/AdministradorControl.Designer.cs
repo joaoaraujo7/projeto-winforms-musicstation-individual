@@ -27,9 +27,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tbpCadastro = new TabPage();
             pnlConteudoCadastro = new Panel();
             tlpCadastro = new TableLayoutPanel();
@@ -53,38 +52,30 @@
             btnCancelar = new Button();
             btnSalvar = new Button();
             tbpListagem = new TabPage();
+            pnlDataGrid = new Panel();
+            dgvDados = new DataGridView();
+            imgEditar = new DataGridViewImageColumn();
+            imgExcluir = new DataGridViewImageColumn();
+            pnlExterno = new Panel();
             tlpPesquisa = new TableLayoutPanel();
             pnlPesquisa = new Panel();
             btnPesquisar = new Button();
             pnlInternoPesquisa = new Panel();
             txtPesquisa = new TextBox();
             btnAdicionar = new Button();
-            pnlDataGrid = new Panel();
-            dgvDados = new DataGridView();
-            administradorBindingSource = new BindingSource(components);
-            pnlExterno = new Panel();
             tbcAdministradores = new TabControl();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            senhaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            nivelAcessoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            observacoesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            imgEditar = new DataGridViewImageColumn();
-            imgExcluir = new DataGridViewImageColumn();
+            textBox1 = new TextBox();
             tbpCadastro.SuspendLayout();
             pnlConteudoCadastro.SuspendLayout();
             tlpCadastro.SuspendLayout();
             flowButtons.SuspendLayout();
             tbpListagem.SuspendLayout();
+            pnlDataGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDados).BeginInit();
+            pnlExterno.SuspendLayout();
             tlpPesquisa.SuspendLayout();
             pnlPesquisa.SuspendLayout();
             pnlInternoPesquisa.SuspendLayout();
-            pnlDataGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDados).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)administradorBindingSource).BeginInit();
             tbcAdministradores.SuspendLayout();
             SuspendLayout();
             // 
@@ -376,7 +367,6 @@
             // tbpListagem
             // 
             tbpListagem.BackColor = SystemColors.Control;
-            tbpListagem.Controls.Add(tlpPesquisa);
             tbpListagem.Controls.Add(pnlDataGrid);
             tbpListagem.Controls.Add(pnlExterno);
             tbpListagem.Location = new Point(4, 26);
@@ -386,20 +376,94 @@
             tbpListagem.TabIndex = 0;
             tbpListagem.Text = "Listagem";
             // 
+            // pnlDataGrid
+            // 
+            pnlDataGrid.Controls.Add(dgvDados);
+            pnlDataGrid.Dock = DockStyle.Fill;
+            pnlDataGrid.Location = new Point(3, 54);
+            pnlDataGrid.Name = "pnlDataGrid";
+            pnlDataGrid.Padding = new Padding(20);
+            pnlDataGrid.Size = new Size(730, 424);
+            pnlDataGrid.TabIndex = 20;
+            // 
+            // dgvDados
+            // 
+            dgvDados.AllowUserToAddRows = false;
+            dgvDados.AllowUserToDeleteRows = false;
+            dgvDados.BackgroundColor = Color.FromArgb(32, 28, 26);
+            dgvDados.BorderStyle = BorderStyle.None;
+            dgvDados.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvDados.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(28, 24, 22);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle5.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(28, 24, 22);
+            dataGridViewCellStyle5.SelectionForeColor = Color.Gainsboro;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvDados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dgvDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDados.Columns.AddRange(new DataGridViewColumn[] { imgEditar, imgExcluir });
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(36, 32, 30);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(78, 33, 111);
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvDados.DefaultCellStyle = dataGridViewCellStyle6;
+            dgvDados.EnableHeadersVisualStyles = false;
+            dgvDados.GridColor = Color.FromArgb(45, 45, 45);
+            dgvDados.Location = new Point(3, 6);
+            dgvDados.Name = "dgvDados";
+            dgvDados.RowHeadersVisible = false;
+            dgvDados.RowTemplate.Height = 40;
+            dgvDados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDados.Size = new Size(724, 415);
+            dgvDados.TabIndex = 11;
+            dgvDados.CellClick += dgvDados_CellClick;
+            dgvDados.CellMouseEnter += dgvDados_CellMouseEnter;
+            dgvDados.CellMouseLeave += dgvDados_CellMouseLeave;
+            // 
+            // imgEditar
+            // 
+            imgEditar.HeaderText = "";
+            imgEditar.Image = Properties.Resources.editar;
+            imgEditar.Name = "imgEditar";
+            imgEditar.ToolTipText = "Editar";
+            imgEditar.Width = 40;
+            // 
+            // imgExcluir
+            // 
+            imgExcluir.HeaderText = "";
+            imgExcluir.Image = Properties.Resources.excluir;
+            imgExcluir.Name = "imgExcluir";
+            imgExcluir.ToolTipText = "Excluir";
+            imgExcluir.Width = 40;
+            // 
+            // pnlExterno
+            // 
+            pnlExterno.Controls.Add(tlpPesquisa);
+            pnlExterno.Dock = DockStyle.Top;
+            pnlExterno.Location = new Point(3, 3);
+            pnlExterno.Name = "pnlExterno";
+            pnlExterno.Size = new Size(730, 51);
+            pnlExterno.TabIndex = 21;
+            // 
             // tlpPesquisa
             // 
-            tlpPesquisa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             tlpPesquisa.ColumnCount = 2;
             tlpPesquisa.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.452055F));
             tlpPesquisa.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80.54794F));
             tlpPesquisa.Controls.Add(pnlPesquisa, 1, 0);
             tlpPesquisa.Controls.Add(btnAdicionar, 0, 0);
-            tlpPesquisa.Location = new Point(3, 3);
+            tlpPesquisa.Dock = DockStyle.Top;
+            tlpPesquisa.Location = new Point(0, 0);
             tlpPesquisa.Name = "tlpPesquisa";
             tlpPesquisa.RowCount = 1;
             tlpPesquisa.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tlpPesquisa.Size = new Size(730, 51);
-            tlpPesquisa.TabIndex = 19;
+            tlpPesquisa.TabIndex = 20;
             // 
             // pnlPesquisa
             // 
@@ -411,7 +475,7 @@
             pnlPesquisa.Name = "pnlPesquisa";
             pnlPesquisa.Padding = new Padding(1);
             pnlPesquisa.RightToLeft = RightToLeft.No;
-            pnlPesquisa.Size = new Size(562, 40);
+            pnlPesquisa.Size = new Size(582, 40);
             pnlPesquisa.TabIndex = 14;
             // 
             // btnPesquisar
@@ -421,24 +485,24 @@
             btnPesquisar.FlatAppearance.BorderSize = 0;
             btnPesquisar.FlatStyle = FlatStyle.Flat;
             btnPesquisar.Image = Properties.Resources.lupa;
-            btnPesquisar.Location = new Point(519, 1);
+            btnPesquisar.Location = new Point(539, 1);
             btnPesquisar.Margin = new Padding(0);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(40, 36);
             btnPesquisar.TabIndex = 12;
             btnPesquisar.TextAlign = ContentAlignment.MiddleRight;
             btnPesquisar.UseVisualStyleBackColor = false;
-            btnPesquisar.Click += btnPesquisar_Click;
             // 
             // pnlInternoPesquisa
             // 
+            pnlInternoPesquisa.Controls.Add(textBox1);
             pnlInternoPesquisa.Controls.Add(txtPesquisa);
             pnlInternoPesquisa.Dock = DockStyle.Left;
             pnlInternoPesquisa.Location = new Point(1, 1);
             pnlInternoPesquisa.Margin = new Padding(0);
             pnlInternoPesquisa.Name = "pnlInternoPesquisa";
             pnlInternoPesquisa.Padding = new Padding(10, 8, 5, 8);
-            pnlInternoPesquisa.Size = new Size(522, 36);
+            pnlInternoPesquisa.Size = new Size(538, 36);
             pnlInternoPesquisa.TabIndex = 20;
             // 
             // txtPesquisa
@@ -446,7 +510,7 @@
             txtPesquisa.Anchor = AnchorStyles.Left;
             txtPesquisa.BorderStyle = BorderStyle.None;
             txtPesquisa.Font = new Font("Segoe UI", 10F);
-            txtPesquisa.Location = new Point(10, 8);
+            txtPesquisa.Location = new Point(20, -24);
             txtPesquisa.Margin = new Padding(0);
             txtPesquisa.MaxLength = 200;
             txtPesquisa.Multiline = true;
@@ -454,8 +518,6 @@
             txtPesquisa.PlaceholderText = "Digite o nome ou id...";
             txtPesquisa.Size = new Size(507, 24);
             txtPesquisa.TabIndex = 13;
-            txtPesquisa.TextChanged += txtPesquisa_TextChanged;
-            txtPesquisa.KeyDown += txtPesquisa_KeyDown;
             // 
             // btnAdicionar
             // 
@@ -474,70 +536,6 @@
             btnAdicionar.TextAlign = ContentAlignment.MiddleRight;
             btnAdicionar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAdicionar.UseVisualStyleBackColor = false;
-            btnAdicionar.Click += btnAdicionar_Click;
-            // 
-            // pnlDataGrid
-            // 
-            pnlDataGrid.Controls.Add(dgvDados);
-            pnlDataGrid.Dock = DockStyle.Fill;
-            pnlDataGrid.Location = new Point(3, 54);
-            pnlDataGrid.Name = "pnlDataGrid";
-            pnlDataGrid.Padding = new Padding(20);
-            pnlDataGrid.Size = new Size(730, 424);
-            pnlDataGrid.TabIndex = 20;
-            // 
-            // dgvDados
-            // 
-            dgvDados.AllowUserToAddRows = false;
-            dgvDados.AllowUserToDeleteRows = false;
-            dgvDados.AutoGenerateColumns = false;
-            dgvDados.BackgroundColor = Color.FromArgb(32, 28, 26);
-            dgvDados.BorderStyle = BorderStyle.None;
-            dgvDados.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvDados.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(28, 24, 22);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle1.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(28, 24, 22);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Gainsboro;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvDados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDados.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, dataGridViewTextBoxColumn1, emailDataGridViewTextBoxColumn, dataGridViewTextBoxColumn2, senhaDataGridViewTextBoxColumn, dataGridViewTextBoxColumn3, nivelAcessoDataGridViewTextBoxColumn, observacoesDataGridViewTextBoxColumn, imgEditar, imgExcluir });
-            dgvDados.DataSource = administradorBindingSource;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(36, 32, 30);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(78, 33, 111);
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvDados.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvDados.EnableHeadersVisualStyles = false;
-            dgvDados.GridColor = Color.FromArgb(45, 45, 45);
-            dgvDados.Location = new Point(20, 17);
-            dgvDados.Name = "dgvDados";
-            dgvDados.RowHeadersVisible = false;
-            dgvDados.RowTemplate.Height = 40;
-            dgvDados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDados.Size = new Size(690, 391);
-            dgvDados.TabIndex = 11;
-            dgvDados.CellClick += dgvDados_CellClick;
-            dgvDados.CellMouseEnter += dgvDados_CellMouseEnter;
-            dgvDados.CellMouseLeave += dgvDados_CellMouseLeave;
-            // 
-            // administradorBindingSource
-            // 
-            administradorBindingSource.DataSource = typeof(models.Administrador);
-            // 
-            // pnlExterno
-            // 
-            pnlExterno.Dock = DockStyle.Top;
-            pnlExterno.Location = new Point(3, 3);
-            pnlExterno.Name = "pnlExterno";
-            pnlExterno.Size = new Size(730, 51);
-            pnlExterno.TabIndex = 21;
             // 
             // tbcAdministradores
             // 
@@ -552,85 +550,19 @@
             tbcAdministradores.Size = new Size(744, 511);
             tbcAdministradores.TabIndex = 10;
             // 
-            // idDataGridViewTextBoxColumn
+            // textBox1
             // 
-            idDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.Width = 44;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewTextBoxColumn1.DataPropertyName = "NomeCompleto";
-            dataGridViewTextBoxColumn1.HeaderText = "Nome";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 69;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            emailDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            emailDataGridViewTextBoxColumn.Width = 64;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewTextBoxColumn2.DataPropertyName = "UsuarioNome";
-            dataGridViewTextBoxColumn2.HeaderText = "Usuario";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.Width = 79;
-            // 
-            // senhaDataGridViewTextBoxColumn
-            // 
-            senhaDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            senhaDataGridViewTextBoxColumn.DataPropertyName = "Senha";
-            senhaDataGridViewTextBoxColumn.HeaderText = "Senha";
-            senhaDataGridViewTextBoxColumn.Name = "senhaDataGridViewTextBoxColumn";
-            senhaDataGridViewTextBoxColumn.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewTextBoxColumn3.DataPropertyName = "DataCadastro";
-            dataGridViewTextBoxColumn3.HeaderText = "Data Cadastro";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.Width = 120;
-            // 
-            // nivelAcessoDataGridViewTextBoxColumn
-            // 
-            nivelAcessoDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            nivelAcessoDataGridViewTextBoxColumn.DataPropertyName = "NivelAcesso";
-            nivelAcessoDataGridViewTextBoxColumn.HeaderText = "Nivel Acesso";
-            nivelAcessoDataGridViewTextBoxColumn.Name = "nivelAcessoDataGridViewTextBoxColumn";
-            nivelAcessoDataGridViewTextBoxColumn.Width = 108;
-            // 
-            // observacoesDataGridViewTextBoxColumn
-            // 
-            observacoesDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            observacoesDataGridViewTextBoxColumn.DataPropertyName = "Observacoes";
-            observacoesDataGridViewTextBoxColumn.HeaderText = "Observacoes";
-            observacoesDataGridViewTextBoxColumn.Name = "observacoesDataGridViewTextBoxColumn";
-            observacoesDataGridViewTextBoxColumn.Width = 110;
-            // 
-            // imgEditar
-            // 
-            imgEditar.HeaderText = "";
-            imgEditar.Image = Properties.Resources.editar;
-            imgEditar.Name = "imgEditar";
-            imgEditar.ToolTipText = "Editar";
-            imgEditar.Width = 40;
-            // 
-            // imgExcluir
-            // 
-            imgExcluir.HeaderText = "";
-            imgExcluir.Image = Properties.Resources.excluir;
-            imgExcluir.Name = "imgExcluir";
-            imgExcluir.ToolTipText = "Excluir";
-            imgExcluir.Width = 40;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Dock = DockStyle.Fill;
+            textBox1.Font = new Font("Segoe UI", 10F);
+            textBox1.Location = new Point(10, 8);
+            textBox1.Margin = new Padding(0);
+            textBox1.MaxLength = 200;
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Digite o nome ou id...";
+            textBox1.Size = new Size(523, 20);
+            textBox1.TabIndex = 14;
             // 
             // AdministradorControl
             // 
@@ -645,13 +577,13 @@
             tlpCadastro.PerformLayout();
             flowButtons.ResumeLayout(false);
             tbpListagem.ResumeLayout(false);
+            pnlDataGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvDados).EndInit();
+            pnlExterno.ResumeLayout(false);
             tlpPesquisa.ResumeLayout(false);
             pnlPesquisa.ResumeLayout(false);
             pnlInternoPesquisa.ResumeLayout(false);
             pnlInternoPesquisa.PerformLayout();
-            pnlDataGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvDados).EndInit();
-            ((System.ComponentModel.ISupportInitialize)administradorBindingSource).EndInit();
             tbcAdministradores.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -661,16 +593,10 @@
         private TabPage tbpCadastro;
         private Panel pnlConteudoCadastro;
         private TabPage tbpListagem;
-        private TextBox txtPesquisa;
-        private Button btnPesquisar;
-        private Button btnAdicionar;
         private TabControl tbcAdministradores;
-        private Panel pnlPesquisa;
         private DataGridViewTextBoxColumn nomeCompletoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn usuarioNomeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataCadastroDataGridViewTextBoxColumn;
-        private TableLayoutPanel tlpPesquisa;
-        private Panel pnlInternoPesquisa;
         private Panel pnlDataGrid;
         private Panel pnlExterno;
         private TableLayoutPanel tlpCadastro;
@@ -694,7 +620,6 @@
         private TextBox txtNivelAcesso;
         private Label lblNivelAcesso;
         private DataGridView dgvDados;
-        private BindingSource administradorBindingSource;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
@@ -705,5 +630,12 @@
         private DataGridViewTextBoxColumn observacoesDataGridViewTextBoxColumn;
         private DataGridViewImageColumn imgEditar;
         private DataGridViewImageColumn imgExcluir;
+        private TableLayoutPanel tlpPesquisa;
+        private Panel pnlPesquisa;
+        private Button btnPesquisar;
+        private Panel pnlInternoPesquisa;
+        private TextBox txtPesquisa;
+        private Button btnAdicionar;
+        private TextBox textBox1;
     }
 }
