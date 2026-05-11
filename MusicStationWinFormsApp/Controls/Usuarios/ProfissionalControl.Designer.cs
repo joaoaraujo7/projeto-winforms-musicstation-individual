@@ -61,6 +61,9 @@
             btnAdicionar = new Button();
             pnlDataGrid = new Panel();
             dgvDados = new DataGridView();
+            profissionalBindingSource = new BindingSource(components);
+            pnlExterno = new Panel();
+            tbcProfissionais = new TabControl();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -69,11 +72,8 @@
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             telefoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cargosDescricaoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            imgExcluir = new DataGridViewImageColumn();
             imgEditar = new DataGridViewImageColumn();
-            profissionalBindingSource = new BindingSource(components);
-            pnlExterno = new Panel();
-            tbcProfissionais = new TabControl();
+            imgExcluir = new DataGridViewImageColumn();
             tbpCadastro.SuspendLayout();
             pnlConteudoCadastro.SuspendLayout();
             tlpCadastro.SuspendLayout();
@@ -506,7 +506,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvDados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDados.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, dataGridViewTextBoxColumn1, emailDataGridViewTextBoxColumn, dataGridViewTextBoxColumn2, senhaDataGridViewTextBoxColumn, dataGridViewTextBoxColumn3, telefoneDataGridViewTextBoxColumn, cargosDescricaoDataGridViewTextBoxColumn, imgExcluir, imgEditar });
+            dgvDados.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, dataGridViewTextBoxColumn1, emailDataGridViewTextBoxColumn, dataGridViewTextBoxColumn2, senhaDataGridViewTextBoxColumn, dataGridViewTextBoxColumn3, telefoneDataGridViewTextBoxColumn, cargosDescricaoDataGridViewTextBoxColumn, imgEditar, imgExcluir });
             dgvDados.DataSource = profissionalBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(36, 32, 30);
@@ -528,6 +528,31 @@
             dgvDados.CellClick += dgvDados_CellClick;
             dgvDados.CellMouseEnter += dgvDados_CellMouseEnter;
             dgvDados.CellMouseLeave += dgvDados_CellMouseLeave;
+            // 
+            // profissionalBindingSource
+            // 
+            profissionalBindingSource.DataSource = typeof(models.Profissional);
+            // 
+            // pnlExterno
+            // 
+            pnlExterno.Dock = DockStyle.Top;
+            pnlExterno.Location = new Point(3, 3);
+            pnlExterno.Name = "pnlExterno";
+            pnlExterno.Size = new Size(730, 51);
+            pnlExterno.TabIndex = 21;
+            // 
+            // tbcProfissionais
+            // 
+            tbcProfissionais.Controls.Add(tbpListagem);
+            tbcProfissionais.Controls.Add(tbpCadastro);
+            tbcProfissionais.Dock = DockStyle.Fill;
+            tbcProfissionais.Font = new Font("Segoe UI", 10F);
+            tbcProfissionais.ItemSize = new Size(64, 0);
+            tbcProfissionais.Location = new Point(0, 0);
+            tbcProfissionais.Name = "tbcProfissionais";
+            tbcProfissionais.SelectedIndex = 0;
+            tbcProfissionais.Size = new Size(744, 511);
+            tbcProfissionais.TabIndex = 10;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -594,14 +619,6 @@
             cargosDescricaoDataGridViewTextBoxColumn.ReadOnly = true;
             cargosDescricaoDataGridViewTextBoxColumn.Width = 75;
             // 
-            // imgExcluir
-            // 
-            imgExcluir.HeaderText = "";
-            imgExcluir.Image = Properties.Resources.excluir;
-            imgExcluir.Name = "imgExcluir";
-            imgExcluir.ToolTipText = "Excluir";
-            imgExcluir.Width = 40;
-            // 
             // imgEditar
             // 
             imgEditar.HeaderText = "";
@@ -610,30 +627,13 @@
             imgEditar.ToolTipText = "Editar";
             imgEditar.Width = 40;
             // 
-            // profissionalBindingSource
+            // imgExcluir
             // 
-            profissionalBindingSource.DataSource = typeof(models.Profissional);
-            // 
-            // pnlExterno
-            // 
-            pnlExterno.Dock = DockStyle.Top;
-            pnlExterno.Location = new Point(3, 3);
-            pnlExterno.Name = "pnlExterno";
-            pnlExterno.Size = new Size(730, 51);
-            pnlExterno.TabIndex = 21;
-            // 
-            // tbcProfissionais
-            // 
-            tbcProfissionais.Controls.Add(tbpListagem);
-            tbcProfissionais.Controls.Add(tbpCadastro);
-            tbcProfissionais.Dock = DockStyle.Fill;
-            tbcProfissionais.Font = new Font("Segoe UI", 10F);
-            tbcProfissionais.ItemSize = new Size(64, 0);
-            tbcProfissionais.Location = new Point(0, 0);
-            tbcProfissionais.Name = "tbcProfissionais";
-            tbcProfissionais.SelectedIndex = 0;
-            tbcProfissionais.Size = new Size(744, 511);
-            tbcProfissionais.TabIndex = 10;
+            imgExcluir.HeaderText = "";
+            imgExcluir.Image = Properties.Resources.excluir;
+            imgExcluir.Name = "imgExcluir";
+            imgExcluir.ToolTipText = "Excluir";
+            imgExcluir.Width = 40;
             // 
             // ProfissionalControl
             // 
@@ -696,6 +696,8 @@
         private TextBox txtTelefone;
         private Label lblTelefone;
         private DataGridView dgvDados;
+        private Label lblCargoNome;
+        private CheckedListBox clbCargos;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
@@ -704,9 +706,7 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn cargosDescricaoDataGridViewTextBoxColumn;
-        private DataGridViewImageColumn imgExcluir;
         private DataGridViewImageColumn imgEditar;
-        private Label lblCargoNome;
-        private CheckedListBox clbCargos;
+        private DataGridViewImageColumn imgExcluir;
     }
 }

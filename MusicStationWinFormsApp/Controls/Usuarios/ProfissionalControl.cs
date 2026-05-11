@@ -1,11 +1,7 @@
-﻿using MusicStationWinFormsApp.models;
+﻿using System.ComponentModel;
+using System.Reflection;
+using MusicStationWinFormsApp.models;
 using MusicStationWinFormsApp.repository;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace MusicStationWinFormsApp.controls.usuarios
 {
@@ -47,7 +43,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
         {
             // Força o DoubleBuffered na Grid (via Reflection)
             typeof(DataGridView).InvokeMember("DoubleBuffered",
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
+                BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
                 null, dgvDados, new object[] { true });
         }
 
