@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
+using MusicStationWinFormsApp.Helpers;
 using MusicStationWinFormsApp.Models;
 using MusicStationWinFormsApp.Properties;
 using MusicStationWinFormsApp.repository;
@@ -9,15 +10,17 @@ namespace MusicStationWinFormsApp.controls.usuarios
 {
     public partial class AdministradorControl : UserControl
     {
-        // Campos
-        private readonly AdministradorRepository administradorRepository;
+        #region campos
 
         private readonly BindingSource administradorBindingSource = new();
         private BindingList<AdministradorGridViewModel> administradores = new();
 
         private TabPage? hiddenPage; // guia escondida
 
-        // Construtores
+        #endregion
+
+        #region construtores
+
         public AdministradorControl()
         {
             InitializeComponent();
@@ -28,7 +31,10 @@ namespace MusicStationWinFormsApp.controls.usuarios
             CarregarGrid();
         }
 
-        // Métodos
+        #endregion
+
+        #region metodos
+
         private void IniciarConfiguracoesIniciais()
         {
             hiddenPage = tbpCadastro;
@@ -48,10 +54,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
         private void ConfigurarDataGrid()
         {
-            // Força o DoubleBuffered na Grid (via Reflection)
-            typeof(DataGridView).InvokeMember("DoubleBuffered",
-                BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
-                null, dgvDados, new object[] { true });
+            DataGridHelpers.ConfigurarPadrão(dgvDados);
 
             dgvDados.AutoGenerateColumns = false;
             dgvDados.ReadOnly = true;
@@ -61,50 +64,22 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
             // Criar colunas
 
-            dgvDados.Columns.Add(CriarColunaTexto("colId", "Id", "IdAdmin", DataGridViewAutoSizeColumnMode.AllCells));
+            dgvDados.Columns.Add(DataGridHelpers.Texto("colId", "Id", "IdAdmin", width: 45,
+                alignment: DataGridViewContentAlignment.MiddleCenter));
+            dgvDados.Columns.Add(DataGridHelpers.Texto("colNome", "Nome", "Nome", DataGridViewAutoSizeColumnMode.Fill,
+                fillWeight: 25));
+            dgvDados.Columns.Add(DataGridHelpers.Texto("colEmail", "Email", "Email",
+                DataGridViewAutoSizeColumnMode.Fill, fillWeight: 45));
+            dgvDados.Columns.Add(DataGridHelpers.Texto("colUsuarioNome", "Usuário", "UsuarioNome"));
+            dgvDados.Columns.Add(DataGridHelpers.Texto("colDataCadastro", "Data Cadastro", "DataCadastro", width: 130,
+                alignment: DataGridViewContentAlignment.MiddleCenter));
+            dgvDados.Columns.Add(DataGridHelpers.Texto("colNivelAcesso", "Nível", "NivelAcesso", width: 70,
+                alignment: DataGridViewContentAlignment.MiddleCenter));
+            dgvDados.Columns.Add(DataGridHelpers.Texto("colObservacoes", "Observações", "Observacoes",
+                DataGridViewAutoSizeColumnMode.Fill, fillWeight: 35));
 
-            dgvDados.Columns.Add(CriarColunaTexto("colNome", "Nome", "Nome", DataGridViewAutoSizeColumnMode.AllCells));
-
-            dgvDados.Columns.Add(CriarColunaTexto("colEmail", "Email", "Email", DataGridViewAutoSizeColumnMode.Fill));
-
-            dgvDados.Columns.Add(CriarColunaTexto("colUsuarioNome", "Usuário", "UsuarioNome", DataGridViewAutoSizeColumnMode.AllCells));
-
-            dgvDados.Columns.Add(CriarColunaTexto("colDataCadastro", "Data Cadastro", "DataCadastro", DataGridViewAutoSizeColumnMode.AllCells));
-
-            dgvDados.Columns.Add(CriarColunaTexto("colNivelAcesso", "Nível", "NivelAcesso", DataGridViewAutoSizeColumnMode.AllCells));
-
-            dgvDados.Columns.Add(CriarColunaTexto("colObservacoes", "Observações", "Observacoes", DataGridViewAutoSizeColumnMode.Fill));
-
-            dgvDados.Columns.Add(CriarColunaIcone("imgEditar", Resources.editar, "Editar", 36));
-
-            dgvDados.Columns.Add(CriarColunaIcone("imgExcluir", Resources.excluir, "Excluir", 36));
-
-            dgvDados.Columns["colId"].Width = 45;
-            dgvDados.Columns["colUsuarioNome"].Width = 100;
-            dgvDados.Columns["colDataCadastro"].Width = 130;
-            dgvDados.Columns["colNivelAcesso"].Width = 70;
-
-            dgvDados.Columns["colNome"].FillWeight = 30;
-            dgvDados.Columns["colEmail"].FillWeight = 45;
-            dgvDados.Columns["colObservacoes"].FillWeight = 35;
-
-            dgvDados.Columns["colId"].DefaultCellStyle.Alignment =
-            DataGridViewContentAlignment.MiddleCenter;
-
-            dgvDados.Columns["colNivelAcesso"].DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleCenter;
-
-            dgvDados.Columns["imgEditar"].DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleCenter;
-
-            dgvDados.Columns["imgExcluir"].DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleCenter;
-
-            dgvDados.Columns["imgEditar"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvDados.Columns["imgExcluir"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-
-            dgvDados.Columns["imgEditar"].Resizable = DataGridViewTriState.False;
-            dgvDados.Columns["imgExcluir"].Resizable = DataGridViewTriState.False;
+            dgvDados.Columns.Add(DataGridHelpers.Icone("imgEditar", Resources.editar, "Editar"));
+            dgvDados.Columns.Add(DataGridHelpers.Icone("imgExcluir", Resources.excluir, "Excluir"));
         }
 
         private void AtualizarGrid()
@@ -283,7 +258,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
         #endregion
 
-        // Eventos
+        #region eventos
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -431,5 +406,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
                 administradorBindingSource.DataSource = administradores;
             }
         }
+
+        #endregion
     }
 }
