@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
-using System.Reflection;
+using MusicStationWinFormsApp.Constants;
 using MusicStationWinFormsApp.Helpers;
 using MusicStationWinFormsApp.Models;
 using MusicStationWinFormsApp.Properties;
-using MusicStationWinFormsApp.repository;
+using MusicStationWinFormsApp.Services;
 using MusicStationWinFormsApp.ViewModel;
 
 namespace MusicStationWinFormsApp.controls.usuarios
@@ -11,6 +11,8 @@ namespace MusicStationWinFormsApp.controls.usuarios
     public partial class AdministradorControl : UserControl
     {
         #region campos
+
+        private readonly AdministradorService administradorService;
 
         private readonly BindingSource administradorBindingSource = new();
         private BindingList<AdministradorGridViewModel> administradores = new();
@@ -25,7 +27,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
         {
             InitializeComponent();
 
-            administradorRepository = new AdministradorRepository();
+            administradorService = new AdministradorService();
 
             IniciarConfiguracoesIniciais();
             CarregarGrid();
@@ -47,7 +49,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
         private void CarregarGrid()
         {
-            administradores = new BindingList<AdministradorGridViewModel>(administradorRepository.ObterTodos());
+            administradores = new BindingList<AdministradorGridViewModel>(administradorService.ObterTodos());
             administradorBindingSource.DataSource = administradores;
             dgvDados.DataSource = administradorBindingSource;
         }
@@ -55,12 +57,6 @@ namespace MusicStationWinFormsApp.controls.usuarios
         private void ConfigurarDataGrid()
         {
             DataGridHelpers.ConfigurarPadrão(dgvDados);
-
-            dgvDados.AutoGenerateColumns = false;
-            dgvDados.ReadOnly = true;
-
-            dgvDados.Columns.Clear();
-
 
             // Criar colunas
 
@@ -84,14 +80,9 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
         private void AtualizarGrid()
         {
-            administradores.Clear();
+            administradores = new BindingList<AdministradorGridViewModel>(administradorService.ObterTodos());
 
-            List<AdministradorGridViewModel> dados = administradorRepository.ObterTodos();
-
-            foreach (AdministradorGridViewModel administrador in dados)
-            {
-                administradores.Add(administrador);
-            }
+            administradorBindingSource.DataSource = administradores;
         }
 
         private void AlternarTela()
@@ -115,14 +106,14 @@ namespace MusicStationWinFormsApp.controls.usuarios
                 tbcAdministradores.TabPages.Add(tempPage);
             }
         }
-
+        
         private void ModoCadastro()
         {
             txtId.Visible = false;
             lblId.Visible = false;
             dtpDataCadastro.Visible = false;
             lblDataCadastro.Visible = false;
-
+            
             txtSenha.Enabled = true;
 
             tbpCadastro.Text = "Novo Administrador";
@@ -137,7 +128,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
             txtId.Enabled = false;
             dtpDataCadastro.Enabled = false;
-
+            
             txtSenha.Enabled = false;
             txtSenha.Clear();
 
@@ -161,101 +152,56 @@ namespace MusicStationWinFormsApp.controls.usuarios
             txtNomeCompleto.Text = administrador.Nome;
             txtEmail.Text = administrador.Email;
             txtNomeUsuario.Text = administrador.UsuarioNome;
-            txtSenha.Text = "$(@*##(@*!$@";
             dtpDataCadastro.Value = administrador.DataCadastro;
 
             txtNivelAcesso.Text = administrador.NivelAcesso.ToString();
             txtObservacoes.Text = administrador.Observacoes;
         }
 
-        private bool ValidarCampos()
-        {
-            if (String.IsNullOrWhiteSpace(txtNomeCompleto.Text))
-            {
-                MessageBox.Show("Nome obrigatório");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtEmail.Text))
-            {
-                MessageBox.Show("Email obrigatório");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtNomeUsuario.Text))
-            {
-                MessageBox.Show("Nome do usuário obrigatório");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtSenha.Text))
-            {
-                MessageBox.Show("Senha obrigatória");
-                return false;
-            }
-
-            if (String.IsNullOrWhiteSpace(txtNivelAcesso.Text))
-            {
-                MessageBox.Show("Nível de acesso obrigatório");
-                return false;
-            }
-
-            return true;
-        }
-
         public void ExecutarPesquisa()
         {
-            string texto = txtPesquisa.Text.Trim().ToLower();
-
-            if (string.IsNullOrWhiteSpace(texto))
+            try
             {
+                string termo = txtPesquisa.Text.Trim();
+
+                List<AdministradorGridViewModel> resultado = string.IsNullOrWhiteSpace(termo)
+                    ? administradorService.ObterTodos()
+                    : administradorService.Pesquisar(termo);
+
+                administradores = new BindingList<AdministradorGridViewModel>(resultado);
                 administradorBindingSource.DataSource = administradores;
-                return;
             }
-
-            List<AdministradorGridViewModel> filtrados;
-
-            if (int.TryParse(texto, out int id))
+            catch (Exception ex)
             {
-                filtrados = administradores
-                    .Where(a => a.IdAdmin == id)
-                    .ToList();
+                MessageBox.Show(
+                    "Erro ao pesquisar administradores.\n\n" + ex.Message,
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
-            else
-            {
-                filtrados = administradores
-                    .Where(a => a.UsuarioNome.ToLower().Contains(texto))
-                    .ToList();
-            }
-
-            administradorBindingSource.DataSource = new BindingList<AdministradorGridViewModel>(filtrados);
         }
 
-        #region helpersDataGrid
-
-        private DataGridViewTextBoxColumn CriarColunaTexto(string name, string header, string property, DataGridViewAutoSizeColumnMode sizeMode)
+        private Administrador CriarAdministradorPelosCampos()
         {
-            return new DataGridViewTextBoxColumn
+            int.TryParse(txtNivelAcesso.Text, out int nivelAcesso);
+
+            return new Administrador
             {
-                Name = name,
-                HeaderText = header,
-                DataPropertyName = property,
-                AutoSizeMode = sizeMode
+                Usuario = new Usuario
+                {
+                    Nome = txtNomeCompleto.Text,
+                    Email = txtEmail.Text,
+                    UsuarioNome = txtNomeUsuario.Text,
+                    SenhaHash = txtSenha.Text,
+                    DataCadastro = string.IsNullOrEmpty(txtId.Text)
+                        ? DateTime.Now
+                        : dtpDataCadastro.Value
+                },
+                NivelAcesso = nivelAcesso,
+                Observacoes = txtObservacoes.Text
             };
         }
-
-        private DataGridViewImageColumn CriarColunaIcone(string name, Image image, string toolTip, int width)
-        {
-            return new DataGridViewImageColumn
-            {
-                Name = name,
-                HeaderText = "",
-                ToolTipText = toolTip,
-                Image = image,
-                Width = width
-            };
-        }
-
+        
         #endregion
 
         #region eventos
@@ -274,62 +220,38 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!ValidarCampos()) return;
-
-            // ADICIONAR
-            if (String.IsNullOrEmpty(txtId.Text))
+            try
             {
-                Administrador administrador = new Administrador
+                Administrador administrador = CriarAdministradorPelosCampos();
+
+                if (String.IsNullOrEmpty(txtId.Text))
                 {
-                    Usuario = new Usuario
-                    {
-                        Nome = txtNomeCompleto.Text,
-                        Email = txtEmail.Text,
-                        UsuarioNome = txtNomeUsuario.Text,
-                        SenhaHash = txtSenha.Text,
-                        DataCadastro = DateTime.Now
-                    },
-
-                    NivelAcesso = int.Parse(txtNivelAcesso.Text),
-                    Observacoes = txtObservacoes.Text
-                };
-
-                // Adidcionar método de create admin
-                // administradorRepository.Adicionar(administrador);
-            }
-            else // EDIÇÃO
-            {
-                int id = int.Parse(txtId.Text);
-                /*
-                Administrador? administrador = administradores.FirstOrDefault(a => a.IdAdmin == id);
-
-                if (administrador != null)
-                {
-                    administrador.Usuario.Nome = txtNomeCompleto.Text;
-                    administrador.Usuario.Email = txtEmail.Text;
-                    administrador.Usuario.UsuarioNome = txtNomeUsuario.Text;
-                    administrador.Usuario.SenhaHash = txtSenha.Text;
-
-                    administrador.NivelAcesso = int.Parse(txtNivelAcesso.Text);
-                    administrador.Observacoes = txtObservacoes.Text;
+                    administradorService.Adicionar(administrador);
                 }
-                */
-                dgvDados.Refresh();
+                else
+                {
+                    administrador.IdAdmin = int.Parse(txtId.Text);
+                    administradorService.Atualizar(administrador);
+                }
+
+                AtualizarGrid();
+                AlternarTela();
+                LimparCampos();
+                
+                MessageBox.Show("Administrador salvo com sucesso!");
             }
-
-            AtualizarGrid();
-            AlternarTela();
-            LimparCampos();
-
-            MessageBox.Show("Administrador salvo com sucesso!");
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message, "Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao salvar administrador. \n\n" + ex.Message, "Erro", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-            ExecutarPesquisa();
-        }
-
-        #region dgvConfigs
+        //dgvConfigs
 
         private void dgvDados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -342,7 +264,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
             {
                 if (dgvDados.Rows[e.RowIndex]
                         .DataBoundItem is AdministradorGridViewModel
-                    administradorSelecionado) // verifica se a linha selecionada é um usuário
+                    administradorSelecionado) // verifica se a linha selecionada é um administrador
                 {
                     CarregarAdministradorSelecionado(administradorSelecionado); // Preenche os Text Box do usuário
                 }
@@ -361,7 +283,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
                     if (result == DialogResult.Yes)
                     {
                         // Exclui do banco
-                        administradores.Remove(administradorSelecionado);
+                        administradorService.Remover(administradorSelecionado.IdAdmin);
                         AtualizarGrid();
                     }
                 }
@@ -385,7 +307,10 @@ namespace MusicStationWinFormsApp.controls.usuarios
             }
         }
 
-        #endregion
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            ExecutarPesquisa();
+        }
 
         private void txtPesquisa_KeyDown(object sender, KeyEventArgs e)
         {
@@ -401,10 +326,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtPesquisa.Text))
-            {
-                administradorBindingSource.DataSource = administradores;
-            }
+            ExecutarPesquisa();
         }
 
         #endregion

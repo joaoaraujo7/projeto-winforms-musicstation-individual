@@ -21,14 +21,15 @@
         }
 
         #region Código gerado pelo Designer de Componentes
-        /// <summary> 
-        /// Método necessário para suporte ao Designer - não modifique 
-        /// o conteúdo deste método com o editor de código.
-        /// </summary>
-        private void InitializeComponent()
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tbpCadastro = new TabPage();
             pnlConteudoCadastro = new Panel();
             tlpCadastro = new TableLayoutPanel();
@@ -64,7 +65,6 @@
             txtPesquisa = new TextBox();
             btnAdicionar = new Button();
             tbcAdministradores = new TabControl();
-            textBox1 = new TextBox();
             tbpCadastro.SuspendLayout();
             pnlConteudoCadastro.SuspendLayout();
             tlpCadastro.SuspendLayout();
@@ -394,24 +394,24 @@
             dgvDados.BorderStyle = BorderStyle.None;
             dgvDados.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvDados.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(28, 24, 22);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle5.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(28, 24, 22);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Gainsboro;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvDados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(28, 24, 22);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle1.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(28, 24, 22);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Gainsboro;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvDados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDados.Columns.AddRange(new DataGridViewColumn[] { imgEditar, imgExcluir });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(36, 32, 30);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(78, 33, 111);
-            dataGridViewCellStyle6.SelectionForeColor = Color.White;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvDados.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(36, 32, 30);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(78, 33, 111);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvDados.DefaultCellStyle = dataGridViewCellStyle2;
             dgvDados.EnableHeadersVisualStyles = false;
             dgvDados.GridColor = Color.FromArgb(45, 45, 45);
             dgvDados.Location = new Point(3, 6);
@@ -492,10 +492,10 @@
             btnPesquisar.TabIndex = 12;
             btnPesquisar.TextAlign = ContentAlignment.MiddleRight;
             btnPesquisar.UseVisualStyleBackColor = false;
+            btnPesquisar.Click += btnPesquisar_Click;
             // 
             // pnlInternoPesquisa
             // 
-            pnlInternoPesquisa.Controls.Add(textBox1);
             pnlInternoPesquisa.Controls.Add(txtPesquisa);
             pnlInternoPesquisa.Dock = DockStyle.Left;
             pnlInternoPesquisa.Location = new Point(1, 1);
@@ -507,17 +507,19 @@
             // 
             // txtPesquisa
             // 
-            txtPesquisa.Anchor = AnchorStyles.Left;
             txtPesquisa.BorderStyle = BorderStyle.None;
+            txtPesquisa.Dock = DockStyle.Fill;
             txtPesquisa.Font = new Font("Segoe UI", 10F);
-            txtPesquisa.Location = new Point(20, -24);
+            txtPesquisa.Location = new Point(10, 8);
             txtPesquisa.Margin = new Padding(0);
             txtPesquisa.MaxLength = 200;
             txtPesquisa.Multiline = true;
             txtPesquisa.Name = "txtPesquisa";
-            txtPesquisa.PlaceholderText = "Digite o nome ou id...";
-            txtPesquisa.Size = new Size(507, 24);
+            txtPesquisa.PlaceholderText = "Buscar nome, email ou usuário...";
+            txtPesquisa.Size = new Size(523, 20);
             txtPesquisa.TabIndex = 13;
+            txtPesquisa.TextChanged += txtPesquisa_TextChanged;
+            txtPesquisa.KeyDown += txtPesquisa_KeyDown;
             // 
             // btnAdicionar
             // 
@@ -536,6 +538,7 @@
             btnAdicionar.TextAlign = ContentAlignment.MiddleRight;
             btnAdicionar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAdicionar.UseVisualStyleBackColor = false;
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
             // tbcAdministradores
             // 
@@ -549,20 +552,6 @@
             tbcAdministradores.SelectedIndex = 0;
             tbcAdministradores.Size = new Size(744, 511);
             tbcAdministradores.TabIndex = 10;
-            // 
-            // textBox1
-            // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Font = new Font("Segoe UI", 10F);
-            textBox1.Location = new Point(10, 8);
-            textBox1.Margin = new Padding(0);
-            textBox1.MaxLength = 200;
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Digite o nome ou id...";
-            textBox1.Size = new Size(523, 20);
-            textBox1.TabIndex = 14;
             // 
             // AdministradorControl
             // 
@@ -635,7 +624,6 @@
         private Button btnPesquisar;
         private Panel pnlInternoPesquisa;
         private TextBox txtPesquisa;
-        private Button btnAdicionar;
-        private TextBox textBox1;
+        private System.Windows.Forms.Button btnAdicionar;
     }
 }

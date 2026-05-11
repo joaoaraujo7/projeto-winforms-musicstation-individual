@@ -1,4 +1,4 @@
-﻿namespace MusicStationWinFormsApp.Utils;
+﻿namespace MusicStationWinFormsApp.Constants;
 
 public static class DataFormatos
 {
