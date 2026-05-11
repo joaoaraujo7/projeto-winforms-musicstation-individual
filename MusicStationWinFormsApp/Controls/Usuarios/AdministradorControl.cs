@@ -33,8 +33,8 @@ namespace MusicStationWinFormsApp.controls.usuarios
         {
             hiddenPage = tbpCadastro;
             tbcAdministradores.TabPages.Remove(hiddenPage);
-            this.DoubleBuffered = true;
-            dtpDataCadastro.CustomFormat = "dd/MM/yyyy HH:mm";
+            DoubleBuffered = true;
+            dtpDataCadastro.CustomFormat = DataFormatos.DateTimePadrao;
 
             ConfigurarDataGrid();
         }
@@ -121,7 +121,9 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
         private void AlternarTela()
         {
-            TabPage tempPage = hiddenPage;
+            TabPage? tempPage = hiddenPage;
+
+            if (tempPage == null) return;
 
             if (tbcAdministradores.SelectedTab == tbpListagem)
             {
@@ -146,6 +148,8 @@ namespace MusicStationWinFormsApp.controls.usuarios
             dtpDataCadastro.Visible = false;
             lblDataCadastro.Visible = false;
 
+            txtSenha.Enabled = true;
+
             tbpCadastro.Text = "Novo Administrador";
         }
 
@@ -158,6 +162,9 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
             txtId.Enabled = false;
             dtpDataCadastro.Enabled = false;
+
+            txtSenha.Enabled = false;
+            txtSenha.Clear();
 
             tbpCadastro.Text = "Editar Administrador";
         }
