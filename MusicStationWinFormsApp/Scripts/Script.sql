@@ -1,6 +1,7 @@
 -- =========================================
 -- RESET DO BANCO
 -- =========================================
+
 DROP DATABASE IF EXISTS MusicStationDb;
 GO
 CREATE DATABASE MusicStationDb;
@@ -370,7 +371,7 @@ SELECT * FROM Administradores;
 SELECT * FROM Profissionais;
 
 -- 5. TABELA FORMAS_PAGAMENTO
-SELECT * FROM Formas_Pagamento;
+SELECT * FROM FormasPagamento;
 
 -- 6. TABELA CARGOS
 SELECT * FROM Cargos;
@@ -388,7 +389,7 @@ SELECT * FROM Chats;
 SELECT * FROM Notificacoes;
 
 -- 11. TABELA SERVICOS_PEDIDOS
-SELECT * FROM Servicos_Pedidos;
+SELECT * FROM ServicosPedidos;
 
 -- 12. TABELA AVALIACOES
 SELECT * FROM Avaliacoes;
@@ -403,16 +404,16 @@ SELECT * FROM Instrumentos;
 SELECT * FROM Locacoes;
 
 -- 16. TABELA LOCACAO_ITENS
-SELECT * FROM Locacao_Itens;
+SELECT * FROM LocacaoItens;
 
 -- 17. TABELA PAGAMENTOS
 SELECT * FROM Pagamentos;
 
 -- 18. TABELA TRANSACOES_PAGAMENTO
-SELECT * FROM Transacoes_Pagamento;
+SELECT * FROM TransacoesPagamento;
 
 -- 19. TABELA MENSAGENS
 SELECT * FROM Mensagens;
 
 -- 20. TABELA PROFISSIONAL_CARGO
-SELECT * FROM Profissional_Cargo;
+SELECT * FROM ProfissionalCargo;
