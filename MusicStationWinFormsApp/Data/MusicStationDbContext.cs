@@ -336,7 +336,7 @@ public partial class MusicStationDbContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Profissio__Usuar__44FF419A");
 
-            entity.HasMany(d => d.Cargo).WithMany(p => p.Profissional)
+            entity.HasMany(d => d.Cargos).WithMany(p => p.Profissional)
                 .UsingEntity<Dictionary<string, object>>(
                     "ProfissionalCargo",
                     r => r.HasOne<Cargo>().WithMany()

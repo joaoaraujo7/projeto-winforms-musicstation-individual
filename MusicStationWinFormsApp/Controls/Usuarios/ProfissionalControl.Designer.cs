@@ -27,7 +27,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tbpCadastro = new TabPage();
@@ -61,19 +60,10 @@
             btnAdicionar = new Button();
             pnlDataGrid = new Panel();
             dgvDados = new DataGridView();
-            profissionalBindingSource = new BindingSource(components);
-            pnlExterno = new Panel();
-            tbcProfissionais = new TabControl();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            senhaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            telefoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            cargosDescricaoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             imgEditar = new DataGridViewImageColumn();
             imgExcluir = new DataGridViewImageColumn();
+            pnlExterno = new Panel();
+            tbcProfissionais = new TabControl();
             tbpCadastro.SuspendLayout();
             pnlConteudoCadastro.SuspendLayout();
             tlpCadastro.SuspendLayout();
@@ -84,7 +74,6 @@
             pnlInternoPesquisa.SuspendLayout();
             pnlDataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDados).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)profissionalBindingSource).BeginInit();
             tbcProfissionais.SuspendLayout();
             SuspendLayout();
             // 
@@ -492,7 +481,6 @@
             dgvDados.AllowUserToAddRows = false;
             dgvDados.AllowUserToDeleteRows = false;
             dgvDados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            dgvDados.AutoGenerateColumns = false;
             dgvDados.BackgroundColor = Color.FromArgb(32, 28, 26);
             dgvDados.BorderStyle = BorderStyle.None;
             dgvDados.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -506,8 +494,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvDados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDados.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, dataGridViewTextBoxColumn1, emailDataGridViewTextBoxColumn, dataGridViewTextBoxColumn2, senhaDataGridViewTextBoxColumn, dataGridViewTextBoxColumn3, telefoneDataGridViewTextBoxColumn, cargosDescricaoDataGridViewTextBoxColumn, imgEditar, imgExcluir });
-            dgvDados.DataSource = profissionalBindingSource;
+            dgvDados.Columns.AddRange(new DataGridViewColumn[] { imgEditar, imgExcluir });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(36, 32, 30);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F);
@@ -529,9 +516,21 @@
             dgvDados.CellMouseEnter += dgvDados_CellMouseEnter;
             dgvDados.CellMouseLeave += dgvDados_CellMouseLeave;
             // 
-            // profissionalBindingSource
+            // imgEditar
             // 
-            profissionalBindingSource.DataSource = typeof(models.Profissional);
+            imgEditar.HeaderText = "";
+            imgEditar.Image = Properties.Resources.editar;
+            imgEditar.Name = "imgEditar";
+            imgEditar.ToolTipText = "Editar";
+            imgEditar.Width = 40;
+            // 
+            // imgExcluir
+            // 
+            imgExcluir.HeaderText = "";
+            imgExcluir.Image = Properties.Resources.excluir;
+            imgExcluir.Name = "imgExcluir";
+            imgExcluir.ToolTipText = "Excluir";
+            imgExcluir.Width = 40;
             // 
             // pnlExterno
             // 
@@ -554,87 +553,6 @@
             tbcProfissionais.Size = new Size(744, 511);
             tbcProfissionais.TabIndex = 10;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.Width = 44;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewTextBoxColumn1.DataPropertyName = "NomeCompleto";
-            dataGridViewTextBoxColumn1.HeaderText = "Nome";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 69;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            emailDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            emailDataGridViewTextBoxColumn.Width = 64;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewTextBoxColumn2.DataPropertyName = "UsuarioNome";
-            dataGridViewTextBoxColumn2.HeaderText = "Usuario";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.Width = 79;
-            // 
-            // senhaDataGridViewTextBoxColumn
-            // 
-            senhaDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            senhaDataGridViewTextBoxColumn.DataPropertyName = "Senha";
-            senhaDataGridViewTextBoxColumn.HeaderText = "Senha";
-            senhaDataGridViewTextBoxColumn.Name = "senhaDataGridViewTextBoxColumn";
-            senhaDataGridViewTextBoxColumn.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewTextBoxColumn3.DataPropertyName = "DataCadastro";
-            dataGridViewTextBoxColumn3.HeaderText = "Data Cadastro";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.Width = 120;
-            // 
-            // telefoneDataGridViewTextBoxColumn
-            // 
-            telefoneDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            telefoneDataGridViewTextBoxColumn.DataPropertyName = "Telefone";
-            telefoneDataGridViewTextBoxColumn.HeaderText = "Telefone";
-            telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
-            telefoneDataGridViewTextBoxColumn.Width = 82;
-            // 
-            // cargosDescricaoDataGridViewTextBoxColumn
-            // 
-            cargosDescricaoDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            cargosDescricaoDataGridViewTextBoxColumn.DataPropertyName = "CargosDescricao";
-            cargosDescricaoDataGridViewTextBoxColumn.HeaderText = "Cargos";
-            cargosDescricaoDataGridViewTextBoxColumn.Name = "cargosDescricaoDataGridViewTextBoxColumn";
-            cargosDescricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            cargosDescricaoDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // imgEditar
-            // 
-            imgEditar.HeaderText = "";
-            imgEditar.Image = Properties.Resources.editar;
-            imgEditar.Name = "imgEditar";
-            imgEditar.ToolTipText = "Editar";
-            imgEditar.Width = 40;
-            // 
-            // imgExcluir
-            // 
-            imgExcluir.HeaderText = "";
-            imgExcluir.Image = Properties.Resources.excluir;
-            imgExcluir.Name = "imgExcluir";
-            imgExcluir.ToolTipText = "Excluir";
-            imgExcluir.Width = 40;
-            // 
             // ProfissionalControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -654,7 +572,6 @@
             pnlInternoPesquisa.PerformLayout();
             pnlDataGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvDados).EndInit();
-            ((System.ComponentModel.ISupportInitialize)profissionalBindingSource).EndInit();
             tbcProfissionais.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -669,7 +586,6 @@
         private Button btnAdicionar;
         private TabControl tbcProfissionais;
         private Panel pnlPesquisa;
-        private BindingSource profissionalBindingSource;
         private DataGridViewTextBoxColumn nomeCompletoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn usuarioNomeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataCadastroDataGridViewTextBoxColumn;
@@ -698,14 +614,6 @@
         private DataGridView dgvDados;
         private Label lblCargoNome;
         private CheckedListBox clbCargos;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn senhaDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn cargosDescricaoDataGridViewTextBoxColumn;
         private DataGridViewImageColumn imgEditar;
         private DataGridViewImageColumn imgExcluir;
     }

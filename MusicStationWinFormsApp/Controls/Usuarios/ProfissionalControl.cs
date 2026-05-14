@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
-using MusicStationWinFormsApp.models;
-using MusicStationWinFormsApp.repository;
+using MusicStationWinFormsApp.Models;
+using MusicStationWinFormsApp.Repositories;
 
 namespace MusicStationWinFormsApp.controls.usuarios
 {
@@ -22,8 +22,11 @@ namespace MusicStationWinFormsApp.controls.usuarios
 
             // Somente para testes
             profissionalRepository = new ProfissionalRepository();
-            profissionais = new BindingList<Profissional>(profissionalRepository.ListarTodos()); // cria uma lista "observável, o grid atualiza automático (adicionar ou remover)
-            profissionalBindingSource.DataSource = profissionais; // vira o intermediário, permite filtro, navegação e refresh
+            profissionais =
+                new BindingList<Profissional>(profissionalRepository
+                    .ListarTodos()); // cria uma lista "observável, o grid atualiza automático (adicionar ou remover)
+            profissionalBindingSource.DataSource =
+                profissionais; // vira o intermediário, permite filtro, navegação e refresh
             dgvDados.DataSource = profissionalBindingSource; // liga o grid a fonte de dados
 
             CarregarCargos();
@@ -85,7 +88,6 @@ namespace MusicStationWinFormsApp.controls.usuarios
                 hiddenPage = tbpListagem;
                 tbcProfissionais.TabPages.Remove(hiddenPage);
                 tbcProfissionais.TabPages.Add(tempPage);
-
             }
             else if (tbcProfissionais.SelectedTab == tbpCadastro)
             {
@@ -294,6 +296,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
         }
 
         #region dgvConfigs
+
         private void dgvDados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
@@ -314,7 +317,8 @@ namespace MusicStationWinFormsApp.controls.usuarios
             {
                 if (dgvDados.Rows[e.RowIndex].DataBoundItem is Profissional profissionalSelecionado)
                 {
-                    DialogResult result = MessageBox.Show("Deseja realmente excluir este registro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult result = MessageBox.Show("Deseja realmente excluir este registro?", "Confirmação",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                     if (result == DialogResult.Yes)
                     {
@@ -339,6 +343,7 @@ namespace MusicStationWinFormsApp.controls.usuarios
                 dgvDados.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(40, 36, 34);
             }
         }
+
         #endregion
 
         private void txtPesquisa_KeyDown(object sender, KeyEventArgs e)

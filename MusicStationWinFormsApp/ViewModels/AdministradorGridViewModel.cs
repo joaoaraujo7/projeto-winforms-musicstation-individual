@@ -1,4 +1,4 @@
-﻿namespace MusicStationWinFormsApp.ViewModel
+﻿namespace MusicStationWinFormsApp.ViewModels
 {
     public class AdministradorGridViewModel
     {

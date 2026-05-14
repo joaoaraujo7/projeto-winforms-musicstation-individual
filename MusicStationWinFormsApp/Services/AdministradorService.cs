@@ -1,6 +1,6 @@
 ﻿using MusicStationWinFormsApp.Models;
 using MusicStationWinFormsApp.Repositories;
-using MusicStationWinFormsApp.ViewModel;
+using MusicStationWinFormsApp.ViewModels;
 
 namespace MusicStationWinFormsApp.Services;
 
@@ -92,7 +92,7 @@ public class AdministradorService
             throw new InvalidOperationException("Nível de acesso inválido.");
         }
     }
-    
+
     //  validação de email e usuário repetidos
     // implmenetar existe email e usuário no repository 
 }

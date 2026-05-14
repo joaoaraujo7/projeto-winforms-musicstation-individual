@@ -4,7 +4,7 @@ using MusicStationWinFormsApp.Helpers;
 using MusicStationWinFormsApp.Models;
 using MusicStationWinFormsApp.Properties;
 using MusicStationWinFormsApp.Services;
-using MusicStationWinFormsApp.ViewModel;
+using MusicStationWinFormsApp.ViewModels;
 
 namespace MusicStationWinFormsApp.controls.usuarios
 {

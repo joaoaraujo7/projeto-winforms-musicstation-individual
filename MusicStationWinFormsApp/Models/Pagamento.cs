@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using MusicStationWinFormsApp.Models.antigas;
-
-namespace MusicStationWinFormsApp.Models;
+﻿namespace MusicStationWinFormsApp.Models;
 
 public partial class Pagamento
 {

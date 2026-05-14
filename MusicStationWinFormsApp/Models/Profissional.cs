@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MusicStationWinFormsApp.Models;
+﻿namespace MusicStationWinFormsApp.Models;
 
 public partial class Profissional
 {
@@ -15,5 +12,5 @@ public partial class Profissional
 
     public virtual Usuario Usuario { get; set; } = null!;
 
-    public virtual ICollection<Cargo> Cargo { get; set; } = new List<Cargo>();
+    public virtual ICollection<Cargo> Cargos { get; set; } = new List<Cargo>();
 }
